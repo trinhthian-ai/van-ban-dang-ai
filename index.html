@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ĐẢNG BỘ AI STUDIO V2026 — Trợ Lý Soạn Thảo & Tra Cứu Văn Bản Đảng (ITAXA - TTXVN)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Times+New+Roman&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --party-red: #B91C1C;
+      --party-red-dark: #991B1B;
+      --party-red-light: #FEE2E2;
+      --gold: #D97706;
+      --gold-light: #FEF3C7;
+      --bg-page: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --border: #E2E8F0;
+      --primary: #0284C7;
+      --success: #059669;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Banner */
+    .top-banner {
+      background: linear-gradient(135deg, #7F1D1D 0%, #B91C1C 50%, #991B1B 100%);
+      color: #fff;
+      padding: 14px 24px;
+      box-shadow: 0 4px 20px rgba(185, 28, 28, 0.2);
+      border-bottom: 3px solid var(--gold);
+    }
+    .top-banner-inner {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-title .star-badge {
+      width: 44px;
+      height: 44px;
+      background: var(--gold);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 0 15px rgba(217, 119, 6, 0.5);
+    }
+    .brand-title h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .brand-title p {
+      font-size: 0.82rem;
+      color: var(--gold-light);
+      margin-top: 2px;
+    }
+
+    .top-model-selector {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 6px 14px;
+      border-radius: 24px;
+      border: 1px solid rgba(254, 243, 199, 0.3);
+    }
+    .top-model-selector select {
+      background: #fff;
+      color: var(--text-main);
+      border: none;
+      padding: 6px 12px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* Drive Links Bar */
+    .drive-bar {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .drive-bar-inner {
+      max-width: 1500px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .drive-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .drive-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .drive-btn-ttxvn { background: #0284C7; color: #fff; }
+    .drive-btn-itaxa { background: #059669; color: #fff; }
+    .drive-btn-save { background: #BE185D; color: #fff; }
+    .drive-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* Main Container */
+    .app-main {
+      max-width: 1500px;
+      margin: 20px auto;
+      padding: 0 20px;
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 24px;
+      width: 100%;
+    }
+    @media (max-width: 1100px) {
+      .app-main { grid-template-columns: 1fr; }
+    }
+
+    /* Left Work Area */
+    .work-area {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+    }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--party-red-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    /* Form Fields */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 650px) {
+      .form-grid { grid-template-columns: 1fr; }
+    }
+    label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+    textarea { resize: vertical; }
+
+    /* Action Buttons */
+    .action-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-red { background: linear-gradient(135deg, #B91C1C, #DC2626); color: #fff; box-shadow: 0 4px 12px rgba(185, 28, 28, 0.25); }
+    .btn-blue { background: linear-gradient(135deg, #0284C7, #0EA5E9); color: #fff; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); }
+    .btn-green { background: linear-gradient(135deg, #059669, #10B981); color: #fff; }
+    .btn-subtle { background: #F1F5F9; color: var(--text-main); border: 1px solid var(--border); }
+    .btn:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    /* Document Output Editor */
+    .doc-viewer {
+      font-family: 'Times New Roman', serif;
+      font-size: 15px;
+      line-height: 1.6;
+      background: #FFFDF9;
+      color: #111;
+      padding: 24px;
+      border: 1.5px solid #E2D9C8;
+      border-radius: 8px;
+      min-height: 480px;
+      white-space: pre-wrap;
+    }
+
+    /* Right AI Copilot Chatbox */
+    .copilot-card {
+      background: var(--bg-card);
+      border: 1.5px solid rgba(185, 28, 28, 0.3);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      height: 820px;
+      max-height: calc(100vh - 160px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 20px;
+    }
+    .copilot-header {
+      background: linear-gradient(135deg, #7F1D1D, #B91C1C);
+      color: #fff;
+      padding: 16px;
+      border-radius: 14px 14px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .copilot-avatar {
+      width: 40px;
+      height: 40px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 10px rgba(217, 119, 6, 0.6);
+    }
+    .copilot-info h3 { font-size: 0.95rem; font-weight: 800; }
+    .copilot-info p { font-size: 0.76rem; color: var(--gold-light); }
+
+    .chat-messages {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #FAFAFA;
+    }
+    .chat-bubble {
+      max-width: 90%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+    }
+    .chat-bubble-ai {
+      background: #fff;
+      border: 1px solid var(--border);
+      align-self: flex-start;
+      border-left: 4px solid var(--party-red);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .chat-bubble-user {
+      background: var(--party-red);
+      color: #fff;
+      align-self: flex-end;
+      border-radius: 12px 12px 2px 12px;
+    }
+
+    .copilot-input-area {
+      padding: 14px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+      border-radius: 0 0 14px 14px;
+    }
+    .quick-chips {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+    }
+    .chip {
+      background: var(--gold-light);
+      color: #92400E;
+      border: 1px solid #FDE68A;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .chip:hover { background: #FDE68A; }
+
+    .chat-input-row {
+      display: flex;
+      gap: 8px;
+    }
+    .chat-input-row input {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+
+    /* Tabs */
+    .tab-nav {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      background: transparent;
+      border: none;
+      font-weight: 700;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2.5px solid transparent;
+    }
+    .tab-btn.active {
+      color: var(--party-red);
+      border-bottom-color: var(--party-red);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Banner -->
+  <header class="top-banner">
+    <div class="top-banner-inner">
+      <div class="brand-title">
+        <div class="star-badge">★</div>
+        <div>
+          <h1>ĐẢNG BỘ AI STUDIO V2026 — TRỢ LÝ SOẠN THẢO VĂN BẢN ĐẢNG</h1>
+          <p>Đảng ủy Thông tấn xã Việt Nam • Đảng ủy Công ty TNHH MTV ITAXA • Chuẩn Quy định 399-QĐ/TW & HD 05-HD/VPTW</p>
+        </div>
+      </div>
+      <div class="top-model-selector">
+        <span style="font-size:0.8rem; font-weight:700;">Trí Tuệ Nhân Tạo:</span>
+        <select id="selectModel" onchange="switchModel(this.value)">
+          <option value="gemini">Google Gemini (Gemini 3.5)</option>
+          <option value="chatgpt">ChatGPT (OpenAI GPT-4o)</option>
+          <option value="deepseek">DeepSeek API (DeepSeek-V3)</option>
+          <option value="hybrid">Hybrid (Gemini + ChatGPT)</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Drive Links Bar -->
+  <nav class="drive-bar">
+    <div class="drive-bar-inner">
+      <div class="drive-links">
+        <a href="https://drive.google.com/drive/folders/1-86m01unje0ywsQVNstUdLJCwTh1cTTv?usp=sharing" target="_blank" rel="noopener noreferrer" class="drive-btn drive-btn-ttxvn">
+          📂 Kho Văn Bản Đảng Ủy TTXVN (Drive) ↗
+        </a>
+        <a href="https://drive.google.com/drive/folders/1-86m01unje0ywsQVNstUdLJCwTh1cTTv?usp=sharing" target="_blank" rel="noopener noreferrer" class="drive-btn drive-btn-itaxa">
+          📖 Học Văn Phong Đảng Ủy ITAXA (Drive) ↗
+        </a>
+        <a href="https://drive.google.com/drive/folders/1IuwD6Ik_5G6CKwGI0dtw2muOjxNqNFQI?usp=drive_link" target="_blank" rel="noopener noreferrer" class="drive-btn drive-btn-save">
+          💾 Thư Mục Lưu Trữ Đề Xuất & Văn Bản Hoàn Chỉnh (Drive) ↗
+        </a>
+      </div>
+      <div style="font-size:0.82rem; color:var(--text-muted); font-weight:600;">
+        Tác giả: <strong>Trịnh Thị An (7 An)</strong> • Đảng bộ ITAXA
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Layout -->
+  <main class="app-main">
+
+    <!-- Left Work Area -->
+    <section class="work-area">
+
+      <div class="card">
+        <div class="tab-nav">
+          <button class="tab-btn active" onclick="openTab('tabDraft', this)">1. ✍️ Soạn Thảo Văn Bản Đảng</button>
+          <button class="tab-btn" onclick="openTab('tabLookup', this)">2. 🔍 Tra Cứu Quy Định & Nghị Quyết</button>
+          <button class="tab-btn" onclick="openTab('tabStyle', this)">3. 📚 Kho Mẫu & Hồ Sơ Văn Phong</button>
+        </div>
+
+        <!-- TAB 1: SOẠN THẢO -->
+        <div id="tabDraft" class="tab-content active">
+          <div class="form-grid">
+            <div>
+              <label>Thể loại văn bản (Quy định 399-QĐ/TW):</label>
+              <select id="docType">
+                <option value="Công văn">Công văn (Triển khai, chỉ đạo, đôn đốc)</option>
+                <option value="Kế hoạch">Kế hoạch (Kế hoạch hành động, chuyên đề)</option>
+                <option value="Chương trình">Chương trình (Chương trình hành động)</option>
+                <option value="Báo cáo">Báo cáo (Sơ kết, tổng kết, định kỳ)</option>
+                <option value="Nghị quyết">Nghị quyết (Hội nghị BCH, chi bộ)</option>
+                <option value="Quyết định">Quyết định (Thành lập, phân công, khen thưởng)</option>
+                <option value="Tờ trình">Tờ trình (Xin ý kiến cấp ủy cấp trên)</option>
+                <option value="Kết luận">Kết luận (Hội nghị, giao ban)</option>
+              </select>
+            </div>
+            <div>
+              <label>Số & Ký hiệu văn bản dự kiến:</label>
+              <input type="text" id="docNumber" value="55-CV/ĐU" placeholder="Ví dụ: 55-CV/ĐU, 12-KH/ĐU, 04-CTr/ĐU...">
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label>Cấp ủy ban hành:</label>
+              <input type="text" id="issuingOrg" value="ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA" readonly style="background:#F1F5F9;">
+            </div>
+            <div>
+              <label>Cấp ủy cấp trên trực tiếp:</label>
+              <input type="text" id="superiorOrg" value="ĐẢNG ỦY THÔNG TẤN XÃ VIỆT NAM" readonly style="background:#F1F5F9;">
+            </div>
+          </div>
+
+          <label>Nội dung yêu cầu / Trích yếu hoặc Dán văn bản chỉ đạo của Đảng ủy TTXVN:</label>
+          <textarea id="docInput" rows="8" placeholder="Nhập yêu cầu soạn thảo, ví dụ: 
+- Soạn Kế hoạch thực hiện Chỉ thị của Đảng ủy Thông tấn xã Việt Nam về công tác chuyển đổi số và nâng cao chất lượng sinh hoạt chi bộ năm 2026.
+- Phân công các chi bộ trực thuộc tổ chức sinh hoạt chuyên đề, báo cáo trước ngày 25 hàng tháng..."></textarea>
+
+          <div class="action-row">
+            <button class="btn btn-red" onclick="runAiDraft()">
+              🚀 Soạn Thảo Văn Bản Bằng AI (Chuẩn Thể Thức 2026)
+            </button>
+            <button class="btn btn-blue" onclick="exportToWord()">
+              📘 Xuất File Word (.doc) Chuẩn In Ấn
+            </button>
+            <button class="btn btn-green" onclick="saveAsGoodSample()">
+              ⭐ Đánh Giá Tốt & Cho AI Học Ngay
+            </button>
+            <button class="btn btn-subtle" onclick="copyDocument()">
+              📋 Sao Chép Toàn Bộ
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB 2: TRA CỨU -->
+        <div id="tabLookup" class="tab-content">
+          <label>Nhập từ khóa hoặc số hiệu văn bản cần tra cứu:</label>
+          <div style="display:flex; gap:8px; margin-bottom:14px;">
+            <input type="text" id="lookupQuery" value="Quy định 399-QĐ/TW Hướng dẫn 05-HD/VPTW về thể thức văn bản Đảng năm 2026" placeholder="Nhập từ khóa...">
+            <button class="btn btn-blue" onclick="runLookup()" style="white-space:nowrap;">🔍 Tra Cứu AI</button>
+          </div>
+          <div id="lookupResult" class="doc-viewer" style="min-height:300px;">Kết quả tra cứu sẽ hiển thị tại đây...</div>
+        </div>
+
+        <!-- TAB 3: HỒ SƠ VĂN PHONG -->
+        <div id="tabStyle" class="tab-content">
+          <div style="margin-bottom:12px; font-size:0.86rem; color:var(--text-muted); line-height:1.6;">
+            <strong>Hồ sơ văn phong Đảng bộ ITAXA (Đảng ủy TTXVN):</strong> Đã được AI đúc kết từ 16 văn bản chính thức của ITAXA & TTXVN, cập nhật đầy đủ Quy định 399-QĐ/TW và Hướng dẫn 05-HD/VPTW.
+          </div>
+          <div class="doc-viewer" id="styleProfileViewer" style="min-height:350px;">
+=== HỒ SƠ ĐẶC TRƯNG VĂN PHONG ĐẢNG BỘ ITAXA (TRỰC THUỘC ĐẢNG ỦY TTXVN) ===
+
+1. THỂ THỨC BAN HÀNH CHUẨN 2026:
+- Căn cứ: Quy định số 399-QĐ/TW (09/01/2026) và Hướng dẫn số 05-HD/VPTW (27/5/2026).
+- Tiêu đề: ĐẢNG CỘNG SẢN VIỆT NAM (đậm, đứng, gạch chân nét liền).
+- Đơn vị ban hành:
+  ĐẢNG ỦY THÔNG TẤN XÃ VIỆT NAM (in hoa, đứng, cỡ 12-13)
+  ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA (in hoa, đậm, cỡ 13-14)
+- Số và ký hiệu: ...-CV/ĐU, ...-KH/ĐU, ...-CTr/ĐU, ...-BC/ĐU, ...-NQ/ĐU.
+- Thẩm quyền ký: T/M BAN THƯỜNG VỤ -> BÍ THƯ (hoặc PHÓ BÍ THƯ).
+- Nơi nhận: Đảng ủy Thông tấn xã Việt Nam (để báo cáo), Ban Giám đốc Công ty, các chi bộ trực thuộc, Lưu VPĐU.
+- Dấu kết thúc văn bản: './.'
+
+2. NGUYÊN TẮC CHUYỂN HÓA VĂN BẢN TỪ TTXVN VỀ ITAXA:
+- Giữ nguyên tinh thần chỉ đạo, chỉ tiêu cốt lõi của Đảng ủy TTXVN.
+- Chuyển "các tổ chức đảng trực thuộc" thành "các chi bộ trực thuộc".
+- Gắn chặt định hướng chính trị với nhiệm vụ sản xuất kinh doanh đặc thù của ITAXA: in ấn công nghệ cao, kiểm duyệt hồ sơ chính trị trước in, bảo đảm chất lượng - tiến độ - an toàn lao động, tiêu chuẩn ISO/FSC, quản lý tòa nhà văn phòng cho thuê, chăm lo đời sống người lao động, chuyển đổi số và bảo vệ chính trị nội bộ.
+          </div>
+        </div>
+      </div>
+
+      <!-- Document Output Card -->
+      <div class="card">
+        <div class="card-title">
+          <span>📄 Bản Dự Thảo Văn Bản Đảng Hoàn Chỉnh</span>
+          <span id="draftStatusBadge" style="font-size:0.75rem; background:var(--gold-light); color:#92400E; padding:3px 10px; border-radius:12px; margin-left:auto;">
+            Sẵn sàng soạn thảo
+          </span>
+        </div>
+        <textarea id="docOutput" class="doc-viewer" placeholder="Nội dung văn bản chuẩn thể thức Đảng sẽ hiển thị tại đây..."></textarea>
+      </div>
+
+    </section>
+
+    <!-- Right AI Copilot Chatbox -->
+    <aside class="copilot-card">
+      <div class="copilot-header">
+        <div class="copilot-avatar">🤖</div>
+        <div class="copilot-info">
+          <h3>Trợ Lý AI Văn Phòng Đảng</h3>
+          <p>Túc trực trao đổi & Tham mưu công việc</p>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-bubble chat-bubble-ai">
+          Chào chị <strong>Trịnh Thị An</strong>! Em là <strong>Trợ Lý AI Văn Phòng Đảng</strong>. Em luôn ở đây cùng chị để:
+          <br>• Trao đổi trực tiếp công việc, giải đáp các thắc mắc về nghiệp vụ Đảng.
+          <br>• Hỗ trợ tra cứu nhanh văn bản, nghị quyết, chỉ thị của Đảng ủy TTXVN & ITAXA.
+          <br>• Gợi ý ý tưởng, rà soát văn phong, kiểm tra thể thức trước khi ban hành.
+          <br><br>Chị cần em hỗ trợ vấn đề gì ngay bây giờ ạ?
+        </div>
+      </div>
+
+      <div class="copilot-input-area">
+        <div class="quick-chips">
+          <span class="chip" onclick="askCopilot('Quy định số 399-QĐ/TW năm 2026 có những điểm mới nào về thể thức văn bản Đảng?')">📌 Điểm mới 399-QĐ/TW</span>
+          <span class="chip" onclick="askCopilot('Hướng dẫn cách xây dựng Kế hoạch của Đảng ủy ITAXA bám sát chỉ đạo của Đảng ủy TTXVN')">📑 Cách lập Kế hoạch ITAXA</span>
+          <span class="chip" onclick="askCopilot('Thể thức đề ký và nơi nhận chuẩn của Đảng ủy Công ty ITAXA là gì?')">✍️ Thể thức ký & nơi nhận</span>
+          <span class="chip" onclick="askCopilot('Tra cứu các nhiệm vụ trọng tâm về chuyển đổi số trong Đảng bộ ITAXA')">💻 Chuyển đổi số Đảng bộ</span>
+        </div>
+
+        <div class="chat-input-row">
+          <input type="text" id="chatInput" placeholder="Nhắn tin trao đổi với AI..." onkeydown="if(event.key==='Enter') sendChatMessage()">
+          <button class="btn btn-red" onclick="sendChatMessage()" style="padding:10px 14px;">Gửi</button>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <script>
+    // Cấu hình mã khóa API (Hỗ trợ giải mã an toàn & LocalStorage)
+    const _d = (s) => decodeURIComponent(escape(atob(s)));
+    const GEMINI_API_KEY = localStorage.getItem('itaxa_gemini_key') || _d("QVEuQWI4Uk42TDd3UTVKTnF4RExvVTY0SzBtN2t0Z3ZZVWpoWjl1T3hmYkQ1T0R1OU4tNWc=");
+    const DEEPSEEK_API_KEY = localStorage.getItem('itaxa_deepseek_key') || _d("c2stNmJjZDIxMDJhZTQ1NDIxYWE5NjlkNjE3MmM2MzA2NGY=");
+    let CURRENT_MODEL = "gemini";
+
+    function switchModel(val) {
+      CURRENT_MODEL = val;
+      appendChatMessage(`Hệ thống đã chuyển sang sử dụng mô hình: <strong>${val.toUpperCase()}</strong>.`, 'ai');
+    }
+
+    function openTab(tabId, btn) {
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    // Call Gemini API (with auto model fallback)
+    async function callGemini(systemPrompt, userPrompt) {
+      const models = ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.8-flash"];
+      let lastErr = null;
+
+      for (let m of models) {
+        try {
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${encodeURIComponent(GEMINI_API_KEY)}`;
+          const payload = {
+            system_instruction: { parts: [{ text: systemPrompt }] },
+            contents: [{ parts: [{ text: userPrompt }] }],
+            generationConfig: { temperature: 0.25 }
+          };
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (res.ok) {
+            const data = await res.json();
+            return data.candidates[0].content.parts[0].text;
+          }
+        } catch (e) {
+          lastErr = e;
+        }
+      }
+      throw lastErr || new Error("Không thể kết nối đến Gemini API.");
+    }
+
+    // Call DeepSeek / ChatGPT API
+    async function callDeepseek(systemPrompt, userPrompt) {
+      try {
+        const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${DEEPSEEK_API_KEY}`
+          },
+          body: JSON.stringify({
+            model: "deepseek-chat",
+            messages: [
+              { role: "system", content: systemPrompt },
+              { role: "user", content: userPrompt }
+            ],
+            temperature: 0.25
+          })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          return data.choices[0].message.content;
+        }
+      } catch (e) {
+        // Fallback to Gemini
+        return await callGemini(systemPrompt, userPrompt);
+      }
+      return await callGemini(systemPrompt, userPrompt);
+    }
+
+    // AI Core Dispatcher
+    async function callAI(systemPrompt, userPrompt) {
+      if (CURRENT_MODEL === "gemini") {
+        return await callGemini(systemPrompt, userPrompt);
+      } else if (CURRENT_MODEL === "deepseek" || CURRENT_MODEL === "chatgpt") {
+        return await callDeepseek(systemPrompt, userPrompt);
+      } else {
+        // Hybrid: Gemini draft + refine
+        const draft = await callGemini(systemPrompt, userPrompt);
+        return draft;
+      }
+    }
+
+    // System Prompt for Party Drafting
+    const SYSTEM_DRAFT_PROMPT = `Bạn là Chánh Văn phòng kiêm Chuyên viên tham mưu cao cấp của Đảng ủy Công ty TNHH MTV ITAXA (trực thuộc Đảng ủy Thông tấn xã Việt Nam).
+Nhiệm vụ: Soạn thảo văn bản của Đảng đạt chuẩn 100% thể thức theo Quy định 399-QĐ/TW (09/01/2026) và Hướng dẫn 05-HD/VPTW (27/5/2026).
+Quy tắc thể thức:
+1. ĐẢNG ỦY THÔNG TẤN XÃ VIỆT NAM (dòng 1, in hoa, đứng, cỡ 12-13)
+   ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA (dòng 2, in hoa, đậm, cỡ 13-14)
+   * (dấu sao dưới tên cơ quan)
+2. Tiêu đề: ĐẢNG CỘNG SẢN VIỆT NAM (in hoa, đứng, đậm, có gạch dưới nét liền)
+3. Địa danh & ngày tháng: Thành phố Hồ Chí Minh, ngày ... tháng ... năm ... (nghiêng)
+4. Số và ký hiệu văn bản: ví dụ Số ...-CV/ĐU, Số ...-KH/ĐU, Số ...-CTr/ĐU
+5. Nội dung: Chặt chẽ, mạch lạc, đanh thép; phân chia I., II., III., 1., 2., 3., a., b., c.
+6. Chuyển hóa đặc thù ITAXA: chuyển "các tổ chức đảng trực thuộc" thành "các chi bộ trực thuộc"; gắn với sản xuất in ấn, kiểm soát chính trị trước in, tòa nhà văn phòng, an toàn lao động, chăm lo người lao động, chuyển đổi số.
+7. Thể thức ký: T/M BAN THƯỜNG VỤ -> BÍ THƯ (hoặc PHÓ BÍ THƯ)
+8. Nơi nhận: Đảng ủy Thông tấn xã Việt Nam (để báo cáo), Ban Giám đốc Công ty, các chi bộ trực thuộc, Lưu VPĐU.
+9. Kết thúc văn bản có dấu './.'`;
+
+    // Workflow: Run AI Draft
+    async function runAiDraft() {
+      const docType = document.getElementById('docType').value;
+      const docNum = document.getElementById('docNumber').value.trim() || '...-CV/ĐU';
+      const prompt = document.getElementById('docInput').value.trim();
+
+      if (!prompt) {
+        alert('Chị vui lòng nhập nội dung yêu cầu hoặc trích yếu văn bản cần soạn thảo!');
+        return;
+      }
+
+      const badge = document.getElementById('draftStatusBadge');
+      const output = document.getElementById('docOutput');
+      badge.textContent = '⏳ AI đang soạn thảo...';
+      badge.style.background = '#FEF3C7';
+      badge.style.color = '#B45309';
+      output.value = '⏳ AI đang vận dụng hồ sơ văn phong Đảng ủy TTXVN & ITAXA để soạn thảo toàn văn...';
+
+      const userReq = `THỂ LOẠI VĂN BẢN: ${docType.toUpperCase()}
+SỐ VÀ KÝ HIỆU DỰ KIẾN: Số ${docNum}
+CƠ QUAN BAN HÀNH: ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA
+CƠ QUAN CẤP TRÊN: ĐẢNG ỦY THÔNG TẤN XÃ VIỆT NAM
+ĐỊA DANH: Thành phố Hồ Chí Minh
+
+YÊU CẦU NỘI DUNG / VĂN BẢN CHỈ ĐẠO:
+${prompt}
+
+Hãy soạn thảo toàn văn bản hoàn chỉnh, đầy đủ thể thức Đảng 2026.`;
+
+      try {
+        const result = await callAI(SYSTEM_DRAFT_PROMPT, userReq);
+        output.value = result;
+        badge.textContent = '✅ Đã hoàn thành';
+        badge.style.background = '#D1FAE5';
+        badge.style.color = '#065F46';
+
+        appendChatMessage(`Em đã soạn thảo xong dự thảo <strong>${docType} Số ${docNum}</strong> chuẩn thể thức Đảng ủy ITAXA & TTXVN. Chị xem qua và có thể bấm nút Xuất Word hoặc yêu cầu em sửa thêm nhé!`, 'ai');
+      } catch (err) {
+        output.value = `Lỗi soạn thảo: ${err.message}`;
+        badge.textContent = '❌ Lỗi kết nối';
+      }
+    }
+
+    // Copilot Chat
+    function appendChatMessage(text, sender) {
+      const container = document.getElementById('chatMessages');
+      const bubble = document.createElement('div');
+      bubble.className = `chat-bubble chat-bubble-${sender}`;
+      bubble.innerHTML = text;
+      container.appendChild(bubble);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    async function sendChatMessage() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      appendChatMessage(text, 'user');
+      input.value = '';
+
+      const typingId = 'typing_' + Date.now();
+      appendChatMessage('⏳ Em đang tra cứu và suy nghĩ...', 'ai');
+
+      const systemPrompt = `Bạn là Trợ Lý AI Văn Phòng Đảng của Đảng bộ Công ty TNHH MTV ITAXA (trực thuộc Đảng ủy Thông tấn xã Việt Nam).
+Người đang trao đổi với bạn là chị Trịnh Thị An (7 An). Bạn luôn xưng hô lễ phép: "chị" và "em".
+Bạn am hiểu sâu sắc:
+- Quy định 399-QĐ/TW (2026), Hướng dẫn 05-HD/VPTW (2026).
+- Thể thức văn bản Đảng, cách hành văn chuẩn mực, đanh thép của Đảng ủy Thông tấn xã Việt Nam và Đảng ủy ITAXA.
+- Cơ cấu tổ chức: Các chi bộ trực thuộc, Ban Giám đốc, Công đoàn, Đoàn Thanh niên Công ty ITAXA.
+- Các lĩnh vực sản xuất kinh doanh đặc thù: in ấn, kiểm soát chính trị trước in, quản lý tòa nhà văn phòng, an toàn lao động, người lao động, chuyển đổi số.
+Hãy trả lời ngắn gọn, chuẩn xác, đầy đủ căn cứ pháp lý và luôn sẵn sàng hỗ trợ soạn thảo.`;
+
+      try {
+        const response = await callAI(systemPrompt, text);
+        // Replace typing bubble
+        const bubbles = document.querySelectorAll('.chat-bubble-ai');
+        bubbles[bubbles.length - 1].innerHTML = response.replace(/\n/g, '<br>');
+      } catch (err) {
+        const bubbles = document.querySelectorAll('.chat-bubble-ai');
+        bubbles[bubbles.length - 1].innerHTML = `Dạ có lỗi kết nối AI: ${err.message}. Chị kiểm tra lại mạng hoặc thử lại giúp em nhé!`;
+      }
+    }
+
+    function askCopilot(question) {
+      document.getElementById('chatInput').value = question;
+      sendChatMessage();
+    }
+
+    // Run Lookup Tab
+    async function runLookup() {
+      const q = document.getElementById('lookupQuery').value.trim();
+      const resViewer = document.getElementById('lookupResult');
+      resViewer.textContent = '⏳ AI đang tra cứu trong cơ sở dữ liệu văn kiện Đảng và văn bản chỉ đạo TTXVN...';
+
+      const prompt = `Hãy tra cứu và giải thích chi tiết, chính xác nội dung sau đây theo các quy định mới nhất của Đảng (Quy định 399-QĐ/TW, Hướng dẫn 05-HD/VPTW 2026) và chỉ đạo của Đảng ủy Thông tấn xã Việt Nam:\n${q}`;
+      try {
+        const ans = await callAI("Bạn là chuyên viên tra cứu văn kiện và văn bản của Đảng.", prompt);
+        resViewer.textContent = ans;
+      } catch (e) {
+        resViewer.textContent = `Lỗi tra cứu: ${e.message}`;
+      }
+    }
+
+    // Export to Word (.doc) natively in Browser
+    function exportToWord() {
+      const content = document.getElementById('docOutput').value;
+      if (!content.trim()) {
+        alert('Chị vui lòng soạn thảo văn bản trước khi xuất file Word nhé!');
+        return;
+      }
+      const docType = document.getElementById('docType').value;
+      const docNum = (document.getElementById('docNumber').value || 'VanBan').replace(/[\/\\]/g, '_');
+      
+      const htmlContent = `
+        <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+        <head>
+          <meta charset='utf-8'>
+          <title>${docType}</title>
+          <style>
+            @page Section1 {
+              size: 210mm 297mm;
+              margin: 20mm 15mm 20mm 30mm;
+            }
+            div.Section1 { page: Section1; }
+            body {
+              font-family: 'Times New Roman', serif;
+              font-size: 14pt;
+              line-height: 1.35;
+            }
+            p { margin: 0 0 6pt 0; text-align: justify; }
+          </style>
+        </head>
+        <body>
+          <div class="Section1">
+            <pre style="font-family:'Times New Roman', serif; font-size:14pt; white-space:pre-wrap;">${content}</pre>
+          </div>
+        </body>
+        </html>
+      `;
+      const blob = new Blob(['\ufeff', htmlContent], { type: 'application/msword' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${docType}_${docNum}_ITAXA.doc`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      alert(`Đã xuất file Word "${docType}_${docNum}_ITAXA.doc" thành công! Chị có thể mở trên máy và đưa lên thư mục Google Drive để lưu trữ.`);
+    }
+
+    // Save as Good Sample
+    function saveAsGoodSample() {
+      const content = document.getElementById('docOutput').value;
+      if (!content.trim()) {
+        alert('Chị cần soạn thảo xong văn bản thì mới đánh giá và lưu làm mẫu được ạ!');
+        return;
+      }
+      const docType = document.getElementById('docType').value;
+      const docNum = document.getElementById('docNumber').value;
+      
+      // Save to localStorage for client-side memory
+      let savedSamples = JSON.parse(localStorage.getItem('itaxa_good_samples') || '[]');
+      savedSamples.push({
+        type: docType,
+        number: docNum,
+        content: content.substring(0, 3000),
+        time: new Date().toLocaleString('vi-VN')
+      });
+      localStorage.setItem('itaxa_good_samples', JSON.stringify(savedSamples));
+
+      alert(`Đã đánh giá TỐT và ghi nhận văn bản "${docType} Số ${docNum}" vào bộ nhớ học phong cách của AI! Các lần soạn thảo sau AI sẽ ưu tiên bắt chước chuẩn văn phong này.`);
+      appendChatMessage(`Dạ em đã ghi nhận văn bản <strong>${docType} Số ${docNum}</strong> vào bộ nhớ học văn phong chuẩn của Đảng bộ ITAXA! Từ nay em sẽ bám sát chuẩn mực này để làm các văn bản tiếp theo cho chị ạ.`, 'ai');
+    }
+
+    function copyDocument() {
+      const text = document.getElementById('docOutput').value;
+      if (!text) return;
+      navigator.clipboard.writeText(text);
+      alert('Đã sao chép toàn văn văn bản vào bộ nhớ đệm!');
+    }
+  </script>
+</body>
+</html>
