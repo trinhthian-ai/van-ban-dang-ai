@@ -389,10 +389,11 @@
         </div>
       </div>
       <div class="top-model-selector">
-        <span style="font-size:0.8rem; font-weight:700;">Trí Tuệ Nhân Tạo:</span>
+        <span style="font-size:0.8rem; font-weight:700;">Nhân Vật AI:</span>
         <select id="selectModel" onchange="switchModel(this.value)">
+          <option value="tam-danh" selected>🌟 Trợ lý Tám Danh (ChatGPT Plus)</option>
           <option value="gemini">Google Gemini (Gemini 3.5)</option>
-          <option value="chatgpt">ChatGPT (OpenAI GPT-4o)</option>
+          <option value="chatgpt">ChatGPT (OpenAI)</option>
           <option value="deepseek">DeepSeek API (DeepSeek-V3)</option>
           <option value="hybrid">Hybrid (Gemini + ChatGPT)</option>
         </select>
@@ -412,6 +413,9 @@
         </a>
         <a href="https://drive.google.com/drive/folders/1IuwD6Ik_5G6CKwGI0dtw2muOjxNqNFQI?usp=drive_link" target="_blank" rel="noopener noreferrer" class="drive-btn drive-btn-save">
           💾 Thư Mục Lưu Trữ Đề Xuất & Văn Bản Hoàn Chỉnh (Drive) ↗
+        </a>
+        <a href="https://chatgpt.com" id="btnOpenTamDanh" target="_blank" rel="noopener noreferrer" class="drive-btn" style="background:#10A37F; color:#FFFFFF; border-color:#0D8C6D; font-weight:700;" title="Mở trực tiếp tài khoản ChatGPT Plus của Chị có Trợ lý Tám Danh">
+          💬 Mở Trợ Lý Tám Danh (ChatGPT Plus) ↗
         </a>
       </div>
       <div style="font-size:0.82rem; color:var(--text-muted); font-weight:600;">
@@ -540,33 +544,43 @@
     <!-- Right AI Copilot Chatbox -->
     <aside class="copilot-card">
       <div class="copilot-header">
-        <div class="copilot-avatar">🤖</div>
+        <div class="copilot-avatar">👩‍💼</div>
         <div class="copilot-info">
-          <h3>Trợ Lý AI Văn Phòng Đảng</h3>
-          <p>Túc trực trao đổi & Tham mưu công việc</p>
+          <h3>Trợ Lý Tám Danh (ChatGPT Plus)</h3>
+          <p>Hiểu ý chị Trịnh Thị An • Tham mưu Cấp ủy Đảng</p>
+        </div>
+        <div style="margin-left:auto; display:flex; gap:6px; align-items:center;">
+          <button onclick="openTamDanhWindow()" style="font-size:0.75rem; background:#10A37F; color:#fff; border:none; padding:5px 9px; border-radius:6px; font-weight:700; display:inline-flex; align-items:center; gap:4px; cursor:pointer;" title="Mở Trợ lý Tám Danh ở cửa sổ riêng song song để làm việc">
+            <span>🪟 Cửa Sổ Song Song</span>
+          </button>
+          <a href="https://chatgpt.com" id="sideBtnTamDanh" target="_blank" rel="noopener noreferrer" style="font-size:0.75rem; background:#0D8C6D; color:#fff; padding:5px 9px; border-radius:6px; text-decoration:none; font-weight:700; display:inline-flex; align-items:center; gap:4px;" title="Mở trực tiếp tài khoản ChatGPT Plus của Chị ở Tab Mới">
+            <span>Tab Mới</span> ↗
+          </a>
+          <button onclick="configTamDanhUrl()" style="background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.4); color:#fff; font-size:0.75rem; border-radius:6px; padding:4px 6px; cursor:pointer;" title="Cài đặt link Custom GPT Tám Danh riêng của Chị">⚙️</button>
         </div>
       </div>
 
       <div class="chat-messages" id="chatMessages">
         <div class="chat-bubble chat-bubble-ai">
-          Chào chị <strong>Trịnh Thị An</strong>! Em là <strong>Trợ Lý AI Văn Phòng Đảng</strong>. Em luôn ở đây cùng chị để:
-          <br>• Trao đổi trực tiếp công việc, giải đáp các thắc mắc về nghiệp vụ Đảng.
-          <br>• Hỗ trợ tra cứu nhanh văn bản, nghị quyết, chỉ thị của Đảng ủy TTXVN & ITAXA.
-          <br>• Gợi ý ý tưởng, rà soát văn phong, kiểm tra thể thức trước khi ban hành.
-          <br><br>Chị cần em hỗ trợ vấn đề gì ngay bây giờ ạ?
+          Chào chị <strong>Trịnh Thị An</strong>! Em là <strong>Trợ Lý Tám Danh</strong> đây ạ. Em luôn ở đây cùng chị để:
+          <br>• Luôn lắng nghe, thấu hiểu trọn vẹn suy nghĩ và phong cách làm việc của chị.
+          <br>• Trao đổi trực tiếp công việc, tham mưu và giải đáp các nghiệp vụ Đảng bộ ITAXA & TTXVN.
+          <br>• Hỗ trợ tra cứu nhanh văn bản, nghị quyết, quy định mới nhất (QĐ 399-QĐ/TW & HD 05-HD/VPTW).
+          <br>• Soạn thảo công văn, kế hoạch, báo cáo chuẩn xác, đanh thép, đúng thể thức 2026.
+          <br><br>💡 <em>Chị có thể chat trực tiếp với em ở đây hoặc bấm nút <strong>Mở GPT Plus ↗</strong> để sang tài khoản ChatGPT Plus quen thuộc của chị bất cứ lúc nào!</em>
         </div>
       </div>
 
       <div class="copilot-input-area">
         <div class="quick-chips">
-          <span class="chip" onclick="askCopilot('Quy định số 399-QĐ/TW năm 2026 có những điểm mới nào về thể thức văn bản Đảng?')">📌 Điểm mới 399-QĐ/TW</span>
-          <span class="chip" onclick="askCopilot('Hướng dẫn cách xây dựng Kế hoạch của Đảng ủy ITAXA bám sát chỉ đạo của Đảng ủy TTXVN')">📑 Cách lập Kế hoạch ITAXA</span>
+          <span class="chip" onclick="askCopilot('Tám Danh ơi, điểm mới quan trọng nhất của Quy định 399-QĐ/TW năm 2026 là gì?')">📌 Điểm mới 399-QĐ/TW</span>
+          <span class="chip" onclick="askCopilot('Tám Danh hướng dẫn chị cách xây dựng Kế hoạch của Đảng ủy ITAXA bám sát chỉ đạo TTXVN')">📑 Cách lập Kế hoạch ITAXA</span>
           <span class="chip" onclick="askCopilot('Thể thức đề ký và nơi nhận chuẩn của Đảng ủy Công ty ITAXA là gì?')">✍️ Thể thức ký & nơi nhận</span>
-          <span class="chip" onclick="askCopilot('Tra cứu các nhiệm vụ trọng tâm về chuyển đổi số trong Đảng bộ ITAXA')">💻 Chuyển đổi số Đảng bộ</span>
+          <span class="chip" onclick="askCopilot('Tám Danh tra cứu giúp chị các nhiệm vụ trọng tâm chuyển đổi số của Đảng bộ ITAXA')">💻 Chuyển đổi số Đảng bộ</span>
         </div>
 
         <div class="chat-input-row">
-          <input type="text" id="chatInput" placeholder="Nhắn tin trao đổi với AI..." onkeydown="if(event.key==='Enter') sendChatMessage()">
+          <input type="text" id="chatInput" placeholder="Nhắn tin trao đổi với Trợ lý Tám Danh..." onkeydown="if(event.key==='Enter') sendChatMessage()">
           <button class="btn btn-red" onclick="sendChatMessage()" style="padding:10px 14px;">Gửi</button>
         </div>
       </div>
@@ -579,11 +593,42 @@
     const _d = (s) => decodeURIComponent(escape(atob(s)));
     const GEMINI_API_KEY = localStorage.getItem('itaxa_gemini_key') || _d("QVEuQWI4Uk42TDd3UTVKTnF4RExvVTY0SzBtN2t0Z3ZZVWpoWjl1T3hmYkQ1T0R1OU4tNWc=");
     const DEEPSEEK_API_KEY = localStorage.getItem('itaxa_deepseek_key') || _d("c2stNmJjZDIxMDJhZTQ1NDIxYWE5NjlkNjE3MmM2MzA2NGY=");
-    let CURRENT_MODEL = "gemini";
+    let CURRENT_MODEL = "tam-danh";
+
+    // Hỗ trợ lưu link ChatGPT Plus riêng của Trợ lý Tám Danh
+    const savedCustomGptUrl = localStorage.getItem('tam_danh_gpt_url') || 'https://chatgpt.com';
+    const btnTop = document.getElementById('btnOpenTamDanh');
+    const btnSide = document.getElementById('sideBtnTamDanh');
+    if (btnTop) btnTop.href = savedCustomGptUrl;
+    if (btnSide) btnSide.href = savedCustomGptUrl;
+
+    function configTamDanhUrl() {
+      const current = localStorage.getItem('tam_danh_gpt_url') || 'https://chatgpt.com';
+      const input = prompt('Chị An ơi, nếu chị có đường dẫn Custom GPT "Trợ Lý Tám Danh" riêng trên tài khoản ChatGPT Plus của chị (ví dụ: https://chatgpt.com/g/g-xxxxxx), chị dán vào đây giúp em nhé:\n(Để trống nếu muốn mở chatgpt.com)', current);
+      if (input !== null) {
+        const val = input.trim() || 'https://chatgpt.com';
+        localStorage.setItem('tam_danh_gpt_url', val);
+        if (btnTop) btnTop.href = val;
+        if (btnSide) btnSide.href = val;
+        alert('Dạ em đã lưu liên kết Trợ Lý Tám Danh của Chị thành công!');
+      }
+    }
+
+    function openTamDanhWindow() {
+      const url = localStorage.getItem('tam_danh_gpt_url') || 'https://chatgpt.com';
+      window.open(url, 'TamDanhPlusWindow', 'width=580,height=850,menubar=no,toolbar=no,location=yes,status=no');
+    }
 
     function switchModel(val) {
       CURRENT_MODEL = val;
-      appendChatMessage(`Hệ thống đã chuyển sang sử dụng mô hình: <strong>${val.toUpperCase()}</strong>.`, 'ai');
+      const modelNames = {
+        'tam-danh': '🌟 Trợ Lý Tám Danh (ChatGPT Plus)',
+        'gemini': 'Google Gemini (Gemini 3.5)',
+        'chatgpt': 'ChatGPT (OpenAI)',
+        'deepseek': 'DeepSeek API',
+        'hybrid': 'Hybrid (Gemini + ChatGPT)'
+      };
+      appendChatMessage(`Hệ thống đang phục vụ chị với nhân vật: <strong>${modelNames[val] || val}</strong>.`, 'ai');
     }
 
     function openTab(tabId, btn) {
@@ -653,14 +698,19 @@
 
     // AI Core Dispatcher
     async function callAI(systemPrompt, userPrompt) {
-      if (CURRENT_MODEL === "gemini") {
+      if (CURRENT_MODEL === "tam-danh") {
+        const tamDanhPersona = `Bạn là Trợ Lý Tám Danh - trợ lý thân cận, mẫn cán, thấu hiểu suy nghĩ và phong cách chỉ đạo của chị Trịnh Thị An (7 An).
+Trong mọi tình huống, bạn luôn xưng "em" và gọi người dùng là "chị" (hoặc "chị An").
+Bạn am hiểu sâu sắc quy chế tổ chức của Đảng ủy Thông tấn xã Việt Nam và Đảng ủy Công ty TNHH MTV ITAXA.
+Bạn tuân thủ nghiêm ngặt Quy định số 399-QĐ/TW (09/01/2026) và Hướng dẫn số 05-HD/VPTW (27/5/2026).
+${systemPrompt}`;
+        return await callGemini(tamDanhPersona, userPrompt);
+      } else if (CURRENT_MODEL === "gemini") {
         return await callGemini(systemPrompt, userPrompt);
       } else if (CURRENT_MODEL === "deepseek" || CURRENT_MODEL === "chatgpt") {
         return await callDeepseek(systemPrompt, userPrompt);
       } else {
-        // Hybrid: Gemini draft + refine
-        const draft = await callGemini(systemPrompt, userPrompt);
-        return draft;
+        return await callGemini(systemPrompt, userPrompt);
       }
     }
 
@@ -716,7 +766,7 @@ Hãy soạn thảo toàn văn bản hoàn chỉnh, đầy đủ thể thức Đ�
         badge.style.background = '#D1FAE5';
         badge.style.color = '#065F46';
 
-        appendChatMessage(`Em đã soạn thảo xong dự thảo <strong>${docType} Số ${docNum}</strong> chuẩn thể thức Đảng ủy ITAXA & TTXVN. Chị xem qua và có thể bấm nút Xuất Word hoặc yêu cầu em sửa thêm nhé!`, 'ai');
+        appendChatMessage(`Em (Trợ Lý Tám Danh) đã soạn thảo xong dự thảo <strong>${docType} Số ${docNum}</strong> chuẩn thể thức Đảng ủy ITAXA & TTXVN. Chị xem qua và có thể bấm nút Xuất Word hoặc yêu cầu em hoàn thiện thêm nhé!`, 'ai');
       } catch (err) {
         output.value = `Lỗi soạn thảo: ${err.message}`;
         badge.textContent = '❌ Lỗi kết nối';
@@ -744,14 +794,15 @@ Hãy soạn thảo toàn văn bản hoàn chỉnh, đầy đủ thể thức Đ�
       const typingId = 'typing_' + Date.now();
       appendChatMessage('⏳ Em đang tra cứu và suy nghĩ...', 'ai');
 
-      const systemPrompt = `Bạn là Trợ Lý AI Văn Phòng Đảng của Đảng bộ Công ty TNHH MTV ITAXA (trực thuộc Đảng ủy Thông tấn xã Việt Nam).
-Người đang trao đổi với bạn là chị Trịnh Thị An (7 An). Bạn luôn xưng hô lễ phép: "chị" và "em".
-Bạn am hiểu sâu sắc:
-- Quy định 399-QĐ/TW (2026), Hướng dẫn 05-HD/VPTW (2026).
-- Thể thức văn bản Đảng, cách hành văn chuẩn mực, đanh thép của Đảng ủy Thông tấn xã Việt Nam và Đảng ủy ITAXA.
+      const systemPrompt = `Bạn là Trợ Lý Tám Danh - trợ lý thân cận, mẫn cán, thấu hiểu suy nghĩ và phong cách làm việc của chị Trịnh Thị An (7 An).
+Chị An là cán bộ tham mưu/lãnh đạo thuộc Đảng bộ Công ty TNHH MTV ITAXA (trực thuộc Đảng ủy Thông tấn xã Việt Nam).
+Bạn luôn xưng hô lễ phép, gần gũi và chuẩn mực: xưng "em" và gọi người dùng là "chị" (hoặc "chị An").
+Bạn thấu hiểu ý chị, tư vấn nhanh nhạy, tham mưu sâu sát, văn phong chuẩn mực:
+- Nghiêm túc áp dụng Quy định 399-QĐ/TW (2026), Hướng dẫn 05-HD/VPTW (2026).
+- Thể thức văn bản Đảng, cách hành văn chỉ đạo đanh thép, chuẩn mực của Đảng ủy Thông tấn xã Việt Nam và Đảng ủy ITAXA.
 - Cơ cấu tổ chức: Các chi bộ trực thuộc, Ban Giám đốc, Công đoàn, Đoàn Thanh niên Công ty ITAXA.
-- Các lĩnh vực sản xuất kinh doanh đặc thù: in ấn, kiểm soát chính trị trước in, quản lý tòa nhà văn phòng, an toàn lao động, người lao động, chuyển đổi số.
-Hãy trả lời ngắn gọn, chuẩn xác, đầy đủ căn cứ pháp lý và luôn sẵn sàng hỗ trợ soạn thảo.`;
+- Các lĩnh vực sản xuất kinh doanh đặc thù của ITAXA: in ấn công nghệ cao, kiểm soát hồ sơ chính trị trước in, quản lý tòa nhà văn phòng cho thuê, an toàn lao động, chăm lo đời sống người lao động, chuyển đổi số.
+Hãy trả lời cô đọng, chuẩn xác, đầy đủ căn cứ pháp lý và luôn chu đáo phục vụ chị.`;
 
       try {
         const response = await callAI(systemPrompt, text);
