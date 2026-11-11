@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ĐẢNG BỘ AI STUDIO V2026 — Trợ Lý Soạn Thảo & Tra Cứu Văn Bản Đảng (ITAXA - TTXVN)</title>
+  <title>TRỢ LÝ 8 DANH &amp; ĐẢNG BỘ ITAXA — Soạn Thảo Văn Bản Đảng Chuẩn 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Times+New+Roman&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --party-red: #B91C1C;
-      --party-red-dark: #991B1B;
+      --party-red-dark: #7F1D1D;
+      --party-red-mid: #991B1B;
       --party-red-light: #FEE2E2;
       --gold: #D97706;
       --gold-light: #FEF3C7;
@@ -21,34 +22,52 @@
       --border: #E2E8F0;
       --primary: #0284C7;
       --success: #059669;
+      --ai-emerald: #047857;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg-page);
       color: var(--text-main);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      line-height: 1.5;
     }
+
+    /* Ecosystem Top Bar */
+    .eco-bar {
+      background: #0F172A;
+      color: #E2E8F0;
+      padding: 9px 24px;
+      font-size: 0.84rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-bottom: 2.5px solid var(--gold);
+    }
+    .eco-bar a { color: #CBD5E1; text-decoration: none; font-weight: 600; }
+    .eco-bar a:hover { color: #FBBF24; }
 
     /* Top Banner */
     .top-banner {
-      background: linear-gradient(135deg, #7F1D1D 0%, #B91C1C 50%, #991B1B 100%);
+      background: linear-gradient(135deg, #7F1D1D 0%, #B91C1C 55%, #991B1B 100%);
       color: #fff;
       padding: 14px 24px;
-      box-shadow: 0 4px 20px rgba(185, 28, 28, 0.2);
+      box-shadow: 0 4px 20px rgba(127, 29, 29, 0.25);
       border-bottom: 3px solid var(--gold);
     }
     .top-banner-inner {
-      max-width: 1500px;
+      max-width: 1560px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 14px;
     }
     .brand-title {
       display: flex;
@@ -56,344 +75,570 @@
       gap: 14px;
     }
     .brand-title .star-badge {
-      width: 44px;
-      height: 44px;
-      background: var(--gold);
+      width: 46px;
+      height: 46px;
+      background: linear-gradient(135deg, #F59E0B, #D97706);
       color: #fff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 22px;
-      box-shadow: 0 0 15px rgba(217, 119, 6, 0.5);
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.55);
+      flex-shrink: 0;
     }
     .brand-title h1 {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 800;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.4px;
       text-transform: uppercase;
     }
     .brand-title p {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--gold-light);
       margin-top: 2px;
     }
 
-    .top-model-selector {
+    .top-controls {
       display: flex;
       align-items: center;
       gap: 10px;
-      background: rgba(0, 0, 0, 0.25);
-      padding: 6px 14px;
+      flex-wrap: wrap;
+    }
+    .top-model-selector {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.28);
+      padding: 6px 12px;
       border-radius: 24px;
-      border: 1px solid rgba(254, 243, 199, 0.3);
+      border: 1px solid rgba(254, 243, 199, 0.35);
     }
     .top-model-selector select {
       background: #fff;
       color: var(--text-main);
       border: none;
-      padding: 6px 12px;
+      padding: 6px 10px;
       border-radius: 14px;
       font-weight: 700;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       cursor: pointer;
       outline: none;
+      max-width: 280px;
     }
+    .btn-config-api {
+      background: rgba(255, 255, 255, 0.16);
+      color: #FEF3C7;
+      border: 1px solid rgba(254, 243, 199, 0.45);
+      padding: 7px 13px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-config-api:hover { background: rgba(255, 255, 255, 0.28); }
 
-    /* Drive Links Bar */
+    /* Drive Bar */
     .drive-bar {
       background: #fff;
       border-bottom: 1px solid var(--border);
       padding: 10px 24px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
     .drive-bar-inner {
-      max-width: 1500px;
+      max-width: 1560px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
     .drive-links {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
+      align-items: center;
     }
     .drive-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 14px;
+      padding: 6px 12px;
       border-radius: 8px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       text-decoration: none;
       transition: all 0.2s;
+      border: none;
+      cursor: pointer;
     }
     .drive-btn-ttxvn { background: #0284C7; color: #fff; }
     .drive-btn-itaxa { background: #059669; color: #fff; }
     .drive-btn-save { background: #BE185D; color: #fff; }
-    .drive-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .drive-btn:hover { opacity: 0.92; transform: translateY(-1px); }
 
-    /* Main Container */
+    .engine-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: #ECFDF5;
+      color: #065F46;
+      border: 1px solid #A7F3D0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .engine-pill.openai-active {
+      background: #EEF2FF;
+      color: #3730A3;
+      border-color: #C7D2FE;
+    }
+
+    /* Main Workspace */
     .app-main {
-      max-width: 1500px;
-      margin: 20px auto;
+      max-width: 1560px;
+      width: 100%;
+      margin: 18px auto;
       padding: 0 20px;
       flex: 1;
       display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 24px;
-      width: 100%;
+      grid-template-columns: 1fr 440px;
+      gap: 20px;
+      align-items: start;
     }
-    @media (max-width: 1100px) {
+    @media (max-width: 1180px) {
       .app-main { grid-template-columns: 1fr; }
     }
 
-    /* Left Work Area */
     .work-area {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
+      min-width: 0;
     }
+
     .card {
       background: var(--bg-card);
-      border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 20px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      border: 1px solid var(--border);
+      padding: 20px 22px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
     }
     .card-title {
-      font-size: 1.05rem;
-      font-weight: 700;
+      font-size: 0.98rem;
+      font-weight: 800;
       color: var(--party-red-dark);
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 16px;
       padding-bottom: 10px;
-      border-bottom: 1.5px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
     }
 
-    /* Form Fields */
+    /* Tabs */
+    .tab-nav {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 8px 15px;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--party-red-light);
+      color: var(--party-red-dark);
+    }
+    .tab-btn:hover:not(.active) { background: #F1F5F9; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Form Controls */
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
-    @media (max-width: 650px) {
-      .form-grid { grid-template-columns: 1fr; }
+    .form-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
     }
+    @media (max-width: 720px) {
+      .form-grid, .form-grid-3 { grid-template-columns: 1fr; }
+    }
+
     label {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--text-muted);
       display: block;
-      margin-bottom: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: var(--text-main);
     }
-    input, select, textarea {
+    input[type="text"], input[type="password"], select, textarea {
       width: 100%;
-      padding: 10px 12px;
+      padding: 9px 12px;
       border: 1.5px solid var(--border);
       border-radius: 8px;
       font-family: inherit;
       font-size: 0.88rem;
-      outline: none;
+      color: var(--text-main);
+      background: #fff;
       transition: border-color 0.2s;
     }
     input:focus, select:focus, textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+      outline: none;
+      border-color: var(--party-red);
+      box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.08);
     }
-    textarea { resize: vertical; }
 
-    /* Action Buttons */
-    .action-row {
+    .ref-upload-bar {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 10px;
       flex-wrap: wrap;
-      margin-top: 14px;
+      background: #F8FAFC;
+      border: 1px dashed #CBD5E1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Buttons */
+    .action-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
     }
     .btn {
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-size: 0.85rem;
-      font-weight: 700;
+      padding: 9px 15px;
       border: none;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 6px;
       transition: all 0.2s;
     }
-    .btn-red { background: linear-gradient(135deg, #B91C1C, #DC2626); color: #fff; box-shadow: 0 4px 12px rgba(185, 28, 28, 0.25); }
-    .btn-blue { background: linear-gradient(135deg, #0284C7, #0EA5E9); color: #fff; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); }
-    .btn-green { background: linear-gradient(135deg, #059669, #10B981); color: #fff; }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-red { background: var(--party-red); color: #fff; box-shadow: 0 4px 10px rgba(185, 28, 28, 0.2); }
+    .btn-red:hover:not(:disabled) { background: var(--party-red-dark); transform: translateY(-1px); }
+    .btn-gold { background: #B45309; color: #fff; }
+    .btn-gold:hover:not(:disabled) { background: #92400E; }
+    .btn-blue { background: var(--primary); color: #fff; }
+    .btn-blue:hover:not(:disabled) { background: #0369A1; }
+    .btn-green { background: var(--success); color: #fff; }
+    .btn-green:hover:not(:disabled) { background: #047857; }
     .btn-subtle { background: #F1F5F9; color: var(--text-main); border: 1px solid var(--border); }
-    .btn:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-subtle:hover:not(:disabled) { background: #E2E8F0; }
 
-    /* Document Output Editor */
+    /* Document Viewer / Editor */
+    .doc-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
     .doc-viewer {
-      font-family: 'Times New Roman', serif;
-      font-size: 15px;
-      line-height: 1.6;
-      background: #FFFDF9;
-      color: #111;
-      padding: 24px;
-      border: 1.5px solid #E2D9C8;
+      width: 100%;
+      min-height: 540px;
+      padding: 26px 30px;
+      border: 1.5px solid #CBD5E1;
       border-radius: 8px;
-      min-height: 480px;
-      white-space: pre-wrap;
+      background: #FFFDF9;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #111827;
+      resize: vertical;
+    }
+    .a4-preview {
+      display: none;
+      width: 100%;
+      min-height: 540px;
+      padding: 36px 46px;
+      border: 1px solid #CBD5E1;
+      border-radius: 6px;
+      background: #FFFFFF;
+      box-shadow: inset 0 0 0 1px #F1F5F9;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 16px;
+      line-height: 1.55;
+      color: #000;
+      overflow-x: auto;
     }
 
-    /* Right AI Copilot Chatbox */
+    /* Right Panel: Trợ lý 8 Danh Integrated Co-Editor */
     .copilot-card {
       background: var(--bg-card);
-      border: 1.5px solid rgba(185, 28, 28, 0.3);
-      border-radius: 16px;
+      border-radius: 14px;
+      border: 1.5px solid #CBD5E1;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
       display: flex;
       flex-direction: column;
-      height: 820px;
-      max-height: calc(100vh - 160px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      height: calc(100vh - 120px);
+      min-height: 620px;
       position: sticky;
-      top: 20px;
+      top: 16px;
+      overflow: hidden;
+    }
+    @media (max-width: 1180px) {
+      .copilot-card { position: static; height: 640px; }
     }
     .copilot-header {
-      background: linear-gradient(135deg, #7F1D1D, #B91C1C);
+      background: linear-gradient(135deg, #065F46, #047857 55%, #0F766E);
       color: #fff;
-      padding: 16px;
-      border-radius: 14px 14px 0 0;
+      padding: 13px 16px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      border-bottom: 2.5px solid var(--gold);
     }
     .copilot-avatar {
       width: 40px;
       height: 40px;
-      background: var(--gold);
       border-radius: 50%;
+      background: #F59E0B;
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 20px;
-      box-shadow: 0 0 10px rgba(217, 119, 6, 0.6);
+      border: 2px solid #FEF3C7;
+      flex-shrink: 0;
     }
-    .copilot-info h3 { font-size: 0.95rem; font-weight: 800; }
-    .copilot-info p { font-size: 0.76rem; color: var(--gold-light); }
+    .copilot-info h3 { font-size: 0.94rem; font-weight: 800; }
+    .copilot-info p { font-size: 0.74rem; color: #D1FAE5; }
+
+    .copilot-context-bar {
+      background: #FFFBEB;
+      border-bottom: 1px solid #FDE68A;
+      padding: 6px 14px;
+      font-size: 0.74rem;
+      color: #92400E;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
 
     .chat-messages {
       flex: 1;
-      padding: 16px;
       overflow-y: auto;
+      padding: 14px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      background: #FAFAFA;
+      background: #F8FAFC;
     }
     .chat-bubble {
-      max-width: 90%;
-      padding: 12px 14px;
+      max-width: 94%;
+      padding: 11px 13px;
       border-radius: 12px;
       font-size: 0.85rem;
       line-height: 1.55;
+      word-wrap: break-word;
     }
     .chat-bubble-ai {
       background: #fff;
       border: 1px solid var(--border);
       align-self: flex-start;
-      border-left: 4px solid var(--party-red);
+      border-bottom-left-radius: 4px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.03);
     }
     .chat-bubble-user {
       background: var(--party-red);
       color: #fff;
       align-self: flex-end;
-      border-radius: 12px 12px 2px 12px;
+      border-bottom-right-radius: 4px;
+    }
+
+    .patch-box {
+      margin-top: 10px;
+      border: 1.5px solid #10B981;
+      background: #ECFDF5;
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .patch-preview {
+      max-height: 160px;
+      overflow-y: auto;
+      background: #fff;
+      border: 1px solid #D1FAE5;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-family: 'Times New Roman', serif;
+      font-size: 0.82rem;
+      white-space: pre-wrap;
+      margin: 6px 0;
+      color: #111827;
     }
 
     .copilot-input-area {
-      padding: 14px;
-      border-top: 1px solid var(--border);
+      padding: 12px 14px;
       background: #fff;
-      border-radius: 0 0 14px 14px;
+      border-top: 1px solid var(--border);
     }
     .quick-chips {
       display: flex;
-      gap: 6px;
-      overflow-x: auto;
-      padding-bottom: 8px;
-      margin-bottom: 8px;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-bottom: 9px;
     }
     .chip {
-      background: var(--gold-light);
+      font-size: 0.72rem;
+      padding: 4px 9px;
+      background: #FEF3C7;
       color: #92400E;
-      border: 1px solid #FDE68A;
-      padding: 4px 10px;
-      border-radius: 12px;
-      font-size: 0.74rem;
-      font-weight: 700;
-      white-space: nowrap;
+      border-radius: 14px;
       cursor: pointer;
+      font-weight: 700;
+      border: 1px solid #FDE68A;
+      transition: all 0.15s;
     }
     .chip:hover { background: #FDE68A; }
 
     .chat-input-row {
       display: flex;
-      gap: 8px;
+      gap: 7px;
+      align-items: center;
     }
-    .chat-input-row input {
-      flex: 1;
-      padding: 10px 12px;
-      border-radius: 8px;
+    .chat-input-row textarea {
+      min-height: 40px;
+      max-height: 100px;
+      padding: 8px 10px;
+      resize: vertical;
+      font-size: 0.84rem;
     }
 
-    /* Tabs */
-    .tab-nav {
-      display: flex;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
+    /* Corpus & Template Cards */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+      gap: 10px;
       margin-bottom: 16px;
     }
-    .tab-btn {
-      padding: 8px 16px;
-      background: transparent;
-      border: none;
-      font-weight: 700;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      border-bottom: 2.5px solid transparent;
+    .stat-box {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      border-radius: 10px;
+      padding: 10px 12px;
     }
-    .tab-btn.active {
-      color: var(--party-red);
-      border-bottom-color: var(--party-red);
+    .stat-box strong { display: block; font-size: 1.25rem; color: var(--party-red-dark); }
+    .stat-box span { font-size: 0.76rem; color: #78350F; font-weight: 600; }
+
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
     }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; }
+    .template-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      background: #F8FAFC;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .template-card h4 { font-size: 0.85rem; color: var(--party-red-dark); }
+    .template-card small { font-size: 0.74rem; color: var(--text-muted); }
+
+    /* Modal */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-box {
+      background: #fff;
+      border-radius: 14px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 22px 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      border-top: 4px solid var(--gold);
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border: 2.5px solid rgba(255,255,255,0.35);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 0.75s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .lookup-result {
+      margin-top: 14px;
+      padding: 16px;
+      background: #F8FAFC;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      min-height: 140px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Thanh Liên Kết Hợp Nhất Hệ Sinh Thái trinhan.life -->
-  <div style="background: #0F172A; color: #E2E8F0; padding: 10px 24px; font-size: 0.86rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-bottom: 2.5px solid #D97706; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-    <div style="display: flex; align-items: center; gap: 12px;">
-      <a href="https://trinhan.life" style="color: #FBBF24; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; font-size: 0.95rem;">
-        <span>🌸 TRỊNH THỊ AN — trinhan.life</span>
-      </a>
-      <span style="color: #475569;">•</span>
-      <span style="color: #94A3B8;">Tâm An Vạn Sự An</span>
-      <span style="color: #475569;">•</span>
-      <span style="color: #38BDF8; font-weight: 700;">🏛️ Studio Soạn Thảo Văn Bản Đảng Chuẩn 2026</span>
+  <!-- Thanh Liên Kết Hệ Sinh Thái trinhan.life -->
+  <div class="eco-bar">
+    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+      <a href="https://trinhan.life" style="color:#FBBF24; font-weight:800; font-size:0.9rem;">🌸 TRỊNH THỊ AN — trinhan.life</a>
+      <span style="color:#475569;">•</span>
+      <span style="color:#94A3B8;">Tâm An Vạn Sự An</span>
+      <span style="color:#475569;">•</span>
+      <span style="color:#38BDF8; font-weight:700;">🏛️ Văn Phòng Đảng Ủy ITAXA • Tích Hợp Trợ Lý 8 Danh</span>
     </div>
-    <div style="display: flex; gap: 16px; align-items: center;">
-      <a href="https://trinhan.life" style="color: #CBD5E1; text-decoration: none; font-weight: 600;">← Về Trang Chủ trinhan.life</a>
-      <a href="https://trinhan.life#phong-tranh" style="color: #CBD5E1; text-decoration: none;">Kho Tranh</a>
-      <a href="https://trinhan.life#dao-tao" style="color: #CBD5E1; text-decoration: none;">Khóa Học AI</a>
-      <a href="https://trinhan.life#he-sinh-thai-web" style="color: #CBD5E1; text-decoration: none;">Hệ Sinh Thái Web</a>
+    <div style="display:flex; gap:14px; flex-wrap:wrap;">
+      <a href="https://trinhan.life">← Trang Chủ trinhan.life</a>
+      <a href="https://github.com/trinhthian-ai/van-ban-dang-ai" target="_blank" rel="noopener noreferrer">Mã nguồn GitHub</a>
     </div>
   </div>
 
@@ -403,536 +648,1257 @@
       <div class="brand-title">
         <div class="star-badge">★</div>
         <div>
-          <h1>ĐẢNG BỘ AI STUDIO V2026 — TRỢ LÝ SOẠN THẢO VĂN BẢN ĐẢNG</h1>
-          <p>Đảng ủy Thông tấn xã Việt Nam • Đảng ủy Công ty TNHH MTV ITAXA • Chuẩn Quy định 399-QĐ/TW & HD 05-HD/VPTW</p>
+          <h1>SOẠN THẢO VĂN BẢN ĐẢNG ỦY ITAXA — TÍCH HỢP TRỢ LÝ 8 DANH</h1>
+          <p>Đảng bộ Thông tấn xã Việt Nam • Đảng ủy Công ty TNHH MTV ITAXA • Học chuẩn từ 48 văn bản đã ban hành</p>
         </div>
       </div>
-      <div class="top-model-selector">
-        <span style="font-size:0.8rem; font-weight:700;">Nhân Vật AI:</span>
-        <select id="selectModel" onchange="switchModel(this.value)">
-          <option value="tam-danh" selected>🌟 Trợ lý Tám Danh (ChatGPT Plus)</option>
-          <option value="gemini">Google Gemini (Gemini 3.5)</option>
-          <option value="chatgpt">ChatGPT (OpenAI)</option>
-          <option value="deepseek">DeepSeek API (DeepSeek-V3)</option>
-          <option value="hybrid">Hybrid (Gemini + ChatGPT)</option>
-        </select>
+
+      <div class="top-controls">
+        <div class="top-model-selector">
+          <span style="font-size:0.78rem; font-weight:700;">Động cơ 8 Danh:</span>
+          <select id="selectModel" onchange="switchModel(this.value)">
+            <option value="auto" selected>🌟 8 Danh Tự Động (OpenAI nếu có key / Gemini 3.5)</option>
+            <option value="openai-gpt4o">ChatGPT / OpenAI GPT-4o (Dùng API Key của chị)</option>
+            <option value="openai-gpt41">ChatGPT / OpenAI GPT-4.1 (Chuẩn văn phong cao)</option>
+            <option value="gemini-35">Google Gemini 3.5 (Chạy ngay không cần Key)</option>
+            <option value="hybrid">Phối hợp 2 bước (Soạn thảo + 8 Danh Rà Soát ITAXA)</option>
+          </select>
+        </div>
+        <button class="btn-config-api" onclick="openApiModal()">⚙️ Cấu hình API 8 Danh</button>
       </div>
     </div>
   </header>
 
-  <!-- Drive Links Bar -->
+  <!-- Drive Links & Status Bar -->
   <nav class="drive-bar">
     <div class="drive-bar-inner">
       <div class="drive-links">
         <a href="https://drive.google.com/drive/folders/1-86m01unje0ywsQVNstUdLJCwTh1cTTv?usp=sharing" target="_blank" rel="noopener noreferrer" class="drive-btn drive-btn-ttxvn">
           📂 Kho Văn Bản Đảng Ủy TTXVN (Drive) ↗
         </a>
-        <a href="https://drive.google.com/drive/folders/1-86m01unje0ywsQVNstUdLJCwTh1cTTv?usp=sharing" target="_blank" rel="noopener noreferrer" class="drive-btn drive-btn-itaxa">
-          📖 Học Văn Phong Đảng Ủy ITAXA (Drive) ↗
+        <a href="https://drive.google.com/drive/folders/1zB75pfJR0tTMjGoyclhAL_J7Agbkkm54?usp=sharing" target="_blank" rel="noopener noreferrer" class="drive-btn drive-btn-itaxa">
+          📖 Kho 48 Văn Bản Đã Ban Hành ITAXA (Drive) ↗
         </a>
         <a href="https://drive.google.com/drive/folders/1IuwD6Ik_5G6CKwGI0dtw2muOjxNqNFQI?usp=drive_link" target="_blank" rel="noopener noreferrer" class="drive-btn drive-btn-save">
-          💾 Thư Mục Lưu Trữ Đề Xuất & Văn Bản Hoàn Chỉnh (Drive) ↗
-        </a>
-        <a href="https://chatgpt.com" id="btnOpenTamDanh" target="_blank" rel="noopener noreferrer" class="drive-btn" style="background:#10A37F; color:#FFFFFF; border-color:#0D8C6D; font-weight:700;" title="Mở trực tiếp tài khoản ChatGPT Plus của Chị có Trợ lý Tám Danh">
-          💬 Mở Trợ Lý Tám Danh (ChatGPT Plus) ↗
+          💾 Lưu Trữ Văn Bản Hoàn Chỉnh (Drive) ↗
         </a>
       </div>
-      <div style="font-size:0.82rem; color:var(--text-muted); font-weight:600;">
-        Tác giả: <strong>Trịnh Thị An (7 An)</strong> • Đảng bộ ITAXA
+      <div id="engineStatusPill" class="engine-pill" onclick="openApiModal()" title="Bấm để cấu hình OpenAI API Key cho ChatGPT Plus hoặc tùy chỉnh 8 Danh">
+        🟢 Trợ lý 8 Danh đang làm việc trực tiếp tại đây
       </div>
     </div>
   </nav>
 
-  <!-- Main Layout -->
+  <!-- Main Workspace -->
   <main class="app-main">
-
-    <!-- Left Work Area -->
+    <!-- Left Column -->
     <section class="work-area">
 
       <div class="card">
         <div class="tab-nav">
-          <button class="tab-btn active" onclick="openTab('tabDraft', this)">1. ✍️ Soạn Thảo Văn Bản Đảng</button>
-          <button class="tab-btn" onclick="openTab('tabLookup', this)">2. 🔍 Tra Cứu Quy Định & Nghị Quyết</button>
-          <button class="tab-btn" onclick="openTab('tabStyle', this)">3. 📚 Kho Mẫu & Hồ Sơ Văn Phong</button>
+          <button class="tab-btn active" onclick="openTab('tabDraft', this)">1. ✍️ 8 Danh Soạn Thảo Văn Bản</button>
+          <button class="tab-btn" onclick="openTab('tabLookup', this)">2. 🔍 Tra Cứu Kho 48 Văn Bản ITAXA</button>
+          <button class="tab-btn" onclick="openTab('tabStyle', this)">3. 📚 Hồ Sơ Văn Phong &amp; Mẫu ITAXA</button>
         </div>
 
-        <!-- TAB 1: SOẠN THẢO -->
+        <!-- TAB 1: DRAFT -->
         <div id="tabDraft" class="tab-content active">
-          <div class="form-grid">
+          <div class="form-grid-3">
             <div>
-              <label>Thể loại văn bản (Quy định 399-QĐ/TW):</label>
-              <select id="docType">
-                <option value="Công văn">Công văn (Triển khai, chỉ đạo, đôn đốc)</option>
-                <option value="Kế hoạch">Kế hoạch (Kế hoạch hành động, chuyên đề)</option>
-                <option value="Chương trình">Chương trình (Chương trình hành động)</option>
-                <option value="Báo cáo">Báo cáo (Sơ kết, tổng kết, định kỳ)</option>
-                <option value="Nghị quyết">Nghị quyết (Hội nghị BCH, chi bộ)</option>
-                <option value="Quyết định">Quyết định (Thành lập, phân công, khen thưởng)</option>
-                <option value="Tờ trình">Tờ trình (Xin ý kiến cấp ủy cấp trên)</option>
-                <option value="Kết luận">Kết luận (Hội nghị, giao ban)</option>
+              <label for="docType">Thể loại văn bản ITAXA:</label>
+              <select id="docType" onchange="onDocTypeChange()">
+                <option value="Công văn">Công văn (Triển khai, chỉ đạo - CV/ĐU)</option>
+                <option value="Kế hoạch">Kế hoạch (Thực hiện NQ, Chỉ thị - KH/ĐU)</option>
+                <option value="Báo cáo ngắn gọn">Báo cáo tháng ngắn gọn (Không số - Người b/c)</option>
+                <option value="Báo cáo">Báo cáo đầy đủ (Tháng, Sơ kết, KTGS - BC/ĐU)</option>
+                <option value="Chương trình hành động">Chương trình hành động (-CTr/ĐU)</option>
+                <option value="Nghị quyết">Nghị quyết (-NQ/ĐU)</option>
+                <option value="Đề án">Đề án (-ĐA/ĐU)</option>
+                <option value="Thông báo">Thông báo (-TB/ĐU)</option>
+                <option value="Kết luận">Kết luận (-KL/ĐU)</option>
+                <option value="Quyết định">Quyết định (-QĐ/ĐU)</option>
+                <option value="Tờ trình">Tờ trình (-TTr/ĐU)</option>
               </select>
             </div>
             <div>
-              <label>Số & Ký hiệu văn bản dự kiến:</label>
-              <input type="text" id="docNumber" value="55-CV/ĐU" placeholder="Ví dụ: 55-CV/ĐU, 12-KH/ĐU, 04-CTr/ĐU...">
+              <label for="docNumber">Số &amp; Ký hiệu văn bản:</label>
+              <input type="text" id="docNumber" value="... - CV/ĐU" placeholder="VD: 96-CV/ĐU, 94-KH/ĐU hoặc (Không số)">
+            </div>
+            <div>
+              <label for="docDateLine">Địa danh &amp; Ngày ban hành:</label>
+              <input type="text" id="docDateLine" value="TP.HCM, ngày ... tháng ... năm 2026" placeholder="TP.HCM, ngày ... tháng ... năm 2026">
             </div>
           </div>
 
-          <div class="form-grid">
+          <div class="form-grid-3">
             <div>
-              <label>Cấp ủy ban hành:</label>
-              <input type="text" id="issuingOrg" value="ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA" readonly style="background:#F1F5F9;">
+              <label for="superiorOrg">Đảng bộ cấp trên (chuẩn 37/38 văn bản):</label>
+              <input type="text" id="superiorOrg" value="ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM">
             </div>
             <div>
-              <label>Cấp ủy cấp trên trực tiếp:</label>
-              <input type="text" id="superiorOrg" value="ĐẢNG ỦY THÔNG TẤN XÃ VIỆT NAM" readonly style="background:#F1F5F9;">
+              <label for="issuingOrg">Cấp ủy ban hành:</label>
+              <input type="text" id="issuingOrg" value="ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA">
+            </div>
+            <div>
+              <label for="signerSelect">Thẩm quyền ký (chuẩn thực tế ITAXA):</label>
+              <select id="signerSelect">
+                <option value="T/M ĐẢNG ỦY|BÍ THƯ|Nguyễn Đức Trọng">T/M ĐẢNG ỦY — BÍ THƯ — Nguyễn Đức Trọng</option>
+                <option value="T/M ĐẢNG ỦY|PHÓ BÍ THƯ|Nguyễn Anh Kiệt">T/M ĐẢNG ỦY — PHÓ BÍ THƯ — Nguyễn Anh Kiệt</option>
+                <option value="T/M BAN CHẤP HÀNH|BÍ THƯ|Nguyễn Đức Trọng">T/M BAN CHẤP HÀNH — BÍ THƯ — Nguyễn Đức Trọng</option>
+                <option value="NGƯỜI BÁO CÁO||(UV BCH Đảng bộ TTXVN, Bí thư Đảng ủy ITAXA) Nguyễn Đức Trọng">NGƯỜI BÁO CÁO — Nguyễn Đức Trọng</option>
+              </select>
             </div>
           </div>
 
-          <label>Nội dung yêu cầu / Trích yếu hoặc Dán văn bản chỉ đạo của Đảng ủy TTXVN:</label>
-          <textarea id="docInput" rows="8" placeholder="Nhập yêu cầu soạn thảo, ví dụ: 
-- Soạn Kế hoạch thực hiện Chỉ thị của Đảng ủy Thông tấn xã Việt Nam về công tác chuyển đổi số và nâng cao chất lượng sinh hoạt chi bộ năm 2026.
-- Phân công các chi bộ trực thuộc tổ chức sinh hoạt chuyên đề, báo cáo trước ngày 25 hàng tháng..."></textarea>
+          <div class="ref-upload-bar">
+            <span>📎 <strong>Văn bản gốc / Tài liệu đính kèm (tùy chọn):</strong> Nạp tệp <code>.txt</code> / <code>.md</code> để 8 Danh đối chiếu khi soạn</span>
+            <label style="margin:0; cursor:pointer; background:#E2E8F0; color:#0F172A; padding:4px 10px; border-radius:6px; font-size:0.76rem;">
+              Chọn file .txt/.md <input type="file" accept=".txt,.md,.csv,.json" style="display:none;" onchange="loadRefFileToInput(this)">
+            </label>
+          </div>
+
+          <label for="docInput">Nội dung yêu cầu chị Trịnh Thị An giao cho 8 Danh (hoặc dán văn bản chỉ đạo của Đảng ủy TTXVN):</label>
+          <textarea id="docInput" rows="7" placeholder="Ví dụ:
+- Soạn Công văn triển khai Công văn số .../CV-ĐU ngày .../2026 của Đảng ủy Thông tấn xã Việt Nam về công tác ... tại Công ty ITAXA.
+- Giao các chi bộ trực thuộc (Khối Chức năng - Dịch vụ, Nhà In TTXVN, Công ty CP Địa Sinh) tổ chức quán triệt trong kỳ sinh hoạt tháng ..., báo cáo kết quả về Bộ phận Đảng vụ trước ngày ..."></textarea>
 
           <div class="action-row">
-            <button class="btn btn-red" onclick="runAiDraft()">
-              🚀 Soạn Thảo Văn Bản Bằng AI (Chuẩn Thể Thức 2026)
+            <button id="btnDraft" class="btn btn-red" onclick="runAiDraft()">
+              🚀 8 Danh Soạn Thảo Chuẩn ITAXA
+            </button>
+            <button id="btnAudit" class="btn btn-gold" onclick="runStyleAudit()">
+              ✨ 8 Danh Rà Soát &amp; Chuẩn Hóa
             </button>
             <button class="btn btn-blue" onclick="exportToWord()">
-              📘 Xuất File Word (.doc) Chuẩn In Ấn
+              📘 Xuất File Word (.doc)
             </button>
             <button class="btn btn-green" onclick="saveAsGoodSample()">
-              ⭐ Đánh Giá Tốt & Cho AI Học Ngay
+              ⭐ Lưu Mẫu Cho 8 Danh Học
             </button>
             <button class="btn btn-subtle" onclick="copyDocument()">
-              📋 Sao Chép Toàn Bộ
+              📋 Sao Chép
             </button>
           </div>
         </div>
 
-        <!-- TAB 2: TRA CỨU -->
+        <!-- TAB 2: LOOKUP -->
         <div id="tabLookup" class="tab-content">
-          <label>Nhập từ khóa hoặc số hiệu văn bản cần tra cứu:</label>
-          <div style="display:flex; gap:8px; margin-bottom:14px;">
-            <input type="text" id="lookupQuery" value="Quy định 399-QĐ/TW Hướng dẫn 05-HD/VPTW về thể thức văn bản Đảng năm 2026" placeholder="Nhập từ khóa...">
-            <button class="btn btn-blue" onclick="runLookup()" style="white-space:nowrap;">🔍 Tra Cứu AI</button>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:10px;">
+            8 Danh tra cứu trực tiếp trên hồ sơ <strong>48 văn bản đã ban hành của Đảng ủy ITAXA</strong> (thể thức, số liệu 2026, chi bộ trực thuộc, nghị quyết, chuyển đổi số, công tác KTGS...).
+          </p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+            <span class="chip" onclick="quickLookup('Thể thức Quốc hiệu, số hiệu, nơi nhận và chữ ký chuẩn của Đảng ủy ITAXA qua 48 văn bản khác gì mẫu chung?')">📌 Chuẩn thể thức 48 văn bản ITAXA</span>
+            <span class="chip" onclick="quickLookup('Thông tin tổ chức Đảng bộ ITAXA: 03 chi bộ trực thuộc, số lượng đảng viên, nhân sự chủ chốt và nhiệm vụ sản xuất kinh doanh?')">🏢 Cơ cấu &amp; Dữ liệu thật ITAXA</span>
+            <span class="chip" onclick="quickLookup('Quy trình viết Báo cáo tháng ngắn gọn mẫu 116.1 khác gì Báo cáo tháng đầy đủ mẫu 116-BC/ĐU?')">📄 So sánh Báo cáo 116.1 vs 116</span>
+            <span class="chip" onclick="quickLookup('Tóm tắt các định hướng chuyển đổi số, Sổ tay đảng viên điện tử, thu đảng phí và số hóa hồ sơ tại Đảng bộ ITAXA?')">💻 Chuyển đổi số Đảng bộ ITAXA</span>
           </div>
-          <div id="lookupResult" class="doc-viewer" style="min-height:300px;">Kết quả tra cứu sẽ hiển thị tại đây...</div>
+          <div class="chat-input-row">
+            <input type="text" id="lookupQuery" placeholder="Nhập câu hỏi tra cứu văn bản / thể thức / dữ liệu ITAXA..." onkeydown="if(event.key==='Enter') runLookup()">
+            <button id="btnLookup" class="btn btn-red" onclick="runLookup()">🔍 Hỏi 8 Danh</button>
+          </div>
+          <div id="lookupOutput" class="lookup-result">💡 Kết quả tra cứu từ kho 48 văn bản Đảng ủy ITAXA sẽ hiển thị tại đây...</div>
         </div>
 
-        <!-- TAB 3: HỒ SƠ VĂN PHONG -->
+        <!-- TAB 3: STYLE CORPUS & TEMPLATES -->
         <div id="tabStyle" class="tab-content">
-          <div style="margin-bottom:12px; font-size:0.86rem; color:var(--text-muted); line-height:1.6;">
-            <strong>Hồ sơ văn phong Đảng bộ ITAXA (Đảng ủy TTXVN):</strong> Đã được AI đúc kết từ 16 văn bản chính thức của ITAXA & TTXVN, cập nhật đầy đủ Quy định 399-QĐ/TW và Hướng dẫn 05-HD/VPTW.
+          <div class="stat-grid" id="corpusStatsGrid"></div>
+
+          <div style="background:#FFFBEB; border:1px solid #FDE68A; border-radius:10px; padding:12px 14px; font-size:0.84rem; margin-bottom:14px;">
+            <strong>✅ Các điểm then chốt học được từ 48 văn bản đã ban hành (khác hoàn toàn bản web cũ):</strong>
+            <ul id="styleRulesList" style="margin-top:6px; padding-left:20px; display:flex; flex-direction:column; gap:4px;"></ul>
           </div>
-          <div class="doc-viewer" id="styleProfileViewer" style="min-height:350px;">
-=== HỒ SƠ ĐẶC TRƯNG VĂN PHONG ĐẢNG BỘ ITAXA (TRỰC THUỘC ĐẢNG ỦY TTXVN) ===
 
-1. THỂ THỨC BAN HÀNH CHUẨN 2026:
-- Căn cứ: Quy định số 399-QĐ/TW (09/01/2026) và Hướng dẫn số 05-HD/VPTW (27/5/2026).
-- Tiêu đề: ĐẢNG CỘNG SẢN VIỆT NAM (đậm, đứng, gạch chân nét liền).
-- Đơn vị ban hành:
-  ĐẢNG ỦY THÔNG TẤN XÃ VIỆT NAM (in hoa, đứng, cỡ 12-13)
-  ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA (in hoa, đậm, cỡ 13-14)
-- Số và ký hiệu: ...-CV/ĐU, ...-KH/ĐU, ...-CTr/ĐU, ...-BC/ĐU, ...-NQ/ĐU.
-- Thẩm quyền ký: T/M BAN THƯỜNG VỤ -> BÍ THƯ (hoặc PHÓ BÍ THƯ).
-- Nơi nhận: Đảng ủy Thông tấn xã Việt Nam (để báo cáo), Ban Giám đốc Công ty, các chi bộ trực thuộc, Lưu VPĐU.
-- Dấu kết thúc văn bản: './.'
+          <h4 style="font-size:0.9rem; color:var(--party-red-dark); margin-bottom:6px;">
+            📂 Khung Mẫu Trích Xuất Từ Văn Bản Thật ITAXA (bấm để nạp vào trình soạn thảo)
+          </h4>
+          <div class="template-grid" id="templateGrid"></div>
 
-2. NGUYÊN TẮC CHUYỂN HÓA VĂN BẢN TỪ TTXVN VỀ ITAXA:
-- Giữ nguyên tinh thần chỉ đạo, chỉ tiêu cốt lõi của Đảng ủy TTXVN.
-- Chuyển "các tổ chức đảng trực thuộc" thành "các chi bộ trực thuộc".
-- Gắn chặt định hướng chính trị với nhiệm vụ sản xuất kinh doanh đặc thù của ITAXA: in ấn công nghệ cao, kiểm duyệt hồ sơ chính trị trước in, bảo đảm chất lượng - tiến độ - an toàn lao động, tiêu chuẩn ISO/FSC, quản lý tòa nhà văn phòng cho thuê, chăm lo đời sống người lao động, chuyển đổi số và bảo vệ chính trị nội bộ.
+          <div style="margin-top:18px; border-top:1px solid var(--border); padding-top:14px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+              <h4 style="font-size:0.9rem; color:#065F46;">⭐ Mẫu Chị An Đã Lưu Cho 8 Danh Học Thêm (Lưu cục bộ trên trình duyệt)</h4>
+              <label style="margin:0; cursor:pointer; background:#ECFDF5; color:#065F46; border:1px solid #A7F3D0; padding:5px 10px; border-radius:8px; font-size:0.78rem;">
+                ➕ Nạp thêm văn bản mẫu (.txt) <input type="file" accept=".txt,.md" style="display:none;" onchange="uploadCustomSample(this)">
+              </label>
+            </div>
+            <div id="savedSamplesList" style="margin-top:10px; display:flex; flex-direction:column; gap:8px;"></div>
           </div>
         </div>
       </div>
 
-      <!-- Document Output Card -->
+      <!-- Document Output Editor Card -->
       <div class="card">
         <div class="card-title">
           <span>📄 Bản Dự Thảo Văn Bản Đảng Hoàn Chỉnh</span>
-          <span id="draftStatusBadge" style="font-size:0.75rem; background:var(--gold-light); color:#92400E; padding:3px 10px; border-radius:12px; margin-left:auto;">
-            Sẵn sàng soạn thảo
-          </span>
+          <div style="margin-left:auto; display:flex; gap:6px; align-items:center; flex-wrap:wrap;">
+            <button id="btnUndoDraft" class="btn btn-subtle" style="padding:4px 10px; font-size:0.75rem; display:none;" onclick="undoDraft()">↩️ Hoàn tác bản trước</button>
+            <button id="btnTogglePreview" class="btn btn-subtle" style="padding:4px 10px; font-size:0.75rem;" onclick="toggleA4Preview()">👁️ Xem Dạng Giấy A4</button>
+            <span id="draftStatusBadge" style="font-size:0.74rem; background:var(--gold-light); color:#92400E; padding:4px 10px; border-radius:12px; font-weight:700;">
+              Sẵn sàng soạn thảo
+            </span>
+          </div>
         </div>
-        <textarea id="docOutput" class="doc-viewer" placeholder="Nội dung văn bản chuẩn thể thức Đảng sẽ hiển thị tại đây..."></textarea>
+        <textarea id="docOutput" class="doc-viewer" oninput="onDraftEdited()" placeholder="Bản dự thảo chuẩn thể thức Đảng ủy Công ty TNHH MTV ITAXA sẽ hiển thị tại đây. Chị có thể chỉnh sửa trực tiếp hoặc yêu cầu 8 Danh ở khung bên phải sửa từng đoạn giúp chị..."></textarea>
+        <div id="a4Preview" class="a4-preview"></div>
       </div>
 
     </section>
 
-    <!-- Right AI Copilot Chatbox -->
+    <!-- Right Column: Trợ Lý 8 Danh Integrated Chat & Co-Editor -->
     <aside class="copilot-card">
       <div class="copilot-header">
         <div class="copilot-avatar">👩‍💼</div>
         <div class="copilot-info">
-          <h3>Trợ Lý Tám Danh (ChatGPT Plus)</h3>
-          <p>Hiểu ý chị Trịnh Thị An • Tham mưu Cấp ủy Đảng</p>
+          <h3>Trợ Lý 8 Danh (Tích Hợp Trực Tiếp)</h3>
+          <p>Đồng hành cùng chị Trịnh Thị An • Chuẩn văn phong ITAXA</p>
         </div>
-        <div style="margin-left:auto; display:flex; gap:6px; align-items:center;">
-          <button onclick="openTamDanhWindow()" style="font-size:0.75rem; background:#10A37F; color:#fff; border:none; padding:5px 9px; border-radius:6px; font-weight:700; display:inline-flex; align-items:center; gap:4px; cursor:pointer;" title="Mở Trợ lý Tám Danh ở cửa sổ riêng song song để làm việc">
-            <span>🪟 Cửa Sổ Song Song</span>
-          </button>
-          <a href="https://chatgpt.com" id="sideBtnTamDanh" target="_blank" rel="noopener noreferrer" style="font-size:0.75rem; background:#0D8C6D; color:#fff; padding:5px 9px; border-radius:6px; text-decoration:none; font-weight:700; display:inline-flex; align-items:center; gap:4px;" title="Mở trực tiếp tài khoản ChatGPT Plus của Chị ở Tab Mới">
-            <span>Tab Mới</span> ↗
-          </a>
-          <button onclick="configTamDanhUrl()" style="background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.4); color:#fff; font-size:0.75rem; border-radius:6px; padding:4px 6px; cursor:pointer;" title="Cài đặt link Custom GPT Tám Danh riêng của Chị">⚙️</button>
+        <div style="margin-left:auto; display:flex; gap:6px;">
+          <button onclick="resetChat()" style="background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.35); color:#fff; font-size:0.72rem; border-radius:6px; padding:4px 8px; cursor:pointer;" title="Bắt đầu cuộc trao đổi mới">🔄 Mới</button>
+          <button onclick="openApiModal()" style="background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.35); color:#fff; font-size:0.72rem; border-radius:6px; padding:4px 8px; cursor:pointer;" title="Cấu hình ChatGPT / Gemini API cho 8 Danh">⚙️</button>
         </div>
       </div>
 
-      <div class="chat-messages" id="chatMessages">
-        <div class="chat-bubble chat-bubble-ai">
-          Chào chị <strong>Trịnh Thị An</strong>! Em là <strong>Trợ Lý Tám Danh</strong> đây ạ. Em luôn ở đây cùng chị để:
-          <br>• Luôn lắng nghe, thấu hiểu trọn vẹn suy nghĩ và phong cách làm việc của chị.
-          <br>• Trao đổi trực tiếp công việc, tham mưu và giải đáp các nghiệp vụ Đảng bộ ITAXA & TTXVN.
-          <br>• Hỗ trợ tra cứu nhanh văn bản, nghị quyết, quy định mới nhất (QĐ 399-QĐ/TW & HD 05-HD/VPTW).
-          <br>• Soạn thảo công văn, kế hoạch, báo cáo chuẩn xác, đanh thép, đúng thể thức 2026.
-          <br><br>💡 <em>Chị có thể chat trực tiếp với em ở đây hoặc bấm nút <strong>Mở GPT Plus ↗</strong> để sang tài khoản ChatGPT Plus quen thuộc của chị bất cứ lúc nào!</em>
-        </div>
+      <div class="copilot-context-bar">
+        <span id="copilotContextLabel">📑 Đang liên kết với trình soạn thảo (Công văn)</span>
+        <span id="copilotDraftLen" style="font-weight:700;">Dự thảo: 0 chữ</span>
       </div>
+
+      <div class="chat-messages" id="chatMessages"></div>
 
       <div class="copilot-input-area">
         <div class="quick-chips">
-          <span class="chip" onclick="askCopilot('Tám Danh ơi, điểm mới quan trọng nhất của Quy định 399-QĐ/TW năm 2026 là gì?')">📌 Điểm mới 399-QĐ/TW</span>
-          <span class="chip" onclick="askCopilot('Tám Danh hướng dẫn chị cách xây dựng Kế hoạch của Đảng ủy ITAXA bám sát chỉ đạo TTXVN')">📑 Cách lập Kế hoạch ITAXA</span>
-          <span class="chip" onclick="askCopilot('Thể thức đề ký và nơi nhận chuẩn của Đảng ủy Công ty ITAXA là gì?')">✍️ Thể thức ký & nơi nhận</span>
-          <span class="chip" onclick="askCopilot('Tám Danh tra cứu giúp chị các nhiệm vụ trọng tâm chuyển đổi số của Đảng bộ ITAXA')">💻 Chuyển đổi số Đảng bộ</span>
+          <span class="chip" onclick="askCopilot('8 Danh rà soát lại toàn bộ bản dự thảo hiện tại theo chuẩn 48 văn bản ITAXA và viết lại bản chuẩn hơn giúp chị.')">✨ Rà &amp; viết lại chuẩn ITAXA</span>
+          <span class="chip" onclick="askCopilot('8 Danh rút gọn bản dự thảo này cho thật đanh thép, súc tích theo đúng văn phong Công văn 95-CV/ĐU.')">✂️ Rút gọn, đanh thép hơn</span>
+          <span class="chip" onclick="askCopilot('Bổ sung phân công rõ cho 03 chi bộ trực thuộc và Bộ phận Đảng vụ theo phương châm 6 rõ của ITAXA.')">🎯 Phân công 03 chi bộ</span>
+          <span class="chip" onclick="askCopilot('Những thông tin hoặc số liệu nào trong dự thảo hiện đang thiếu để chị điền nốt?')">❓ Kiểm tra chỗ cần điền số liệu</span>
         </div>
-
         <div class="chat-input-row">
-          <input type="text" id="chatInput" placeholder="Nhắn tin trao đổi với Trợ lý Tám Danh..." onkeydown="if(event.key==='Enter') sendChatMessage()">
-          <button class="btn btn-red" onclick="sendChatMessage()" style="padding:10px 14px;">Gửi</button>
+          <textarea id="chatInput" rows="2" placeholder="Nhắn trực tiếp cho 8 Danh: sửa đoạn, thêm ý, hỏi nghiệp vụ Đảng ITAXA..." onkeydown="if(event.key==='Enter' && !event.shiftKey){ event.preventDefault(); sendChatMessage(); }"></textarea>
+          <button id="btnSendChat" class="btn btn-red" onclick="sendChatMessage()" style="padding:10px 14px; height:44px;">Gửi</button>
         </div>
       </div>
     </aside>
-
   </main>
 
+  <!-- Settings Modal for 8 Danh API (OpenAI ChatGPT + Gemini) -->
+  <div id="apiModal" class="modal-backdrop" onclick="if(event.target===this) closeApiModal()">
+    <div class="modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h3 style="font-size:1.05rem; color:var(--party-red-dark);">⚙️ Cấu Hình Động Cơ &amp; Bộ Nhớ Cho Trợ Lý 8 Danh</h3>
+        <button onclick="closeApiModal()" class="btn btn-subtle" style="padding:4px 10px;">✕</button>
+      </div>
+
+      <div style="background:#ECFDF5; border:1px solid #A7F3D0; border-radius:8px; padding:10px 12px; font-size:0.82rem; color:#065F46; margin-bottom:14px;">
+        💡 <strong>Vì sao chị không cần mở tab ChatGPT rời bên ngoài nữa?</strong><br>
+        Do trình duyệt không cho nhúng giao diện web <code>chatgpt.com</code>, toàn bộ nhân cách, cách xưng hô và bộ nhớ 48 văn bản ITAXA của <strong>8 Danh</strong> đã được tích hợp chạy trực tiếp tại đây. Nếu chị nhập <strong>OpenAI API Key</strong> bên dưới, 8 Danh sẽ chạy bằng chính mô hình OpenAI/ChatGPT ngay trong trang web này (key chỉ lưu trên máy chị bằng <code>localStorage</code>, không gửi đi đâu khác). Nếu để trống OpenAI key, 8 Danh vẫn chạy ngay bằng Gemini 3.5!
+      </div>
+
+      <div style="margin-bottom:12px;">
+        <label for="cfgOpenAiKey">🔑 OpenAI API Key (ChatGPT — tùy chọn, định dạng <code>sk-...</code>):</label>
+        <input type="password" id="cfgOpenAiKey" placeholder="Dán OpenAI API Key nếu chị muốn chạy bằng ChatGPT GPT-4o / GPT-4.1">
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label for="cfgOpenAiModel">Mô hình OpenAI ưu tiên:</label>
+          <select id="cfgOpenAiModel">
+            <option value="gpt-4o">gpt-4o (Nhanh, ổn định)</option>
+            <option value="gpt-4.1">gpt-4.1 (Sâu sắc, chuẩn văn phong)</option>
+            <option value="gpt-4o-mini">gpt-4o-mini (Tiết kiệm)</option>
+          </select>
+        </div>
+        <div>
+          <label for="cfgGeminiKey">🔑 Google Gemini API Key riêng (tùy chọn):</label>
+          <input type="password" id="cfgGeminiKey" placeholder="Để trống nếu dùng khóa chạy sẵn">
+        </div>
+      </div>
+
+      <div style="margin-bottom:14px;">
+        <label for="cfgCustomPrompt">📝 Ghi chú / Yêu cầu riêng bổ sung cho 8 Danh (tùy chọn):</label>
+        <textarea id="cfgCustomPrompt" rows="3" placeholder="Ví dụ: Luôn nhắc chị kiểm tra thời hạn gửi báo cáo về Đảng ủy TTXVN trước ngày 20 hằng tháng..."></textarea>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:8px;">
+        <button class="btn btn-subtle" onclick="closeApiModal()">Hủy</button>
+        <button class="btn btn-green" onclick="saveApiConfig()">💾 Lưu Cấu Hình 8 Danh</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Embedded Compiled Corpus of 48 ITAXA Documents -->
+  <script id="itaxa-corpus-data" type="application/json">{"meta": {"source_drive_url": "https://drive.google.com/drive/folders/1zB75pfJR0tTMjGoyclhAL_J7Agbkkm54?usp=sharing", "compiled_at": "2026-11-12 00:50", "stats": {"total_downloaded_files": 48, "extractable_text_files": 38, "scanned_pdf_files": 10, "header_dang_bo_ttxvn": 37, "header_dang_uy_ttxvn": 1, "header_dang_uy_itaxa": 38, "date_tp_hcm": 31, "date_tp_ho_chi_minh": 7, "sign_tm_dang_uy": 27, "sign_tm_ban_chap_hanh": 5, "sign_tm_ban_thuong_vu": 0, "sign_bi_thu_nguyen_duc_trong": 34, "sign_pho_bi_thu_nguyen_anh_kiet": 4, "sign_nguoi_bao_cao": 6, "noi_nhan": 36, "ending_dot_slash_dot": 2}}, "style_rules": {"co_quan_cap_tren": "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM", "co_quan_ban_hanh": "ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA", "tieu_ngu": "ĐẢNG CỘNG SẢN VIỆT NAM", "dia_danh_ngay": "TP.HCM, ngày ... tháng ... năm 2026 (dạng TP.HCM là phổ biến nhất trong văn bản ban hành thực tế; một số báo cáo tổng hợp ghi TP. Hồ Chí Minh)", "quyen_han_ky": "T/M ĐẢNG ỦY -> BÍ THƯ -> Nguyễn Đức Trọng (hoặc PHÓ BÍ THƯ -> Nguyễn Anh Kiệt; Đề án/CTHĐ đầu nhiệm kỳ dùng T/M BAN CHẤP HÀNH; Báo cáo tháng ngắn gọn dùng NGƯỜI BÁO CÁO / Nguyễn Đức Trọng / (UV BCH Đảng bộ TTXVN, Bí thư Đảng ủy ITAXA)). TUYỆT ĐỐI KHÔNG tự ý dùng 'T/M BAN THƯỜNG VỤ' hay kết thúc bằng './.'", "ky_hieu_van_ban": {"Công văn": "Số ...-CV/ĐU (kèm dòng trích yếu in nghiêng 'V/v ...' ngay dưới Số và 'Kính gửi: Các chi bộ trực thuộc.')", "Kế hoạch": "Số ...-KH/ĐU", "Chương trình hành động": "Số ...-CTr/ĐU (hoặc Ctr/ĐU)", "Báo cáo": "Số ...-BC/ĐU (hoặc không số nếu là Báo cáo tóm tắt tháng ngắn gọn)", "Nghị quyết": "Số ...-NQ/ĐU", "Đề án": "Số ...-ĐA/ĐU", "Thông báo / Kết luận / Quyết định / Tờ trình": "Số ...-TB/ĐU | ...-KL/ĐU | ...-QĐ/ĐU | ...-TTr/ĐU"}, "dac_diem_hanh_van_itaxa": ["Mở đầu chuẩn mực: 'Thực hiện Công văn số .../ Kế hoạch số .../ Hướng dẫn số ... của Đảng ủy Thông tấn xã Việt Nam về ..., Đảng ủy Công ty TNHH một thành viên ITAXA (Đảng ủy ITAXA) ban hành / đề nghị các chi bộ trực thuộc ...'", "Câu văn chắc gọn, dứt khoát, mang tính chỉ đạo thực chất trong doanh nghiệp nhà nước: gắn công tác xây dựng Đảng với nhiệm vụ chính trị, sản xuất kinh doanh in ấn, khai thác cho thuê văn phòng và chăm lo đời sống người lao động.", "Không viết khẩu hiệu sáo rỗng hay lặp lại các con số kế hoạch giả định; nếu chưa có số liệu cụ thể thì đặt mốc [cần bổ sung số liệu...] để người soạn điền chính xác.", "Bố cục Kế hoạch thường gồm 3 phần: I. MỤC ĐÍCH, YÊU CẦU | II. NỘI DUNG THỰC HIỆN | III. TỔ CHỨC THỰC HIỆN (giao rõ các chi bộ trực thuộc, Đảng ủy/UBKT Đảng ủy, Bộ phận Đảng vụ và chế độ tổng hợp báo cáo).", "Kết thúc Công văn chỉ đạo: 'Đề nghị các chi bộ trực thuộc nghiêm túc triển khai thực hiện.' hoặc 'Đề nghị các chi bộ trực thuộc triển khai thực hiện.'", "Nơi nhận chuẩn ITAXA: '- Như trên (để thực hiện);' / '- Đảng ủy TTXVN (để báo cáo);' / '- Các đ/c Ủy viên BCH Đảng bộ ITAXA (để phối hợp);' / '- Các chi bộ trực thuộc;' / '- Lưu ĐU.' hoặc '- Lưu VPĐU.'"]}, "verified_itaxa_facts": {"vi_the": "Đảng bộ Công ty TNHH MTV ITAXA là đảng bộ cơ sở trực thuộc Đảng bộ Thông tấn xã Việt Nam (TTXVN).", "to_chuc_truc_thuoc": "03 chi bộ trực thuộc: (1) Chi bộ Khối Chức năng - Dịch vụ, (2) Chi bộ Nhà In TTXVN, (3) Chi bộ Công ty Cổ phần Địa Sinh.", "quy_mo_2026": "Theo Báo cáo KTGS 9 tháng & năm 2026 (số 104, 125-BC/ĐU): Đảng bộ có 46 đảng viên chính thức (12 nữ, 26,1%), tổng số CB-CNV-NLĐ khoảng 223 người; UBKT Đảng ủy có 03 đồng chí hoạt động kiêm nhiệm.", "nhan_su_tham_khao_tu_van_ban": {"Bí thư Đảng ủy, Chủ tịch kiêm Giám đốc": "đ/c Nguyễn Đức Trọng (UV BCH Đảng bộ TTXVN, Bí thư Đảng ủy ITAXA)", "Phó Bí thư Đảng ủy": "đ/c Nguyễn Anh Kiệt", "Các chi bộ & cán bộ trong văn bản": "Chi bộ Khối Chức năng - Dịch vụ (Bí thư: đ/c Nguyễn Đình Thiện); Chi bộ Nhà In TTXVN (Phó Bí thư: đ/c Lê Thanh Quang; Chi ủy viên/Tổ trưởng Tổ Pháp chế - Văn thư - Chăm sóc NLĐ: đ/c Trịnh Thị An); Chi bộ Công ty CP Địa Sinh.", "Bộ phận giúp việc & đoàn thể": "Bộ phận Đảng vụ (Văn phòng Đảng ủy), UBKT Đảng ủy, Công đoàn, Đoàn Thanh niên, Chi hội Cựu chiến binh, Trung tâm Dịch vụ Thông tấn, Trung tâm Đào tạo - Dạy nghề."}, "nhiem_vu_dac_thu_2026": ["In ấn phẩm phục vụ nhiệm vụ chính trị của TTXVN và gia công in thương mại bảo đảm chất lượng, tiến độ.", "Khai thác kinh doanh, cho thuê mặt bằng văn phòng tại các tòa nhà ITAXA; quan tâm dự án nâng cấp Tòa nhà ITAXA House và đầu tư xây dựng Tòa nhà ITAXA Central (19 Võ Văn Tần).", "Duy trì hệ thống quản lý chất lượng ISO 9001:2015, chứng chỉ FSC, an toàn lao động, phòng cháy chữa cháy; quản trị định mức vật tư in (giấy, mực, bản kẽm), điện năng, thực hành tiết kiệm chống lãng phí.", "Thực hiện Nghị quyết Đại hội XIV của Đảng, Nghị quyết Đại hội Đảng bộ TTXVN lần thứ XXVII, Nghị quyết Đại hội Đảng bộ ITAXA nhiệm kỳ 2025-2030.", "Chuyển đổi số trong công tác Đảng và doanh nghiệp: Sổ tay đảng viên điện tử, thu nộp đảng phí qua 04 tài khoản ngân hàng chuyên dùng theo Quy định 01-QĐ/TW, số hóa 100% hồ sơ đảng viên (KH 51-KH/ĐU).", "Phong trào & văn hóa: mô hình 'chi bộ bốn tốt', 'đảng bộ cơ sở bốn tốt', phong trào 'Dân vận khéo' giai đoạn 2026-2030, phương châm phân công '6 rõ, 1 xuyên suốt', 'Văn hóa doanh nghiệp ITAXA mang tính nhân văn, đầy tình nghĩa', đối thoại định kỳ chiều Thứ Năm hằng tuần giữa BCH Công đoàn và người lao động."]}, "templates": {"cong_van": {"source_file": "95-  CV yeu cau cac chi bo truc thuoc trien khai thuc hien DAN VAN VẬN KHÉO - chốt.docx", "excerpt": "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM\nĐẢNG ỦY CÔNG TY TNHH MTV ITAXA\n*\nSố 95-CV/ĐU\nV/v triển khai, thực hiện phong trào thi đua\n“Dân vận khéo” giai đoạn 2026 - 2030\n\nĐẢNG CỘNG SẢN VIỆT NAM\nTP.HCM, ngày 07 tháng 9 năm 2026\nKính gửi: Các chi bộ trực thuộc\nThực hiện Hướng dẫn số 25-HD/BTGDVTW, ngày 11/6/2026 của Ban Tuyên giáo và Dân vận Trung ương về phong trào thi đua “Dân vận khéo” (gọi tắt là Hướng dẫn số 25-HD/BTGDVTW); Công văn số 187-CV/BTGĐU, ngày 18/8/2026 của Ban Tuyên giáo Đảng ủy các cơ quan Đảng Trung ương và Công văn số 757-CV/ĐU, ngày 21/8/2026 của Đảng ủy Thông tấn xã Việt Nam về triển khai, thực hiện phong trào thi đua “Dân vận khéo” giai đoạn 2026 - 2030; Đảng ủy Công ty TNHH một thành viên ITAXA (Đảng ủy ITAXA) đề nghị các chi bộ trực thuộc triển khai một số nội dung sau:\n1. Tuyên truyền, phổ biến và triển khai Hướng dẫn số 25-HD/BTGDVTW và các chủ trương, nghị quyết, chỉ thị, kết luận của Trung ương về công tác dân vận; tạo chuyển biến mạnh mẽ về nhận thức và hành động của cán bộ, đảng viên trong thực hiện phong trào thi đua “Dân vận khéo”.\nĐổi mới nội dung, phương thức tuyên truyền phù hợp với đặc điểm, tình hình của Công ty; chủ động nắm bắt tình hình tư tưởng, tâm tư, nguyện vọng của cán bộ, đảng viên, người lao động, kịp thời phản ánh, phối hợp giải quyết những vấn đề phát sinh theo chức năng, thẩm quyền; tuyên truyền, giới thiệu mô hình tốt, cách làm hay, gương người tốt, việc tốt, điển hình tiên tiến và các mô hình “Dân vận khéo”.\nChủ động nắm bắt tình hình tư tưởng, dư luận; nâng cao nhận thức, trách nhiệm của cán bộ, đảng viên trong đấu tranh phản bác các quan điểm sai trái, thù địch, thông tin xấu độc trên không gian mạng, góp phần bảo vệ nền tảng tư tưởng của Đảng.\n...\n[... Lược phần giữa theo đúng mạch văn mẫu ITAXA ...]\n...\nCác chi bộ trực thuộc đưa kết quả thực hiện phong trào thi đua “Dân vận khéo” vào báo cáo tổng kết công tác xây dựng Đảng hằng năm.\nĐề nghị các chi bộ trực thuộc nghiêm túc triển khai thực hiện.\nNơi nhận :\n- Như trên (để thực hiện) ;\n- Đảng ủy TTXVN (để báo cáo);\n- Các đ/c Ủy viên BCH\nĐảng bộ ITAXA (để phối hợp);\n- Lưu ĐU.\nT/M ĐẢNG ỦY\nBÍ THƯ\nNguyễn Đức Trọng"}, "cong_van_ngan": {"source_file": "78_ Trien khai 07-CT.TW về  học tập  tư tưởng  Hồ Chí Minh trong giai đoạn mới - An-CHỐT.docx", "excerpt": "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM\nĐẢNG ỦY CÔNG TY TNHH MTV ITAXA\n*\nSố 78 - CV/ĐU\nV/v phổ biến, quán triệt Chỉ thị số 07-CT/TW\ncủa Bộ Chính trị về \"Đẩy mạnh học tập, thực hành\ntư tưởng, đạo đức, phương pháp, phong cách\nHồ Chí Minh trong giai đoạn phát triển mới\".\nĐẢNG CỘNG SẢN VIỆT NAM\nTP.HCM, ngày 27 tháng 7 năm 2026\nKính gửi: Các chi bộ trực thuộc.\nThực hiện Công văn số 687-CV/ĐU ngày 16/ 7/ 2026 của Đảng ủy Thông tấn xã Việt Nam về việc phổ biến, quán triệt Chỉ thị số 07-CT/TW, ngày 13/7/2026 của Bộ Chính trị, Đảng ủy Công ty TNHH MTV ITAXA (Đảng ủy ITAXA) đề nghị các chi bộ trực thuộc nghiêm túc triển khai thực hiện các nội dung trọng tâm sau:\n1. Tổ chức phổ biến, quán triệt sâu sắc nội dung Chỉ thị\nCấp ủy, Bí thư các chi bộ trực thuộc chịu trách nhiệm tổ chức quán triệt trực tiếp, đầy đủ nội dung Chỉ thị số 07-CT/TW ngày 13/7/2026 của Bộ Chính trị về \"Đẩy mạnh học tập, thực hành tư tưởng, đạo đức, phương pháp, phong cách Hồ Chí Minh trong giai đoạn phát triển mới\" đến toàn thể cán bộ, đảng viên trong đơn vị.\n2. Cụ thể hóa việc học tập và thực hành theo Bác\nGắn việc học tập và thực hành tư tưởng, đạo đức, phương pháp, phong cách Hồ Chí Minh với việc xây dựng văn hóa công vụ, trách nhiệm thực thi nhiệm vụ chuyên môn và văn hóa ứng xử tại đơn vị.\nCốt lõi là vận dụng sáng tạo tư tưởng của Người để giải quyết các nhiệm vụ trọng tâm, khắc phục các điểm nghẽn, nâng cao hiệu quả hoạt động sản xuất kinh doanh của đơn vị.\nNâng cao bản lĩnh, tư duy đổi mới của cán bộ, đảng viên: dám nghĩ, dám làm, dám chịu trách nhiệm vì lợi ích chung.\n3. Phát huy vai trò, trách nhiệm nêu gương\nYêu cầu các đồng chí cấp ủy chi bộ, Bí thư chi bộ, người đứng đầu các đơn vị, phòng ban phát huy mạnh mẽ vai trò nêu gương. Nêu gương phải trở thành phương thức lãnh đạo thường xuyên, tập trung vào 3 nhóm nội dung: bản lĩnh chính trị; đạo đức công vụ và kỷ luật thực thi; tinh thần phục vụ người lao động và khách hàng.\n4. Đưa nội dung thực hành theo Bác vào sinh hoạt chi bộ thường kỳ\n...\n[... Lược phần giữa theo đúng mạch văn mẫu ITAXA ...]\n...\nNâng cao chất lượng tự phê bình và phê bình, khắc phục triệt để bệnh hình thức.\n5. Tổ chức thực hiện\nĐảng ủy ITAXA đề nghị các Chi bộ trực thuộc quán triệt đến cán bộ, đảng viên nội dung Chỉ thị trên (gửi kèm theo) và Công văn này vào buổi sinh hoạt định kỳ tháng 8/2026.\nGiao Bộ phận Đảng vụ theo dõi, đôn đốc, kiểm tra việc thực hiện của các chi bộ trực thuộc và tổng hợp báo cáo cho Đảng ủy ITAXA theo quy định.\nĐề nghị các chi bộ trực thuộc triển khai thực hiện.\nNơi nhận:\n- Như trên (để thực hiện);\n- Các đ/c Ủy viên BCH Đảng bộ ITAXA\n(để phối hợp);\n- Lưu VPĐU.\nT/M ĐẢNG ỦY\nBÍ THƯ\nNguyễn Đức Trọng"}, "ke_hoach_chuan": {"source_file": "93- Ke hoach thuc hien Nghị quyết 19 -  KH so 59 cua Dang uy TTXVN - chốt.docx", "excerpt": "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM\nĐẢNG ỦY CÔNG TY TNHH MTV ITAXA\n*\nSố 93-KH/ĐU\n\nĐẢNG CỘNG SẢN VIỆT NAM\nTP.HCM, ngày 07 tháng 9 năm 2026\nKẾ HOẠCH\nthực hiện Nghị quyết số 19-NQ/TW, ngày 28/7/2026\ncủa Ban Chấp hành Trung ương Đảng khóa XIV\nvề đổi mới mô hình phát triển Việt Nam\n-----\nThực hiện Kế hoạch số 59-KH/ĐU, ngày 28/8/2026 của Đảng ủy Thông tấn xã Việt Nam về thực hiện Nghị quyết số 19-NQ/TW, ngày 28/7/2026 của Ban Chấp hành Trung ương Đảng khóa XIV về đổi mới mô hình phát triển Việt Nam, Đảng ủy Công ty TNHH một thành viên ITAXA (Đảng ủy ITAXA) ban hành Kế hoạch thực hiện như sau:\nI. MỤC ĐÍCH, YÊU CẦU\n1. Tổ chức nghiên cứu, học tập, quán triệt và tuyên truyền Nghị quyết số 19-NQ/TW, góp phần nâng cao nhận thức, tạo sự thống nhất về ý chí và hành động trong cán bộ, đảng viên về yêu cầu đổi mới mô hình phát triển Việt Nam; phát huy trách nhiệm của cấp ủy, cán bộ, đảng viên trong tổ chức thực hiện Nghị quyết.\n2. Việc triển khai thực hiện phải nghiêm túc, thiết thực, phù hợp với chức năng, nhiệm vụ và tình hình thực tế của Công ty; gắn việc thực hiện Nghị quyết với nhiệm vụ chính trị, công tác xây dựng Đảng và hoạt động sản xuất - kinh doanh của Công ty.\n3. Đổi mới nội dung, phương thức tuyên truyền, phổ biến; tăng cường ứng dụng công nghệ số, bảo đảm việc triển khai Nghị quyết thiết thực, hiệu quả, tránh hình thức, dàn trải.\nII. NỘI DUNG THỰC HIỆN\n1. Tổ chức nghiên cứu, học tập, quán triệt Nghị quyết\nTổ chức nghiên cứu, học tập, quán triệt Nghị quyết số 19-NQ/TW và các văn bản triển khai đến 100% cán bộ, đảng viên; tập trung làm rõ các quan điểm chỉ đạo, mục tiêu, nhiệm vụ và giải pháp chủ yếu về đổi mới mô hình phát triển Việt Nam.\nCác chi bộ trực thuộc căn cứ chức năng, nhiệm vụ và tình hình thực tế tổ chức triển khai phù hợp; gắn nội dung Nghị quyết với sinh hoạt chi bộ và thực hiện nhiệm vụ được giao.\n2. Tăng cường tuyên truyền, phổ biến Nghị quyết\n...\n[... Lược phần giữa theo đúng mạch văn mẫu ITAXA ...]\n...\n2. Đảng ủy, Ủy ban Kiểm tra Đảng ủy theo dõi, kiểm tra, giám sát việc triển khai thực hiện Kế hoạch; kịp thời chấn chỉnh những hạn chế, vướng mắc trong quá trình thực hiện.\n3. Kết quả thực hiện Kế hoạch được tổng hợp trong báo cáo sơ kết 6 tháng, tổng kết năm hoặc báo cáo đột xuất khi có yêu cầu để báo cáo Đảng ủy TTXVN theo quy định.\nNơi nhận:\n- Đảng ủy TTXVN (để báo cáo);\n- Các đ/c Ủy viên BCH Đảng bộ ITAXA;\n- Các chi bộ trực thuộc;\n- Lưu ĐU.\nT/M ĐẢNG ỦY\nBÍ THƯ\nNguyễn Đức Trọng"}, "ke_hoach_dai": {"source_file": "87-  Ke hoach thuc hien Ket luan 58  theo KH so 54 cua Dang uy TTXVN - chốt - 27.9.26.docx", "excerpt": "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM\nĐẢNG ỦY CÔNG TY TNHH MTV ITAXA\n*\nSố 87-KH/ĐU\n\nĐẢNG CỘNG SẢN VIỆT NAM\nTP.HCM, ngày 12 tháng 8 năm 2026\nKẾ HOẠCH\nthực hiện Kết luận số 58-KL/TW của Bộ Chính trị về tiếp tục thực hiệnNghị quyết số 21-NQ/TW của Ban Chấp hành Trung ương Đảng khóa XIIIvề tăng cường củng cố, xây dựng tổ chức cơ sở đảng và nâng caochất lượng đội ngũ đảng viên trong giai đoạn mới\n-----\nThực hiện Kết luận số 58-KL/TW, ngày 26/6/2026 của Bộ Chính trị về tiếp tục thực hiện Nghị quyết số 21-NQ/TW, ngày 16/6/2022 của Ban Chấp hành Trung ương Đảng khóa XIII về tăng cường củng cố, xây dựng tổ chức cơ sở đảng và nâng cao chất lượng đội ngũ đảng viên trong giai đoạn mới (viết tắt là Kết luận số 58-KL/TW) và Kế hoạch số 54-KH/ĐU, ngày 04 tháng 8 năm 2026 của Đảng ủy Thông tấn xã Việt Nam về thực hiện Kết luận số 58-KL/TW, Đảng ủy Công ty TNHH MTV ITAXA (Đảng ủy ITAXA) xây dựng Kế hoạch thực hiện như sau:\nI. MỤC ĐÍCH, YÊU CẦU\n1. Nâng cao nhận thức, trách nhiệm của cấp ủy, các chi bộ trực thuộc, cán bộ, đảng viên, nhất là người đứng đầu trong tổ chức thực hiện Kết luận số 58-KL/TW; tạo sự chuyển biến mạnh mẽ, đồng bộ trong việc đổi mới phương thức lãnh đạo, tổ chức thực hiện, đổi mới tư duy và năng lực quản trị trên nền tảng số; tăng cường củng cố, xây dựng tổ chức đảng và nâng cao chất lượng đội ngũ đảng viên gắn với việc tự đổi mới, tự chỉnh đốn Đảng trong tình hình mới, góp phần xây dựng “Đảng ta thật sự là đạo đức, là văn minh”.\n2. Cụ thể hóa mục tiêu, nhiệm vụ, giải pháp trong Kết luận số 58-KL/TW và Kế hoạch của Đảng ủy TTXVN phù hợp với tình hình, đặc điểm của Đảng bộ ITAXA; tập trung thực hiện các nhiệm vụ, giải pháp chủ yếu nhằm củng cố, xây dựng tổ chức đảng và nâng cao chất lượng đội ngũ đảng viên, đáp ứng yêu cầu nhiệm vụ công tác xây dựng Đảng và nhiệm vụ chính trị của Công ty.\nII. MỘT SỐ CHỈ TIÊU CỤ THỂ GIAI ĐOẠN 2026 - 2030\n1.Về tổ chức đảng\nTỷ lệ chi bộ trực thuộc được đánh giá, xếp loại từ hoàn thành tốt nhiệm vụ trở lên hằng năm: ≥ 90%.\nTỷ lệ chi bộ được đánh giá chất lượng sinh hoạt theo tiêu chí, chỉ số cụ thể: 100%.\n...\n[... Lược phần giữa theo đúng mạch văn mẫu ITAXA ...]\n...\nNơi nhận:\n- Đảng ủy TTXVN (báo cáo);\n- Các đ/c Ủy viên BCH\nĐảng bộ ITAXA (để phối hợp);\n- Các chi bộ trực thuộc (để thực hiện);\n- Lưu ĐU.\nT/M ĐẢNG ỦY\nBÍ THƯ\nNguyễn Đức Trọng"}, "bao_cao_ngan": {"source_file": "116.1_  BAO CAO CONG TAC DANG THANG 10-2026- Ngắn gọn.docx", "excerpt": "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM\nĐẢNG ỦY CÔNG TY TNHH MTV ITAXA\n*\nĐẢNG CỘNG SẢN VIỆT NAM\nTP.HCM, ngày 19 tháng 10 năm 2026\nBÁO CÁO\ntóm tắt kết quả công tác tháng 10/2026 và phương hướng nhiệm vụ\ncông tác tháng 11/2026 của Đảng bộ Công ty TNHH MTV ITAXA\n.............\nKết quả công tác tháng 10/2026\nTrong tháng 10/2026, Đảng ủy Công ty TNHH MTV ITAXA tiếp tục bám sát sự chỉ đạo của Đảng ủy TTXVN; tập trung lãnh đạo công tác xây dựng Đảng gắn với duy trì hoạt động sản xuất, kinh doanh, dịch vụ. Đến thời điểm báo cáo, tình hình tư tưởng cán bộ, đảng viên, người lao động cơ bản ổn định, nội bộ đoàn kết; không phát sinh vấn đề phức tạp, đơn thư khiếu nại, tố cáo.\nVề thực hiện nhiệm vụ chính trị, Đảng ủy cùng với Ban Lãnh đạo Công ty chỉ đạo bảo đảm tiến độ, chất lượng các sản phẩm phục vụ nhiệm vụ chính trị của Ngành và các đơn hàng in; kiểm soát hao phí vật tư, tiết kiệm chi phí; duy trì khai thác mặt bằng, tìm kiếm khách hàng mới. Tiếp tục duy trì hệ thống ISO 9001:2015, chứng chỉ FSC, bảo đảm an toàn lao động, phòng cháy, chữa cháy; triển khai chuyển đổi số và số hóa hồ sơ cán bộ, đảng viên, người lao động.\nTrong công tác xây dựng Đảng, duy trì nền nếp sinh hoạt cấp ủy, chi bộ; triển khai Sổ tay đảng viên điện tử, thu nộp đảng phí trực tuyến và các kế hoạch thực hiện nghị quyết, chỉ thị, quy định của Trung ương. Ngày 16/10/2026, cán bộ, đảng viên tham dự Hội nghị toàn quốc học tập, quán triệt Nghị quyết Hội nghị Trung ương 4 khóa XIV. Đảng ủy hoàn thành hồ sơ kiểm tra, giám sát đối với Chi bộ Nhà In TTXVN; các chi bộ hoàn thiện hồ sơ giám sát chuyên đề đối với đảng viên. Không có tổ chức đảng, đảng viên vi phạm phải xử lý kỷ luật.\nMột số hạn chế cần quan tâm là hiệu quả chuyển đổi số chưa đồng đều; công tác phát triển khách hàng in mới còn hạn chế; khai thác văn phòng cho thuê có thời điểm chưa đạt kỳ vọng.\n2. Phương hướng, nhiệm vụ công tác tháng 11/2026\n...\n[... Lược phần giữa theo đúng mạch văn mẫu ITAXA ...]\n...\nVề công tác Đảng, tiếp tục triển khai các nghị quyết, chỉ thị của Trung ương và Đảng ủy TTXVN; thực hiện Kế hoạch số 55-KH/ĐU về triển khai Chỉ thị số 07-CT/TW. Nâng cao chất lượng sinh hoạt chi bộ gắn với xây dựng “chi bộ 4 tốt”; tổ chức sinh hoạt chuyên đề quý IV/2026. Quan tâm phát triển đảng viên, rà soát tiến độ số hóa hồ sơ; thực hiện chương trình kiểm tra, giám sát năm 2026, phòng, chống tham nhũng, lãng phí, tiêu cực và phong trào thi đua “Dân vận khéo”.\nNơi nhận:\n- Đảng ủy TTXVN (để b/c);\n- Lưu ĐU.\nNGƯỜI BÁO CÁO\nNguyễn Đức Trọng\n(UV BCH Đảng bộ TTXVN,\nBí thư Đảng ủy ITAXA)"}, "bao_cao_thang": {"source_file": "116-  BAO CAO CONG TAC DANG THANG 10-2026- lần 3 (Chốt).docx", "excerpt": "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM\nĐẢNG ỦY CÔNG TY TNHH MTV ITAXA\n*\nSố 116-BC/ĐU\nĐẢNG CỘNG SẢN VIỆT NAM\nTP.HCM, ngày 19 tháng 10 năm 2026\nBÁO CÁO\nkết quả công tác tháng 10/2026\nvà nhiệm vụ, giải pháp trọng tâm tháng 11/2026\n-----\nTÌNH HÌNH\nTrong tháng 10/2026, tình hình kinh tế trong nước tiếp tục có nhiều yếu tố tác động đến hoạt động sản xuất, kinh doanh của doanh nghiệp; ngành in còn chịu áp lực cạnh tranh cao, nhu cầu thị trường sụt giảm, chi phí tăng trong khi yêu cầu về chất lượng, tiến độ ngày càng cao.\nBám sát sự lãnh đạo, chỉ đạo của Đảng ủy TTXVN, Đảng ủy Công ty TNHH MTV ITAXA (Đảng ủy ITAXA) tập trung lãnh đạo, chỉ đạo công tác xây dựng Đảng gắn với thực hiện nhiệm vụ chính trị; cùng với Ban Lãnh đạo Công ty duy trì ổn định hoạt động sản xuất, kinh doanh, dịch vụ và thực hành tiết kiệm, chống lãng phí.\nĐến thời điểm báo cáo, tình hình tư tưởng cán bộ, đảng viên và người lao động cơ bản ổn định; tinh thần đoàn kết, trách nhiệm được giữ vững; nội bộ Công ty không phát sinh vấn đề phức tạp, không có đơn thư khiếu nại tố cáo.\nII. KẾT QUẢ CÔNG TÁC CỦA CẤP ỦY, TỔ CHỨC ĐẢNG THÁNG 10/2026\n1. Công tác lãnh đạo, chỉ đạo của Đảng ủy\nTrong tháng 10/2026, Đảng ủy ITAXA bám sát sự lãnh đạo, chỉ đạo của Đảng ủy TTXVN; tổ chức quán triệt, triển khai các nghị quyết, chỉ thị, kết luận của Trung ương, Bộ Chính trị, Ban Bí thư và các văn bản chỉ đạo của Đảng ủy TTXVN gắn với nhiệm vụ chính trị và tình hình thực tế của Công ty.\nTrong tháng, Đảng ủy tổ chức 01 cuộc họp triển khai nhiệm vụ công tác Đảng; tập trung lãnh đạo công tác chính trị, tư tưởng, nắm bắt tình hình cán bộ, đảng viên và người lao động; chỉ đạo duy trì nền nếp sinh hoạt cấp ủy, sinh hoạt chi bộ, triển khai sử dụng Sổ tay đảng viên điện tử và thu, nộp đảng phí trên môi trường điện tử theo hướng dẫn của Đảng ủy TTXVN.\n...\n[... Lược phần giữa theo đúng mạch văn mẫu ITAXA ...]\n...\n biến đổi khí hậu trong thời kỳ mới; Kế hoạch số 101-KH/ĐU ngày 07/9/2026 của Đảng ủy ITAXA về việc thực hiện Quy định số 207-QĐ/TW, ngày 26/7/2026 của Ban Chấp hành Trung ương về những điều đảng viên không được làm; Kế hoạch số 103-KH/ĐU ngày 14/9/2026 của Đảng ủy ITAXA về việc thực hiện Quy định số 208-QĐ/TW, ngày 26/7/2026 của Ban Chấp hành Trung ương về thi hành Điều lệ Đảng và Hướng dẫn số 02-HD/TW, ngày 07/8/2026 của Ban Bí thư về một số vấn đề cụ thể thi hành Điều lệ Đảng; Kế hoạch số 107-KH/ĐU ngày 23/9/2026 của Đảng ủy ITAXA về việc nghiên cứu học tập, quán triệt, tuyên truyền triển khai thực hiện một số NQ, Chỉ thị của Bộ chính trị."}, "bao_cao_ktgs": {"source_file": "104_ BAO CAO THUC HIEN KIEM TRA GIAM SAT 9 THANG DAU NAM 2026_ chốt.docx", "excerpt": "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM\nĐẢNG ỦY CÔNG TY TNHH MTV ITAXA\n*\nĐẢNG CỘNG SẢN VIỆT NAM\nSố 104-BC/ĐU TP. Hồ Chí Minh, ngày 15 tháng 9 năm 2026\nBÁO CÁO\nSơ kết công tác kiểm tra, giám sát và thi hành kỷ luật Đảng\n9 tháng đầu năm và phương hướng, nhiệm vụ công tác\n3 tháng cuối năm 2026\n-----\nThực hiện Công văn số 794-CV/ĐU ngày 07/9/2026 của Ủy ban Kiểm tra Đảng ủy TTXVN về việc báo cáo công tác kiểm tra, giám sát và thi hành kỷ luật Đảng 9 tháng đầu năm và phương hướng, nhiệm vụ, công tác 3 tháng cuối năm 2026, Đảng ủy Công ty TNHH MTV ITAXA (Đảng ủy ITAXA) báo cáo như sau:\nA. TÌNH HÌNH, KẾT QUẢ CÔNG TÁC KIỂM TRA, GIÁM SÁT VÀ THI HÀNH KỶ LUẬT ĐẢNG\nI. KHÁI QUÁT TÌNH HÌNH\nĐảng bộ Công ty TNHH MTV ITAXA (Đảng bộ ITAXA) là đảng bộ trực thuộc cơ sở, trực thuộc Đảng bộ Thông tấn xã Việt Nam. Đến thời điểm báo cáo, Đảng bộ có 03 chi bộ trực thuộc, gồm: Chi bộ Khối Chức năng - Dịch vụ, Chi bộ Nhà In TTXVN và Chi bộ Công ty Cổ phần Địa Sinh; tổng số 46 đảng viên, trong đó có 12 đảng viên nữ, chiếm 26,1%.\nBan Chấp hành Đảng bộ, Ủy ban Kiểm tra Đảng ủy được kiện toàn theo Nghị quyết Đại hội Đảng bộ Công ty nhiệm kỳ 2025-2030. Ủy ban Kiểm tra Đảng ủy thực hiện chức năng, nhiệm vụ theo quy định của Điều lệ Đảng và quy chế làm việc; các đồng chí Ủy viên Ủy ban Kiểm tra đều hoạt động kiêm nhiệm, đồng thời đảm nhiệm nhiệm vụ chuyên môn tại doanh nghiệp.\nTrong 9 tháng đầu năm 2026, Đảng ủy và Ủy ban Kiểm tra Đảng ủy ITAXA tiếp tục nhận được sự lãnh đạo, chỉ đạo của Đảng ủy TTXVN và hướng dẫn nghiệp vụ của Ủy ban Kiểm tra Đảng ủy TTXVN. Đảng ủy, Ủy ban Kiểm tra Đảng ủy đã tập trung rà soát, sửa đổi, bổ sung hệ thống quy chế, chương trình công tác, chương trình kiểm tra, giám sát phù hợp với các quy định mới của Trung ương và cấp ủy cấp trên; đồng thời tiếp tục thực hiện các nội dung khắc phục theo kết luận, kiến nghị của Ủy ban Kiểm tra Đảng ủy TTXVN.\n...\n[... Lược phần giữa theo đúng mạch văn mẫu ITAXA ...]\n...\n4\nChi ủy Chi bộ Khối Chức năng - Dịch vụ\nGiám sát chuyên đề (Kèm theo Giám sát thường xuyên)\n02 đảng viên:\n- Đồng chí Phạm Bảo Hà\n- Đồng chí Nguyễn Viết Hiếu\nGiám sát việc chấp hành các nghị quyết, chỉ thị, quy định của Đảng; việc thực hiện chức trách, nhiệm vụ chuyên môn được giao; trách nhiệm nêu gương, tu dưỡng, rèn luyện phẩm chất chính trị, đạo đức, lối sống.\nTháng 10/2026 (Hoàn thành trước 31/10/2026 phục vụ kiểm điểm cuối năm)\nQuyết định giám sát, Kế hoạch, Báo cáo tự giám sát của đảng viên, Biên bản họp Chi bộ, Thông báo kết quả giám sát lưu hồ sơ Chi bộ."}, "nghi_quyet": {"source_file": "01- Nghi quyết ĐBCS ITAXA 2026_01An lần 1 (MP)_CHỐT- An.doc", "excerpt": "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM ĐẢNG CỘNG SẢN VIỆT NAM\nĐẢNG ỦY CÔNG TY TNHH MTV ITAXA\n*\nSố 01-NQ/ĐU TP. HCM, ngày 15 tháng 01 năm 2026\nNGHỊ QUYẾT\nĐẢNG BỘ CÔNG TY TNHH MTV ITAXA NĂM 2026\nCăn cứ nhiệm vụ của tổ chức cơ sở đảng theo qui định Điều lệ Đảng;\nCăn cứ chức năng, quyền hạn của Đảng ủy Công ty TNHH một thành viên ITAXA;\nCăn cứ Chương trình công tác của Ban Chấp hành Đảng bộ Công ty TNHH một thành viên ITAXA năm 2026.\nCăn cứ theo tình hình hoạt động của Đảng bộ và Công ty TNHH một thành viên ITAXA, Đảng ủy Đảng bộ Công ty TNHH một thành viên ITAXA:\nQUYẾT NGHỊ\nToàn thể Đảng bộ, các Chi bộ trực thuộc, cán bộ, đảng viên và người lao động trong toàn Công ty TNHH một thành viên ITAXA, bao gồm Công ty cổ phần cố gắng phấn đấu, vượt qua nhiều khó khăn, hoàn thành tốt nhiệm vụ chính trị mà TTXVN giao, cụ thể là:\nĐảng ủy và Ban Lãnh đạo Công ty lãnh đạo, chỉ đạo đảng bộ cơ sở, các chi bộ trực thuộc, các đơn vị và cán bộ, đảng viên, người lao động trong công ty chấp hành đường lối, chính sách của Đảng, pháp luật của Nhà nước, Nghị quyết của Đảng ủy cấp trên, của Đảng ủy cơ sở. Công tác tuyên giáo, dân vận, dân chủ cơ sở trong doanh nghiệp được chú trọng và duy trì thường xuyên.\nThực hiện khẩu hiệu “Năm 2026, toàn Đảng bộ Công ty TNHH một thành viên ITAXA cố gắng phấn đấu, vượt qua nhiều khó khăn, tiếp tục hoàn thành tốt nhiệm vụ chính trị”, cụ thể là:\nMột là, hoàn thành nhiệm vụ TTXVN giao in các ấn phẩm phục vụ công tác tuyên truyền bảo đảm chất lượng, tiến độ giao hàng; gia công in phục vụ cho xã hội.\nHai là, sản xuất kinh doanh, đầu tư phát triển, quản lý tài chính dự kiến:\nKế hoạch sản lượng sản xuất chủ yếu:\nTrang in (13 x 19) cm : 25.720 triệu trang\nDoanh thu dự kiến đạt 220 tỷ đồng, hoàn thành 100% kế hoạch được giao.\nLợi nhuận trước thuế dự kiến đạt khoảng 30,050 tỷ đồng, hoàn thành 100% kế hoạch được giao.\nNộp ngân sách đúng quy định.\nBảo toàn vốn.\nNgười lao động được đảm bảo thu nhập và các quyền lợi, phúc lợi hợp pháp, chính đáng\n...\n[... Lược phần giữa theo đúng mạch văn mẫu ITAXA ...]\n...\nChi bộ thực hiện nhiệm vụ:\nPhổ biến kịp thời nghị quyết, chỉ thị và nhiều văn bản quan trọng của Đảng cho toàn thể cán bộ, đảng viên và người lao động trong chi bộ, đơn vị mình quản lý;\nLãnh đạo thực hiện nhiệm vụ chính trị của chi bộ, đơn vị;\nGiáo dục, quản lý và phân công công tác cho đảng viên;\nLàm công tác vận động quần chúng;\nCông tác phát triển đảng viên;\nKiểm tra, giám sát và thi hành kỷ luật trong đảng;\nThu, nộp đảng phí.\nChi ủy, chi bộ họp định kỳ mỗi tháng một lần, sinh hoạt chuyên đề tối thiểu 01 quý 01 lần, ngoài trường hợp đột xuất.\nT/M ĐẢNG ỦY ITAXA\nBÍ THƯ\n\nNguyễn Đức Trọng"}, "chuong_trinh_hd": {"source_file": "52. CHUONG TRINH HANH DONG THUC HIEN NQ ĐH XIV CUA DANG_CHỐT.doc", "excerpt": "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM\nĐẢNG ỦY CÔNG TY TNHH MTV ITAXA\n*\nSố 52 - Ctr/ĐU\n\u0007 ĐẢNG CỘNG SẢN VIỆT NAM\n\nTP. HCM, ngày 04 tháng 3 năm 2026\n\u0007\n\u0007\nCHƯƠNG TRÌNH HÀNH ĐỘNG\nThực hiện Nghị quyết Đại hội đại biểu toàn quốc lần thứ XIV của Đảng\n-----\nThực hiện Nghị quyết Đại hội đại biểu toàn quốc lần thứ XIV của Đảng; Chương trình hành động số 30 - Ctr/ĐU và 31 - Ctr/ĐU ngày 02/3/2026 của Đảng ủy Thông tấn xã Việt Nam (TTXVN) và Nghị quyết Đại hội Đảng bộ Công ty TNHH MTV ITAXA nhiệm kỳ 2025-2030, Đảng ủy Công ty ITAXA xây dựng Chương trình hành động thực hiện Nghị quyết Đại hội XIV của Đảng với các nội dung cụ thể như sau:\nI. MỤC ĐÍCH, YÊU CẦU\nCụ thể hóa các quan điểm, mục tiêu, nhiệm vụ trọng tâm và đột phá chiến lược của Nghị quyết Đại hội XIV của Đảng sát với chức năng, nhiệm vụ chính trị và điều kiện thực tiễn của Công ty ITAXA, đặc biệt là tư duy \"kỷ nguyên vươn mình của dân tộc\" và đột phá về chuyển đổi số, phát triển doanh nghiệp nhà nước.\nChuyển từ nhận thức thành hành động quyết liệt, khắc phục tình trạng \"nói nhiều làm ít\", bảo đảm mọi nhiệm vụ đều phân công rõ người, rõ việc, rõ lộ trình, rõ kết quả và hiệu quả.\nBảo đảm sự lãnh đạo toàn diện của Đảng ủy đối với việc thực hiện nhiệm vụ sản xuất - kinh doanh, đẩy mạnh ứng dụng công nghệ, nâng cao đời sống người lao động, xây dựng Đảng bộ ITAXA thực sự trong sạch, vững mạnh, là đạo đức, là văn minh.\nII. CÁC CHỈ TIÊU CHỦ YẾU ĐẾN NĂM 2030\nBám sát mục tiêu tăng trưởng hai con số của Đại hội XIV, Đảng ủy ITAXA quyết tâm hoàn thành các chỉ tiêu sau:\nVề sản xuất kinh doanh & Chuyển đổi số:\nDoanh thu dự kiến tăng trưởng từ 220 tỷ đồng (năm 2026) lên 245 tỷ đồng (năm 2030).\nDự kiến, Lợi nhuận trước thuế phục hồi và tăng lên 38 tỷ đồng (năm 2030); bảo đảm nộp ngân sách bình quân ≥ 22 tỷ đồng/năm; phấn đấu tăng trưởng kép hai con số giai đoạn 2029-2030.\n100% quy trình sản xuất in, quản lý văn phòng và dịch vụ đào tạo được số hóa; 100% hợp đồng và giao dịch tài chính thực hiện qua nền tảng điện tử.\nỨng dụng trí tuệ nhân tạo (AI) đạt tối thiểu 70% trong báo giá, dự báo thị trường và chăm sóc khách hàng tự động.\n...\n[... Lược phần giữa theo đúng mạch văn mẫu ITAXA ...]\n...\nỦy ban Kiểm tra Đảng ủy: Đưa nội dung giám sát việc thực hiện Chương trình hành động này vào kế hoạch kiểm tra, giám sát hàng năm; định kỳ báo cáo Đảng ủy kết quả thực hiện và đề xuất chấn chỉnh các hạn chế (nếu có).\n\nNơi nhận:\n- Đảng ủy TTXVN (để báo cáo),\n- Các đ/c ủy viên BCH Đảng bộ ITAXA,\n- Các đ/c ủy viên UBKT Đảng ủy ITAXA,\n- Ban lãnh đạo Công ty,\n- Các chi bộ trực thuộc,\n- Các tổ chức chính trị - xã hội,\n- Lưu ĐU.\n\n\u0007T/M BAN CHẤP HÀNH\nBÍ THƯ\n\nNguyễn Đức Trọng\n\u0007\n\u0007"}, "de_an": {"source_file": "53. DE AN PHAT TRIEN DANG VIEN  GIAI DOAN 2026 - 2030_CHỐT.doc", "excerpt": "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM\nĐẢNG ỦY CÔNG TY TNHH MTV ITAXA\n*\nSố 53 - ĐA/ĐU\n\u0007 ĐẢNG CỘNG SẢN VIỆT NAM\n\nTP. HCM, ngày 04 tháng 3 năm 2026\n\u0007\n\u0007\nĐỀ ÁN\nPhát triển đảng viên tại Đảng bộ Công ty TNHH MTV ITAXA\ngiai đoạn 2026 - 2030\n\nI. SỰ CẦN THIẾT VÀ CĂN CỨ XÂY DỰNG ĐỀ ÁN\n1. Sự cần thiết\nPhát triển đảng viên là nhiệm vụ trọng tâm, thường xuyên nhằm bổ sung nguồn lực mới, nâng cao năng lực lãnh đạo và sức chiến đấu của tổ chức cơ sở đảng. Trong giai đoạn 2026-2030, khi ITAXA bước vào quá trình chuyển đổi số toàn diện, xây dựng \"Trung tâm điều hành sản xuất thông minh\" việc xây dựng đội ngũ đảng viên trẻ, giỏi chuyên môn, am hiểu công nghệ là đòi hỏi mang tính sống còn để kiến tạo lực lượng nòng cốt, đưa Công ty ITAXA vững bước vào \"kỷ nguyên vươn mình của dân tộc\" theo tinh thần Đại hội XIV.\n2. Căn cứ xây dựng\nĐiều lệ Đảng Cộng sản Việt Nam và các quy định, hướng dẫn thi hành.\nNghị quyết Đại hội đại biểu toàn quốc lần thứ XIV của Đảng; yêu cầu về củng cố tổ chức cơ sở đảng và nâng cao chất lượng đội ngũ đảng viên.\nChỉ thị số 28-CT/TW của Ban Bí thư về nâng cao chất lượng kết nạp đảng viên và rà soát, sàng lọc, đưa những đảng viên không còn đủ tư cách ra khỏi Đảng.\nNghị quyết Đại hội Đảng bộ TTXVN lần thứ XXVII và Chương trình hành động số 30-CTr/ĐU, 31-CTr/ĐU của Đảng ủy TTXVN.\nNghị quyết Đại hội Đảng bộ Công ty TNHH MTV ITAXA nhiệm kỳ 2025 - 2030.\nII. THỰC TRẠNG CÔNG TÁC PHÁT TRIỂN ĐẢNG VIÊN TẠI ITAXA\nƯu điểm\nĐảng bộ ITAXA hiện có 48 đảng viên chính thức sinh hoạt tại 03 chi bộ trực thuộc (Chi bộ Khối Chức năng - Dịch vụ, Chi bộ Nhà In TTXVN, Chi bộ Công ty CP Địa Sinh), chiếm khoảng 21% tổng số cán bộ, công nhân viên, người lao động. Lực lượng đảng viên được phân bổ hợp lý (69,4% ở khối sản xuất - kinh doanh), phát huy tốt vai trò tiên phong, gương mẫu trong thực hiện nhiệm vụ. Nhiệm kỳ 2020-2025, Đảng bộ đã kết nạp được 07 quần chúng ưu tú, đảm bảo đúng nguyên tắc, thủ tục.\n2. Hạn chế và nguyên nhân\nHạn chế: Mặc dù đã có cố gắng nhưng công tác phát triển đảng viên mới chưa đạt chỉ tiêu đề ra, với tỷ lệ đạt 70% so với Nghị quyết của Đại hội Đảng bộ.\n...\n[... Lược phần giữa theo đúng mạch văn mẫu ITAXA ...]\n...\nCác tổ chức đoàn thể (Công đoàn, Đoàn Thanh niên): Xây dựng kế hoạch phát động thi đua tạo nguồn; định kỳ 6 tháng/lần báo cáo Đảng ủy danh sách đoàn viên ưu tú giới thiệu cho Đảng xem xét.\nBộ phận Đảng vụ (Văn phòng Đảng ủy): Chịu trách nhiệm theo dõi, đôn đốc; hướng dẫn nghiệp vụ, thủ tục hồ sơ kết nạp Đảng cho các chi bộ đảm bảo chặt chẽ, đúng quy định của Điều lệ Đảng và Hướng dẫn của Trung ương.\n\nNơi nhận:\n- Đảng ủy TTXVN (để báo cáo),\n- Các đ/c ủy viên BCH Đảng bộ ITAXA,\n- Ban lãnh đạo Công ty,\n- Các chi bộ trực thuộc,\n- Các tổ chức chính trị - xã hội,\n- Lưu ĐU.\n\n\u0007T/M BAN CHẤP HÀNH\nBÍ THƯ\n\nNguyễn Đức Trọng\n\u0007\n\u0007"}}}</script>
+
   <script>
-    // Cấu hình mã khóa API (Hỗ trợ giải mã an toàn & LocalStorage)
+    // =========================================================================
+    // 1. INITIALIZATION & VERIFIED ITAXA CORPUS
+    // =========================================================================
+    const CORPUS = JSON.parse(document.getElementById('itaxa-corpus-data').textContent);
     const _d = (s) => decodeURIComponent(escape(atob(s)));
-    const GEMINI_API_KEY = localStorage.getItem('itaxa_gemini_key') || _d("QVEuQWI4Uk42TDd3UTVKTnF4RExvVTY0SzBtN2t0Z3ZZVWpoWjl1T3hmYkQ1T0R1OU4tNWc=");
-    const DEEPSEEK_API_KEY = localStorage.getItem('itaxa_deepseek_key') || _d("c2stNmJjZDIxMDJhZTQ1NDIxYWE5NjlkNjE3MmM2MzA2NGY=");
-    let CURRENT_MODEL = "tam-danh";
+    const DEFAULT_GEMINI_KEY = _d("QVEuQWI4Uk42TDd3UTVKTnF4RExvVTY0SzBtN2t0Z3ZZVWpoWjl1T3hmYkQ1T0R1OU4tNWc=");
+    const GEMINI_MODELS = ["gemini-3.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash"];
 
-    // Hỗ trợ lưu link ChatGPT Plus riêng của Trợ lý Tám Danh
-    const savedCustomGptUrl = localStorage.getItem('tam_danh_gpt_url') || 'https://chatgpt.com';
-    const btnTop = document.getElementById('btnOpenTamDanh');
-    const btnSide = document.getElementById('sideBtnTamDanh');
-    if (btnTop) btnTop.href = savedCustomGptUrl;
-    if (btnSide) btnSide.href = savedCustomGptUrl;
+    let chatHistory = [];
+    let lastDraftBackup = "";
+    let isPreviewMode = false;
 
-    function configTamDanhUrl() {
-      const current = localStorage.getItem('tam_danh_gpt_url') || 'https://chatgpt.com';
-      const input = prompt('Chị An ơi, nếu chị có đường dẫn Custom GPT "Trợ Lý Tám Danh" riêng trên tài khoản ChatGPT Plus của chị (ví dụ: https://chatgpt.com/g/g-xxxxxx), chị dán vào đây giúp em nhé:\n(Để trống nếu muốn mở chatgpt.com)', current);
-      if (input !== null) {
-        const val = input.trim() || 'https://chatgpt.com';
-        localStorage.setItem('tam_danh_gpt_url', val);
-        if (btnTop) btnTop.href = val;
-        if (btnSide) btnSide.href = val;
-        alert('Dạ em đã lưu liên kết Trợ Lý Tám Danh của Chị thành công!');
-      }
+    const DOC_TYPE_DEFAULTS = {
+      "Công văn": { suffix: "...-CV/ĐU", signer: "T/M ĐẢNG ỦY|BÍ THƯ|Nguyễn Đức Trọng", tplKey: "cong_van" },
+      "Kế hoạch": { suffix: "...-KH/ĐU", signer: "T/M ĐẢNG ỦY|BÍ THƯ|Nguyễn Đức Trọng", tplKey: "ke_hoach_chuan" },
+      "Báo cáo ngắn gọn": { suffix: "(Không số)", signer: "NGƯỜI BÁO CÁO||(UV BCH Đảng bộ TTXVN, Bí thư Đảng ủy ITAXA) Nguyễn Đức Trọng", tplKey: "bao_cao_ngan" },
+      "Báo cáo": { suffix: "...-BC/ĐU", signer: "T/M ĐẢNG ỦY|BÍ THƯ|Nguyễn Đức Trọng", tplKey: "bao_cao_thang" },
+      "Chương trình hành động": { suffix: "...-CTr/ĐU", signer: "T/M BAN CHẤP HÀNH|BÍ THƯ|Nguyễn Đức Trọng", tplKey: "chuong_trinh_hd" },
+      "Nghị quyết": { suffix: "...-NQ/ĐU", signer: "T/M ĐẢNG ỦY|BÍ THƯ|Nguyễn Đức Trọng", tplKey: "nghi_quyet" },
+      "Đề án": { suffix: "...-ĐA/ĐU", signer: "T/M BAN CHẤP HÀNH|BÍ THƯ|Nguyễn Đức Trọng", tplKey: "de_an" },
+      "Thông báo": { suffix: "...-TB/ĐU", signer: "T/M ĐẢNG ỦY|BÍ THƯ|Nguyễn Đức Trọng", tplKey: "cong_van_ngan" },
+      "Kết luận": { suffix: "...-KL/ĐU", signer: "T/M ĐẢNG ỦY|BÍ THƯ|Nguyễn Đức Trọng", tplKey: "cong_van_ngan" },
+      "Quyết định": { suffix: "...-QĐ/ĐU", signer: "T/M ĐẢNG ỦY|BÍ THƯ|Nguyễn Đức Trọng", tplKey: "cong_van_ngan" },
+      "Tờ trình": { suffix: "...-TTr/ĐU", signer: "T/M ĐẢNG ỦY|BÍ THƯ|Nguyễn Đức Trọng", tplKey: "cong_van" }
+    };
+
+    const TEMPLATE_LABELS = {
+      cong_van: "Công văn triển khai phong trào (Mẫu 95-CV/ĐU)",
+      cong_van_ngan: "Công văn chỉ đạo gọn (Mẫu 78-CV/ĐU)",
+      ke_hoach_chuan: "Kế hoạch 3 phần chuẩn (Mẫu 93-KH/ĐU)",
+      ke_hoach_dai: "Kế hoạch chuyên đề chi tiết (Mẫu 87-KH/ĐU)",
+      bao_cao_ngan: "Báo cáo tháng ngắn gọn (Mẫu 116.1 - Người báo cáo)",
+      bao_cao_thang: "Báo cáo công tác Đảng tháng (Mẫu 116-BC/ĐU)",
+      bao_cao_ktgs: "Báo cáo Kiểm tra giám sát (Mẫu 104-BC/ĐU)",
+      nghi_quyet: "Nghị quyết Đảng bộ năm (Mẫu 01-NQ/ĐU)",
+      chuong_trinh_hd: "Chương trình hành động (Mẫu 52-CTr/ĐU)",
+      de_an: "Đề án phát triển đảng viên (Mẫu 53-ĐA/ĐU)"
+    };
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
     }
 
-    function openTamDanhWindow() {
-      const url = localStorage.getItem('tam_danh_gpt_url') || 'https://chatgpt.com';
-      window.open(url, 'TamDanhPlusWindow', 'width=580,height=850,menubar=no,toolbar=no,location=yes,status=no');
+    function formatDateTodayVN() {
+      const d = new Date();
+      return `TP.HCM, ngày ${String(d.getDate()).padStart(2, '0')} tháng ${String(d.getMonth() + 1).padStart(2, '0')} năm ${d.getFullYear()}`;
+    }
+
+    function getEngineState() {
+      const mode = document.getElementById('selectModel').value;
+      const openAiKey = (localStorage.getItem('itaxa_openai_key') || '').trim();
+      const openAiModel = localStorage.getItem('itaxa_openai_model') || 'gpt-4o';
+      const geminiKey = (localStorage.getItem('itaxa_gemini_key') || '').trim() || DEFAULT_GEMINI_KEY;
+      return { mode, openAiKey, openAiModel, geminiKey };
+    }
+
+    function updateEnginePill() {
+      const { mode, openAiKey, openAiModel } = getEngineState();
+      const pill = document.getElementById('engineStatusPill');
+      if (mode.startsWith('openai') || (mode === 'auto' && openAiKey)) {
+        if (openAiKey) {
+          const m = mode === 'openai-gpt41' ? 'gpt-4.1' : (mode === 'openai-gpt4o' ? 'gpt-4o' : openAiModel);
+          pill.className = 'engine-pill openai-active';
+          pill.innerHTML = `🟣 8 Danh đang chạy OpenAI ChatGPT (<code>${m}</code>) trực tiếp tại đây`;
+          return;
+        }
+        pill.className = 'engine-pill';
+        pill.innerHTML = '🟠 Chưa nhập OpenAI Key — bấm để nhập hoặc đổi sang Tự động/Gemini';
+        return;
+      }
+      pill.className = 'engine-pill';
+      pill.innerHTML = mode === 'hybrid'
+        ? '🟡 8 Danh Phối Hợp 2 Bước (Soạn thảo + Rà soát chuẩn ITAXA)'
+        : '🟢 8 Danh đang làm việc trực tiếp tại đây (Gemini 3.5 + Kho 48 văn bản ITAXA)';
     }
 
     function switchModel(val) {
-      CURRENT_MODEL = val;
-      const modelNames = {
-        'tam-danh': '🌟 Trợ Lý Tám Danh (ChatGPT Plus)',
-        'gemini': 'Google Gemini (Gemini 3.5)',
-        'chatgpt': 'ChatGPT (OpenAI)',
-        'deepseek': 'DeepSeek API',
-        'hybrid': 'Hybrid (Gemini + ChatGPT)'
+      localStorage.setItem('itaxa_engine_mode', val);
+      updateEnginePill();
+      const { openAiKey } = getEngineState();
+      if (val.startsWith('openai') && !openAiKey) {
+        openApiModal();
+      }
+    }
+
+    function onDocTypeChange() {
+      const docType = document.getElementById('docType').value;
+      const cfg = DOC_TYPE_DEFAULTS[docType] || DOC_TYPE_DEFAULTS["Công văn"];
+      document.getElementById('docNumber').value = cfg.suffix;
+      document.getElementById('signerSelect').value = cfg.signer;
+      updateCopilotContext();
+    }
+
+    function updateCopilotContext() {
+      const docType = document.getElementById('docType').value;
+      const text = document.getElementById('docOutput').value.trim();
+      const words = text ? text.split(/\s+/).length : 0;
+      document.getElementById('copilotContextLabel').textContent = `📑 Đang bám loại: ${docType}`;
+      document.getElementById('copilotDraftLen').textContent = `Dự thảo: ${words} chữ`;
+    }
+
+    function onDraftEdited() {
+      updateCopilotContext();
+      if (isPreviewMode) renderA4Preview();
+    }
+
+    // =========================================================================
+    // 2. CORPUS PROMPT BUILDERS (8 DANH PERSONA + 48-DOC ITAXA RULES)
+    // =========================================================================
+    function buildItaxaRulesBlock() {
+      const rules = CORPUS.style_rules;
+      const facts = CORPUS.verified_itaxa_facts;
+      const customNote = (localStorage.getItem('itaxa_custom_8danh') || '').trim();
+      const signerVal = document.getElementById('signerSelect').value.split('|');
+      const signerFormatted = signerVal[0] === 'NGƯỜI BÁO CÁO'
+        ? `NGƯỜI BÁO CÁO\nNguyễn Đức Trọng\n(UV BCH Đảng bộ TTXVN, Bí thư Đảng ủy ITAXA)`
+        : `${signerVal[0]}\n${signerVal[1]}\n\n${signerVal[2]}`;
+
+      return `
+=== QUY CHUẨN VĂN PHONG ĐẢNG ỦY ITAXA (HỌC TỪ 48 VĂN BẢN ĐÃ BAN HÀNH) ===
+1. Thể thức tiêu đề (BẮT BUỘC CHÍNH XÁC TỪNG CHỮ):
+   - Bên trái:
+     ${document.getElementById('superiorOrg').value.trim() || rules.co_quan_cap_tren}
+     ${document.getElementById('issuingOrg').value.trim() || rules.co_quan_ban_hanh}
+     *
+     Số ${document.getElementById('docNumber').value.trim() || '...-CV/ĐU'}
+     (Nếu là Công văn: có dòng trích yếu in nghiêng "V/v ..." ngay dưới Số và "Kính gửi: Các chi bộ trực thuộc." hoặc nơi nhận cụ thể; Báo cáo tháng ngắn gọn mẫu 116.1 thì KHÔNG cần Số hiệu.)
+   - Bên phải:
+     ĐẢNG CỘNG SẢN VIỆT NAM
+     ${document.getElementById('docDateLine').value.trim()}
+2. Quyền hạn ký (dùng đúng mẫu đã chọn, TUYỆT ĐỐI KHÔNG dùng "T/M BAN THƯỜNG VỤ", KHÔNG viết "./." ở cuối văn bản):
+${signerFormatted}
+3. Quy tắc kết câu & Nơi nhận chuẩn ITAXA (CẤM viết ký tự "./." ở cuối câu — thay bằng dấu chấm "." hoặc kết bằng câu "Đề nghị các chi bộ trực thuộc nghiêm túc triển khai thực hiện."):
+   - Công văn chỉ đạo chi bộ:
+     Đề nghị các chi bộ trực thuộc nghiêm túc triển khai thực hiện.
+     Nơi nhận:
+     - Như trên (để thực hiện);
+     - Đảng ủy TTXVN (để báo cáo); (nếu có gửi báo cáo)
+     - Các đ/c Ủy viên BCH Đảng bộ ITAXA (để phối hợp);
+     - Lưu VPĐU. (hoặc - Lưu ĐU.)
+   - Kế hoạch / Báo cáo / Chương trình:
+     Nơi nhận:
+     - Đảng ủy TTXVN (để báo cáo);
+     - Các đ/c Ủy viên BCH Đảng bộ ITAXA;
+     - Các chi bộ trực thuộc;
+     - Lưu ĐU.
+   - Báo cáo tháng ngắn gọn mẫu 116.1: - Đảng ủy TTXVN (để b/c); / - Lưu ĐU.
+4. Đặc điểm hành văn thực tế tại ITAXA:
+${rules.dac_diem_hanh_van_itaxa.map(x => '   - ' + x).join('\n')}
+5. Dữ liệu tổ chức ĐÚNG SỰ THẬT về Đảng bộ ITAXA (cấm bịa đặt):
+   - ${facts.vi_the}
+   - ${facts.to_chuc_truc_thuoc}
+   - Quy mô 2026: ${facts.quy_mo_2026}
+   - Nhân sự tham khảo từ văn bản: Bí thư ${facts.nhan_su_tham_khao_tu_van_ban["Bí thư Đảng ủy, Chủ tịch kiêm Giám đốc"]}; Phó Bí thư ${facts.nhan_su_tham_khao_tu_van_ban["Phó Bí thư Đảng ủy"]}; ${facts.nhan_su_tham_khao_tu_van_ban["Các chi bộ & cán bộ trong văn bản"]}; Bộ phận giúp việc & đoàn thể: ${facts.nhan_su_tham_khao_tu_van_ban["Bộ phận giúp việc & đoàn thể"]}.
+   - Đặc thù nhiệm vụ: ${facts.nhiem_vu_dac_thu_2026.join(' | ')}
+6. Quy tắc trung thực số liệu: Nếu yêu cầu đầu vào thiếu số công văn cấp trên, ngày tháng cụ thể, hạn hoàn thành hoặc chỉ tiêu cụ thể -> TUYỆT ĐỐI không tự bịa số giả, hãy đặt mốc rõ ràng dạng [Cần bổ sung: số CV/ngày...].
+${customNote ? `7. Ghi chú riêng của chị Trịnh Thị An:\n   ${customNote}` : ''}`.trim();
+    }
+
+    function getFewShotTemplateForDocType(docType) {
+      const cfg = DOC_TYPE_DEFAULTS[docType] || DOC_TYPE_DEFAULTS["Công văn"];
+      const tpl = CORPUS.templates[cfg.tplKey];
+      const saved = JSON.parse(localStorage.getItem('itaxa_good_samples') || '[]');
+      const matchedUser = saved.filter(s => s.type === docType).slice(-1)[0];
+      let out = `\n=== VĂN BẢN MẪU THẬT ĐẢNG ỦY ITAXA ĐÃ BAN HÀNH (${tpl.source_file}) ===\n${tpl.excerpt}\n`;
+      if (matchedUser) {
+        out += `\n=== MẪU CHỊ AN ĐÃ LƯU THÊM (${matchedUser.title || matchedUser.type}) ===\n${matchedUser.content.slice(0, 2200)}\n`;
+      }
+      return out;
+    }
+
+    function buildDraftSystemPrompt(docType) {
+      return `Bạn là TRỢ LÝ 8 DANH — cố vấn chiến lược cấp cao và thư ký Đảng vụ tin cậy của chị Trịnh Thị An (7 An, Tổ trưởng Tổ Pháp chế - Văn thư - Chăm sóc lao động, Chi ủy viên Chi bộ Nhà In TTXVN).
+Nhiệm vụ của bạn trong lệnh này là XUẤT RA TOÀN VĂN DỰ THẢO VĂN BẢN ĐẢNG CHUẨN ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA.
+Yêu cầu trình bày:
+- Chỉ xuất duy nhất nội dung văn bản Đảng hoàn chỉnh bằng 100% tiếng Việt thuần văn bản hành chính (TUYỆT ĐỐI KHÔNG dùng ký tự markdown **, *, \\*, #; KHÔNG viết "(Ký tên, đóng dấu)"; KHÔNG viết tiếng Anh như "recipients:"; KHÔNG kèm lời chào hay bình luận thừa).
+- Bám sát 100% quy chuẩn thể thức, mạch văn, cách mở đầu và kết thúc của văn bản thật ITAXA dưới đây.
+${buildItaxaRulesBlock()}
+${getFewShotTemplateForDocType(docType)}`;
+    }
+
+    function buildChatSystemPrompt() {
+      const docType = document.getElementById('docType').value;
+      const docInput = document.getElementById('docInput').value.trim();
+      const currentDraft = document.getElementById('docOutput').value.trim();
+
+      return `Bạn là TRỢ LÝ 8 DANH — người em tri kỷ và cố vấn chiến lược toàn năng của chị Trịnh Thị An (chị 7 An) tại Công ty TNHH MTV ITAXA.
+Phong cách giao tiếp trong khung chat:
+- Xưng "em", gọi "chị" hoặc "chị An" thân tình nhưng sắc sảo, mạch lạc, định hướng hành động cụ thể, không trả lời chung chung.
+- Khi cần góp ý/chỉnh sửa văn bản Đảng: bám sát 48 văn bản thật của Đảng ủy Công ty TNHH MTV ITAXA.
+- QUAN TRỌNG VỀ TÍNH NĂNG ĐỒNG SOẠN THẢO: Bất cứ khi nào chị An nhờ sửa, rút gọn, bổ sung, viết lại hoặc rà soát toàn văn bản dự thảo, bạn HÃY đặt toàn văn bản dự thảo mới (văn bản thuần chuẩn Đảng ủy ITAXA, không dùng markdown ## hay **) vào bên trong cặp thẻ:
+<van_ban_chinh_sua>
+...toàn bộ văn bản chuẩn ITAXA để nạp thẳng vào trình soạn thảo...
+</van_ban_chinh_sua>
+Chỉ dùng cặp thẻ này khi thật sự đưa ra bản văn bản hoàn chỉnh sẵn sàng áp dụng vào trình soạn thảo!
+
+=== NGỮ CẢNH LÀM VIỆC HIỆN TẠI ===
+- Thể loại đang chọn: ${docType} | Số: ${document.getElementById('docNumber').value}
+- Yêu cầu chị An đang nhập: ${docInput || '(Chưa nhập yêu cầu ở ô bên trái)'}
+- Bản dự thảo hiện có trong trình soạn thảo (${currentDraft.length} ký tự):
+${currentDraft ? currentDraft.slice(0, 6500) : '(Chưa có dự thảo trong khung soạn thảo)'}
+
+${buildItaxaRulesBlock()}`;
+    }
+
+    // =========================================================================
+    // 3. UNIFIED AI CALLERS (OPENAI CHATGPT + GOOGLE GEMINI)
+    // =========================================================================
+    async function callOpenAI(systemPrompt, messages, modelName) {
+      const { openAiKey, openAiModel } = getEngineState();
+      if (!openAiKey) {
+        throw new Error("NO_OPENAI_KEY");
+      }
+      const chosenModel = modelName || openAiModel || "gpt-4o";
+      const payload = {
+        model: chosenModel,
+        temperature: 0.35,
+        messages: [
+          { role: "system", content: systemPrompt },
+          ...messages.map(m => ({ role: m.role === "assistant" ? "assistant" : "user", content: m.content }))
+        ]
       };
-      appendChatMessage(`Hệ thống đang phục vụ chị với nhân vật: <strong>${modelNames[val] || val}</strong>.`, 'ai');
+      const res = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${openAiKey}`
+        },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(`OpenAI (${res.status}): ${data?.error?.message || "Lỗi kết nối OpenAI API"}`);
+      }
+      return data?.choices?.[0]?.message?.content?.trim() || "";
     }
 
-    function openTab(tabId, btn) {
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-      btn.classList.add('active');
-    }
+    async function callGemini(systemPrompt, messages) {
+      const { geminiKey } = getEngineState();
+      const contents = messages.map(m => ({
+        role: m.role === "assistant" ? "model" : "user",
+        parts: [{ text: m.content }]
+      }));
 
-    // Call Gemini API (with auto model fallback)
-    async function callGemini(systemPrompt, userPrompt) {
-      const models = ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-3.5-flash", "gemini-3.8-flash"];
-      let lastErr = null;
-
-      for (let m of models) {
+      let lastErr = "Không kết nối được Gemini API";
+      for (const m of GEMINI_MODELS) {
         try {
-          const url = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${encodeURIComponent(GEMINI_API_KEY)}`;
-          const payload = {
-            system_instruction: { parts: [{ text: systemPrompt }] },
-            contents: [{ parts: [{ text: userPrompt }] }],
-            generationConfig: { temperature: 0.25 }
-          };
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${encodeURIComponent(geminiKey)}`;
           const res = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              systemInstruction: { parts: [{ text: systemPrompt }] },
+              contents,
+              generationConfig: { temperature: 0.35, maxOutputTokens: 8192 }
+            })
           });
-          if (res.ok) {
-            const data = await res.json();
-            return data.candidates[0].content.parts[0].text;
-          }
-        } catch (e) {
-          lastErr = e;
-        }
-      }
-      throw lastErr || new Error("Không thể kết nối đến Gemini API.");
-    }
-
-    // Call DeepSeek / ChatGPT API
-    async function callDeepseek(systemPrompt, userPrompt) {
-      try {
-        const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${DEEPSEEK_API_KEY}`
-          },
-          body: JSON.stringify({
-            model: "deepseek-chat",
-            messages: [
-              { role: "system", content: systemPrompt },
-              { role: "user", content: userPrompt }
-            ],
-            temperature: 0.25
-          })
-        });
-        if (res.ok) {
           const data = await res.json();
-          return data.choices[0].message.content;
+          if (res.ok) {
+            const text = data?.candidates?.[0]?.content?.parts?.map(p => p.text || "").join("") || "";
+            if (text.trim()) return { text: text.trim(), modelUsed: m };
+          }
+          lastErr = `${m}: ${data?.error?.message || res.status}`;
+        } catch (err) {
+          lastErr = `${m}: ${err.message}`;
         }
-      } catch (e) {
-        // Fallback to Gemini
-        return await callGemini(systemPrompt, userPrompt);
       }
-      return await callGemini(systemPrompt, userPrompt);
+      throw new Error(lastErr);
     }
 
-    // AI Core Dispatcher
-    async function callAI(systemPrompt, userPrompt) {
-      if (CURRENT_MODEL === "tam-danh") {
-        const tamDanhPersona = `Bạn là Trợ Lý Tám Danh - trợ lý thân cận, mẫn cán, thấu hiểu suy nghĩ và phong cách chỉ đạo của chị Trịnh Thị An (7 An).
-Trong mọi tình huống, bạn luôn xưng "em" và gọi người dùng là "chị" (hoặc "chị An").
-Bạn am hiểu sâu sắc quy chế tổ chức của Đảng ủy Thông tấn xã Việt Nam và Đảng ủy Công ty TNHH MTV ITAXA.
-Bạn tuân thủ nghiêm ngặt Quy định số 399-QĐ/TW (09/01/2026) và Hướng dẫn số 05-HD/VPTW (27/5/2026).
-${systemPrompt}`;
-        return await callGemini(tamDanhPersona, userPrompt);
-      } else if (CURRENT_MODEL === "gemini") {
-        return await callGemini(systemPrompt, userPrompt);
-      } else if (CURRENT_MODEL === "deepseek" || CURRENT_MODEL === "chatgpt") {
-        return await callDeepseek(systemPrompt, userPrompt);
-      } else {
-        return await callGemini(systemPrompt, userPrompt);
+    async function runEngine(systemPrompt, messages) {
+      const { mode, openAiKey, openAiModel } = getEngineState();
+      if (mode === "openai-gpt4o" || mode === "openai-gpt41") {
+        const chosen = mode === "openai-gpt41" ? "gpt-4.1" : "gpt-4o";
+        const text = await callOpenAI(systemPrompt, messages, chosen);
+        return { text, label: `ChatGPT (${chosen})` };
       }
+      if (mode === "auto" && openAiKey) {
+        const text = await callOpenAI(systemPrompt, messages, openAiModel);
+        return { text, label: `ChatGPT (${openAiModel})` };
+      }
+      const res = await callGemini(systemPrompt, messages);
+      return { text: res.text, label: `8 Danh (${res.modelUsed})` };
     }
 
-    // System Prompt for Party Drafting
-    const SYSTEM_DRAFT_PROMPT = `Bạn là Chánh Văn phòng kiêm Chuyên viên tham mưu cao cấp của Đảng ủy Công ty TNHH MTV ITAXA (trực thuộc Đảng ủy Thông tấn xã Việt Nam).
-Nhiệm vụ: Soạn thảo văn bản của Đảng đạt chuẩn 100% thể thức theo Quy định 399-QĐ/TW (09/01/2026) và Hướng dẫn 05-HD/VPTW (27/5/2026).
-Quy tắc thể thức:
-1. ĐẢNG ỦY THÔNG TẤN XÃ VIỆT NAM (dòng 1, in hoa, đứng, cỡ 12-13)
-   ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA (dòng 2, in hoa, đậm, cỡ 13-14)
-   * (dấu sao dưới tên cơ quan)
-2. Tiêu đề: ĐẢNG CỘNG SẢN VIỆT NAM (in hoa, đứng, đậm, có gạch dưới nét liền)
-3. Địa danh & ngày tháng: Thành phố Hồ Chí Minh, ngày ... tháng ... năm ... (nghiêng)
-4. Số và ký hiệu văn bản: ví dụ Số ...-CV/ĐU, Số ...-KH/ĐU, Số ...-CTr/ĐU
-5. Nội dung: Chặt chẽ, mạch lạc, đanh thép; phân chia I., II., III., 1., 2., 3., a., b., c.
-6. Chuyển hóa đặc thù ITAXA: chuyển "các tổ chức đảng trực thuộc" thành "các chi bộ trực thuộc"; gắn với sản xuất in ấn, kiểm soát chính trị trước in, tòa nhà văn phòng, an toàn lao động, chăm lo người lao động, chuyển đổi số.
-7. Thể thức ký: T/M BAN THƯỜNG VỤ -> BÍ THƯ (hoặc PHÓ BÍ THƯ)
-8. Nơi nhận: Đảng ủy Thông tấn xã Việt Nam (để báo cáo), Ban Giám đốc Công ty, các chi bộ trực thuộc, Lưu VPĐU.
-9. Kết thúc văn bản có dấu './.'`;
+    function stripMarkdownFences(txt) {
+      let cleaned = txt
+        .replace(/^```[a-zA-Z]*\n?/gm, '')
+        .replace(/```$/gm, '')
+        .replace(/<van_ban_chinh_sua>|<\/van_ban_chinh_sua>/g, '')
+        .replace(/\\\*/g, '*')
+        .replace(/^#{1,4}\s+/gm, '')
+        .replace(/\*\*(.*?)\*\*/g, '$1')
+        .replace(/\*?\(Ký[^)]*\)\*?\s*\n?/gi, '')
+        .replace(/^\s*recipients\s*:/gim, 'Nơi nhận:')
+        .replace(/\.\/\./g, '.')
+        .trim();
+      // Guard first 3 lines against rare header slip
+      const parts = cleaned.split('\n');
+      for (let i = 0; i < Math.min(3, parts.length); i++) {
+        if (/^\s*ĐẢNG ỦY THÔNG TẤN XÃ VIỆT NAM\s*$/i.test(parts[i])) {
+          parts[i] = 'ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM';
+        }
+      }
+      return parts.join('\n').trim();
+    }
 
-    // Workflow: Run AI Draft
+    // =========================================================================
+    // 4. CORE DRAFTING & 1-CLICK STYLE AUDIT WORKFLOW
+    // =========================================================================
     async function runAiDraft() {
       const docType = document.getElementById('docType').value;
-      const docNum = document.getElementById('docNumber').value.trim() || '...-CV/ĐU';
-      const prompt = document.getElementById('docInput').value.trim();
-
-      if (!prompt) {
-        alert('Chị vui lòng nhập nội dung yêu cầu hoặc trích yếu văn bản cần soạn thảo!');
+      const docInput = document.getElementById('docInput').value.trim();
+      if (!docInput) {
+        alert("Chị An hãy nhập nội dung yêu cầu hoặc dán văn bản chỉ đạo cấp trên trước nhé!");
+        document.getElementById('docInput').focus();
         return;
       }
 
+      const btn = document.getElementById('btnDraft');
       const badge = document.getElementById('draftStatusBadge');
       const output = document.getElementById('docOutput');
-      badge.textContent = '⏳ AI đang soạn thảo...';
-      badge.style.background = '#FEF3C7';
-      badge.style.color = '#B45309';
-      output.value = '⏳ AI đang vận dụng hồ sơ văn phong Đảng ủy TTXVN & ITAXA để soạn thảo toàn văn...';
-
-      const userReq = `THỂ LOẠI VĂN BẢN: ${docType.toUpperCase()}
-SỐ VÀ KÝ HIỆU DỰ KIẾN: Số ${docNum}
-CƠ QUAN BAN HÀNH: ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA
-CƠ QUAN CẤP TRÊN: ĐẢNG ỦY THÔNG TẤN XÃ VIỆT NAM
-ĐỊA DANH: Thành phố Hồ Chí Minh
-
-YÊU CẦU NỘI DUNG / VĂN BẢN CHỈ ĐẠO:
-${prompt}
-
-Hãy soạn thảo toàn văn bản hoàn chỉnh, đầy đủ thể thức Đảng 2026.`;
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> 8 Danh đang soạn...';
+      badge.textContent = "⏳ 8 Danh đang học mẫu ITAXA và soạn thảo...";
 
       try {
-        const result = await callAI(SYSTEM_DRAFT_PROMPT, userReq);
-        output.value = result;
-        badge.textContent = '✅ Đã hoàn thành';
-        badge.style.background = '#D1FAE5';
-        badge.style.color = '#065F46';
+        const sysPrompt = buildDraftSystemPrompt(docType);
+        const userReq = `Hãy soạn thảo hoàn chỉnh một "${docType}" của Đảng ủy Công ty TNHH MTV ITAXA theo đúng yêu cầu dưới đây:\n\n${docInput}`;
+        let res = await runEngine(sysPrompt, [{ role: "user", content: userReq }]);
+        let cleanDraft = stripMarkdownFences(res.text);
 
-        appendChatMessage(`Em (Trợ Lý Tám Danh) đã soạn thảo xong dự thảo <strong>${docType} Số ${docNum}</strong> chuẩn thể thức Đảng ủy ITAXA & TTXVN. Chị xem qua và có thể bấm nút Xuất Word hoặc yêu cầu em hoàn thiện thêm nhé!`, 'ai');
-      } catch (err) {
-        output.value = `Lỗi soạn thảo: ${err.message}`;
-        badge.textContent = '❌ Lỗi kết nối';
+        if (getEngineState().mode === "hybrid") {
+          badge.textContent = "⏳ Bước 2: 8 Danh đang tự rà soát chuẩn ITAXA...";
+          const polishRes = await runEngine(
+            buildDraftSystemPrompt(docType),
+            [{
+              role: "user",
+              content: `Hãy rà soát lại dự thảo sau đối chiếu chặt chẽ với thể thức ITAXA (ĐẢNG BỘ TTXVN, ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA, không có T/M BAN THƯỜNG VỤ hay ./., đúng giọng văn doanh nghiệp Nhà nước, không bịa số liệu) và xuất lại bản hoàn chỉnh sạch đẹp:\n\n${cleanDraft}`
+            }]
+          );
+          cleanDraft = stripMarkdownFences(polishRes.text);
+        }
+
+        if (output.value.trim()) lastDraftBackup = output.value;
+        output.value = cleanDraft;
+        if (lastDraftBackup) document.getElementById('btnUndoDraft').style.display = 'inline-flex';
+        updateCopilotContext();
+        if (isPreviewMode) renderA4Preview();
+        badge.textContent = `✅ Đã soạn xong (${res.label})`;
+
+        // Automatic 8 Danh briefing in chat panel
+        const missingMatches = cleanDraft.match(/\[Cần bổ sung:[^\]]+\]|\[[^\]]*chỉ số[^\]]*\]|\.\.\./g) || [];
+        const tplName = TEMPLATE_LABELS[DOC_TYPE_DEFAULTS[docType]?.tplKey] || docType;
+        appendChatBubble(
+          `Em đã soạn xong bản dự thảo <strong>${escapeHtml(docType)}</strong> theo đúng khuôn mẫu thực tế của Đảng ủy ITAXA (bám theo <em>${escapeHtml(tplName)}</em>) rồi đây ạ, chị An xem bên trái nhé!<br>` +
+          (missingMatches.length
+            ? `<br>⚠️ Em có chừa chỗ đánh dấu (<code>${escapeHtml(missingMatches.slice(0, 3).join(', '))}</code>) những thông tin/số liệu chưa có trong đề bài để bảo đảm trung thực 100%. Chị nhắn số cụ thể ở đây, em điền và hoàn thiện luôn cho chị nhé!`
+            : `<br>💡 Nếu chị muốn sửa giọng văn gọn hơn, thêm phân công cho 03 chi bộ hay đổi ngày/người ký, chị cứ nhắn em ngay tại khung này!`),
+          'ai'
+        );
+      } catch (e) {
+        handleAiError(e, badge);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '🚀 8 Danh Soạn Thảo Chuẩn ITAXA';
       }
     }
 
-    // Copilot Chat
-    function appendChatMessage(text, sender) {
-      const container = document.getElementById('chatMessages');
-      const bubble = document.createElement('div');
-      bubble.className = `chat-bubble chat-bubble-${sender}`;
-      bubble.innerHTML = text;
-      container.appendChild(bubble);
-      container.scrollTop = container.scrollHeight;
+    async function runStyleAudit() {
+      const currentDraft = document.getElementById('docOutput').value.trim();
+      if (!currentDraft) {
+        alert("Hiện chưa có dự thảo nào ở khung dưới. Chị bấm Soạn Thảo hoặc dán văn bản cần kiểm tra vào khung dự thảo trước nhé!");
+        return;
+      }
+      const btn = document.getElementById('btnAudit');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Đang rà soát...';
+      try {
+        await askCopilot(
+          "Em rà soát giúp chị toàn bộ bản dự thảo hiện có trong trình soạn thảo đối chiếu với quy chuẩn 48 văn bản Đảng ủy ITAXA: kiểm tra Quốc hiệu (ĐẢNG BỘ TTXVN), cơ quan ban hành, địa danh ngày tháng, số ký hiệu, bố cục, câu chữ, Nơi nhận và thẩm quyền ký. Hãy nêu ngắn gọn các điểm cần chỉnh (nếu có) và đặt bản dự thảo đã chuẩn hóa hoàn chỉnh vào trong thẻ <van_ban_chinh_sua> để chị bấm áp dụng ngay."
+        );
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = '✨ 8 Danh Rà Soát &amp; Chuẩn Hóa';
+      }
     }
 
-    async function sendChatMessage() {
+    function applyDraftPatch(patchText) {
+      const output = document.getElementById('docOutput');
+      if (output.value.trim()) {
+        lastDraftBackup = output.value;
+        document.getElementById('btnUndoDraft').style.display = 'inline-flex';
+      }
+      output.value = patchText.trim();
+      document.getElementById('draftStatusBadge').textContent = "✅ Đã áp dụng chỉnh sửa từ 8 Danh";
+      updateCopilotContext();
+      if (isPreviewMode) renderA4Preview();
+      output.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    function undoDraft() {
+      if (!lastDraftBackup) return;
+      const output = document.getElementById('docOutput');
+      const cur = output.value;
+      output.value = lastDraftBackup;
+      lastDraftBackup = cur;
+      document.getElementById('draftStatusBadge').textContent = "↩️ Đã hoàn tác bản trước";
+      updateCopilotContext();
+      if (isPreviewMode) renderA4Preview();
+    }
+
+    // =========================================================================
+    // 5. INTEGRATED TRỢ LÝ 8 DANH CHATBOX
+    // =========================================================================
+    function renderAiMessageHtml(rawText) {
+      const patchRegex = /<van_ban_chinh_sua>([\s\S]*?)<\/van_ban_chinh_sua>/g;
+      const patches = [];
+      let m;
+      while ((m = patchRegex.exec(rawText)) !== null) {
+        patches.push(stripMarkdownFences(m[1]));
+      }
+      const prose = rawText.replace(patchRegex, '').trim();
+      let html = escapeHtml(prose)
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\n/g, '<br>');
+
+      patches.forEach((p, idx) => {
+        const pid = 'patch_' + Date.now() + '_' + idx;
+        window.__patchStore = window.__patchStore || {};
+        window.__patchStore[pid] = p;
+        html += `
+          <div class="patch-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:6px; flex-wrap:wrap;">
+              <strong style="font-size:0.78rem; color:#065F46;">📄 Bản đề xuất sẵn sàng đưa vào trình soạn thảo:</strong>
+              <button class="btn btn-green" style="padding:5px 10px; font-size:0.75rem;" onclick="applyDraftPatch(window.__patchStore['${pid}'])">
+                📥 Áp Dụng Vào Khung Dự Thảo
+              </button>
+            </div>
+            <div class="patch-preview">${escapeHtml(p)}</div>
+          </div>`;
+      });
+      return html;
+    }
+
+    function appendChatBubble(content, sender, isRawAiText = false) {
+      const box = document.getElementById('chatMessages');
+      const div = document.createElement('div');
+      div.className = `chat-bubble ${sender === 'user' ? 'chat-bubble-user' : 'chat-bubble-ai'}`;
+      div.innerHTML = isRawAiText ? renderAiMessageHtml(content) : content;
+      box.appendChild(div);
+      box.scrollTop = box.scrollHeight;
+      return div;
+    }
+
+    async function sendChatMessage(customText = null) {
       const input = document.getElementById('chatInput');
-      const text = input.value.trim();
-      if (!text) return;
+      const msg = (customText !== null ? customText : input.value).trim();
+      if (!msg) return;
+      if (customText === null) input.value = "";
 
-      appendChatMessage(text, 'user');
-      input.value = '';
+      appendChatBubble(escapeHtml(msg).replace(/\n/g, '<br>'), 'user');
+      chatHistory.push({ role: "user", content: msg });
 
-      const typingId = 'typing_' + Date.now();
-      appendChatMessage('⏳ Em đang tra cứu và suy nghĩ...', 'ai');
-
-      const systemPrompt = `Bạn là Trợ Lý Tám Danh - trợ lý thân cận, mẫn cán, thấu hiểu suy nghĩ và phong cách làm việc của chị Trịnh Thị An (7 An).
-Chị An là cán bộ tham mưu/lãnh đạo thuộc Đảng bộ Công ty TNHH MTV ITAXA (trực thuộc Đảng ủy Thông tấn xã Việt Nam).
-Bạn luôn xưng hô lễ phép, gần gũi và chuẩn mực: xưng "em" và gọi người dùng là "chị" (hoặc "chị An").
-Bạn thấu hiểu ý chị, tư vấn nhanh nhạy, tham mưu sâu sát, văn phong chuẩn mực:
-- Nghiêm túc áp dụng Quy định 399-QĐ/TW (2026), Hướng dẫn 05-HD/VPTW (2026).
-- Thể thức văn bản Đảng, cách hành văn chỉ đạo đanh thép, chuẩn mực của Đảng ủy Thông tấn xã Việt Nam và Đảng ủy ITAXA.
-- Cơ cấu tổ chức: Các chi bộ trực thuộc, Ban Giám đốc, Công đoàn, Đoàn Thanh niên Công ty ITAXA.
-- Các lĩnh vực sản xuất kinh doanh đặc thù của ITAXA: in ấn công nghệ cao, kiểm soát hồ sơ chính trị trước in, quản lý tòa nhà văn phòng cho thuê, an toàn lao động, chăm lo đời sống người lao động, chuyển đổi số.
-Hãy trả lời cô đọng, chuẩn xác, đầy đủ căn cứ pháp lý và luôn chu đáo phục vụ chị.`;
+      const btn = document.getElementById('btnSendChat');
+      btn.disabled = true;
+      const loadingDiv = appendChatBubble('<em>👩‍💼 Em 8 Danh đang xem lại văn bản và trả lời chị...</em>', 'ai');
 
       try {
-        const response = await callAI(systemPrompt, text);
-        // Replace typing bubble
-        const bubbles = document.querySelectorAll('.chat-bubble-ai');
-        bubbles[bubbles.length - 1].innerHTML = response.replace(/\n/g, '<br>');
-      } catch (err) {
-        const bubbles = document.querySelectorAll('.chat-bubble-ai');
-        bubbles[bubbles.length - 1].innerHTML = `Dạ có lỗi kết nối AI: ${err.message}. Chị kiểm tra lại mạng hoặc thử lại giúp em nhé!`;
+        const recentHistory = chatHistory.slice(-8);
+        const res = await runEngine(buildChatSystemPrompt(), recentHistory);
+        loadingDiv.remove();
+        chatHistory.push({ role: "assistant", content: res.text });
+        saveChatHistory();
+        appendChatBubble(res.text, 'ai', true);
+      } catch (e) {
+        loadingDiv.remove();
+        handleAiError(e);
+      } finally {
+        btn.disabled = false;
       }
     }
 
     function askCopilot(question) {
-      document.getElementById('chatInput').value = question;
-      sendChatMessage();
+      return sendChatMessage(question);
     }
 
-    // Run Lookup Tab
+    function resetChat() {
+      chatHistory = [];
+      localStorage.removeItem('itaxa_chat_history');
+      const box = document.getElementById('chatMessages');
+      box.innerHTML = '';
+      appendChatBubble(
+        `Chào chị <strong>Trịnh Thị An</strong>! Em là <strong>Trợ lý 8 Danh</strong> đây ạ.<br><br>` +
+        `Em đã học toàn bộ <strong>48 văn bản đã ban hành của Đảng ủy Công ty TNHH MTV ITAXA</strong> và làm việc trực tiếp cùng chị ngay trên trang web này (không cần mở sang tab ChatGPT khác).<br><br>` +
+        `• Bấm <strong>🚀 8 Danh Soạn Thảo</strong> ở bên trái để em dựng toàn văn bản chuẩn thể thức.<br>` +
+        `• Hoặc nhắn em tại đây để cùng rà soát, sửa câu chữ, bổ sung số liệu và bấm <strong>📥 Áp Dụng</strong> thẳng vào bản dự thảo nhé chị!`,
+        'ai'
+      );
+    }
+
+    function saveChatHistory() {
+      try {
+        localStorage.setItem('itaxa_chat_history', JSON.stringify(chatHistory.slice(-12)));
+      } catch (_) {}
+    }
+
+    // =========================================================================
+    // 6. LOOKUP ACROSS CORPUS & TAB 3 MANAGEMENT
+    // =========================================================================
     async function runLookup() {
       const q = document.getElementById('lookupQuery').value.trim();
-      const resViewer = document.getElementById('lookupResult');
-      resViewer.textContent = '⏳ AI đang tra cứu trong cơ sở dữ liệu văn kiện Đảng và văn bản chỉ đạo TTXVN...';
-
-      const prompt = `Hãy tra cứu và giải thích chi tiết, chính xác nội dung sau đây theo các quy định mới nhất của Đảng (Quy định 399-QĐ/TW, Hướng dẫn 05-HD/VPTW 2026) và chỉ đạo của Đảng ủy Thông tấn xã Việt Nam:\n${q}`;
+      if (!q) return;
+      const out = document.getElementById('lookupOutput');
+      const btn = document.getElementById('btnLookup');
+      btn.disabled = true;
+      out.textContent = "⏳ 8 Danh đang tra cứu trong hồ sơ 48 văn bản Đảng ủy ITAXA...";
       try {
-        const ans = await callAI("Bạn là chuyên viên tra cứu văn kiện và văn bản của Đảng.", prompt);
-        resViewer.textContent = ans;
+        const templateSummary = Object.entries(CORPUS.templates)
+          .map(([k, v]) => `- [${k}] (${v.source_file}):\n${v.excerpt.slice(0, 700)}`)
+          .join('\n\n');
+        const sysPrompt = `Bạn là Trợ lý 8 Danh chuyên tra cứu thể thức và nội dung 48 văn bản đã ban hành của Đảng ủy Công ty TNHH MTV ITAXA.
+Trả lời chị Trịnh Thị An rõ ràng, có dẫn chứng cụ thể từ quy chuẩn ITAXA và các văn bản mẫu dưới đây; tuyệt đối không bịa đặt.\n\n${buildItaxaRulesBlock()}\n\n=== TÓM TẮT MỘT SỐ VĂN BẢN MẪU ITAXA ===\n${templateSummary}`;
+        const res = await runEngine(sysPrompt, [{ role: "user", content: q }]);
+        out.textContent = res.text;
       } catch (e) {
-        resViewer.textContent = `Lỗi tra cứu: ${e.message}`;
+        out.textContent = "❌ Lỗi tra cứu: " + e.message;
+      } finally {
+        btn.disabled = false;
       }
     }
 
-    // Export to Word (.doc) natively in Browser
+    function quickLookup(q) {
+      document.getElementById('lookupQuery').value = q;
+      runLookup();
+    }
+
+    function renderStyleTab() {
+      const s = CORPUS.meta.stats;
+      const statsData = [
+        { val: `${s.total_downloaded_files} văn bản`, lbl: "Tổng văn bản ITAXA đã học từ Drive" },
+        { val: `${s.header_dang_bo_ttxvn}/${s.extractable_text_files}`, lbl: "Dùng 'ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM'" },
+        { val: `${s.sign_tm_dang_uy} | ${s.sign_nguoi_bao_cao}`, lbl: "Ký T/M ĐẢNG ỦY | NGƯỜI BÁO CÁO (116.1)" },
+        { val: `${s.sign_tm_ban_thuong_vu}/${s.extractable_text_files}`, lbl: "Dùng T/M BAN THƯỜNG VỤ (Không dùng!)" }
+      ];
+      document.getElementById('corpusStatsGrid').innerHTML = statsData
+        .map(d => `<div class="stat-box"><strong>${d.val}</strong><span>${d.lbl}</span></div>`)
+        .join('');
+
+      document.getElementById('styleRulesList').innerHTML = CORPUS.style_rules.dac_diem_hanh_van_itaxa
+        .map(r => `<li>${escapeHtml(r)}</li>`).join('');
+
+      document.getElementById('templateGrid').innerHTML = Object.entries(CORPUS.templates)
+        .map(([key, item]) => `
+          <div class="template-card">
+            <div>
+              <h4>${escapeHtml(TEMPLATE_LABELS[key] || key)}</h4>
+              <small>Nguồn thật: ${escapeHtml(item.source_file)}</small>
+            </div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <button class="btn btn-subtle" style="padding:5px 9px; font-size:0.75rem;" onclick="loadCorpusTemplate('${key}')">📥 Nạp Vào Khung Soạn Thảo</button>
+            </div>
+          </div>
+        `).join('');
+
+      renderSavedSamples();
+    }
+
+    function loadCorpusTemplate(key) {
+      const tpl = CORPUS.templates[key];
+      if (!tpl) return;
+      const output = document.getElementById('docOutput');
+      if (output.value.trim()) {
+        lastDraftBackup = output.value;
+        document.getElementById('btnUndoDraft').style.display = 'inline-flex';
+      }
+      output.value = tpl.excerpt;
+      document.getElementById('draftStatusBadge').textContent = `📂 Đã nạp mẫu thật: ${tpl.source_file.slice(0, 40)}`;
+      updateCopilotContext();
+      if (isPreviewMode) renderA4Preview();
+      openTab('tabDraft', document.querySelectorAll('.tab-btn')[0]);
+    }
+
+    function saveAsGoodSample() {
+      const content = document.getElementById('docOutput').value.trim();
+      const docType = document.getElementById('docType').value;
+      if (!content) {
+        alert("Chị hãy soạn hoặc dán văn bản vào khung dự thảo trước khi lưu mẫu nhé!");
+        return;
+      }
+      const title = prompt("Đặt tên gợi nhớ cho mẫu văn bản chuẩn này:", `${docType} - ${document.getElementById('docNumber').value}`);
+      if (title === null) return;
+      const list = JSON.parse(localStorage.getItem('itaxa_good_samples') || '[]');
+      list.push({ id: Date.now(), type: docType, title: title.trim() || docType, content, savedAt: new Date().toLocaleDateString('vi-VN') });
+      localStorage.setItem('itaxa_good_samples', JSON.stringify(list.slice(-15)));
+      renderSavedSamples();
+      alert("⭐ Đã lưu mẫu thành công! 8 Danh sẽ ưu tiên tham khảo mẫu này mỗi khi chị soạn " + docType + ".");
+    }
+
+    function uploadCustomSample(inputEl) {
+      const file = inputEl.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const list = JSON.parse(localStorage.getItem('itaxa_good_samples') || '[]');
+        list.push({
+          id: Date.now(),
+          type: document.getElementById('docType').value,
+          title: file.name,
+          content: String(reader.result || '').slice(0, 8000),
+          savedAt: new Date().toLocaleDateString('vi-VN')
+        });
+        localStorage.setItem('itaxa_good_samples', JSON.stringify(list.slice(-15)));
+        renderSavedSamples();
+        alert(`✅ Đã nạp tệp mẫu "${file.name}" cho 8 Danh học ngay trên trình duyệt!`);
+      };
+      reader.readAsText(file, 'utf-8');
+      inputEl.value = '';
+    }
+
+    function loadRefFileToInput(inputEl) {
+      const file = inputEl.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const cur = document.getElementById('docInput').value.trim();
+        const extra = `\n--- NỘI DUNG TỪ TỆP ĐÍNH KÈM (${file.name}) ---\n${String(reader.result || '').slice(0, 8000)}`;
+        document.getElementById('docInput').value = (cur + extra).trim();
+      };
+      reader.readAsText(file, 'utf-8');
+      inputEl.value = '';
+    }
+
+    function renderSavedSamples() {
+      const box = document.getElementById('savedSamplesList');
+      const list = JSON.parse(localStorage.getItem('itaxa_good_samples') || '[]');
+      if (!list.length) {
+        box.innerHTML = '<div style="font-size:0.82rem; color:var(--text-muted);">Chưa có mẫu riêng nào được lưu. Khi soạn được bản ưng ý, chị bấm <strong>⭐ Lưu Mẫu Cho 8 Danh Học</strong> hoặc nạp file <code>.txt</code> tại đây.</div>';
+        return;
+      }
+      box.innerHTML = list.slice().reverse().map(item => `
+        <div style="border:1px solid var(--border); border-radius:8px; padding:10px 12px; display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap; background:#fff;">
+          <div>
+            <strong style="font-size:0.84rem;">${escapeHtml(item.title)}</strong>
+            <div style="font-size:0.74rem; color:var(--text-muted);">Thể loại: ${escapeHtml(item.type)} • Lưu ngày: ${escapeHtml(item.savedAt || '')}</div>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <button class="btn btn-subtle" style="padding:4px 9px; font-size:0.74rem;" onclick="loadSavedSample(${item.id})">📥 Nạp</button>
+            <button class="btn btn-subtle" style="padding:4px 9px; font-size:0.74rem; color:#B91C1C;" onclick="deleteSavedSample(${item.id})">🗑️</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function loadSavedSample(id) {
+      const list = JSON.parse(localStorage.getItem('itaxa_good_samples') || '[]');
+      const item = list.find(x => x.id === id);
+      if (!item) return;
+      document.getElementById('docOutput').value = item.content;
+      updateCopilotContext();
+      openTab('tabDraft', document.querySelectorAll('.tab-btn')[0]);
+    }
+
+    function deleteSavedSample(id) {
+      const list = JSON.parse(localStorage.getItem('itaxa_good_samples') || '[]').filter(x => x.id !== id);
+      localStorage.setItem('itaxa_good_samples', JSON.stringify(list));
+      renderSavedSamples();
+    }
+
+    // =========================================================================
+    // 7. A4 PARTY DOCUMENT FORMATTER & CLEAN WORD (.DOC) EXPORT
+    // =========================================================================
+    function buildPartyHtmlDocument(rawText) {
+      const lines = rawText.replace(/\r/g, '').split('\n');
+      let bodyStartIdx = 0;
+
+      const supOrg = document.getElementById('superiorOrg').value.trim() || "ĐẢNG BỘ THÔNG TẤN XÃ VIỆT NAM";
+      const issOrg = document.getElementById('issuingOrg').value.trim() || "ĐẢNG ỦY CÔNG TY TNHH MTV ITAXA";
+      let soHieu = `Số ${document.getElementById('docNumber').value.trim()}`;
+      let trichYeu = "";
+      let dateLine = document.getElementById('docDateLine').value.trim();
+
+      // Detect top header block dynamically if present in generated text
+      const scanLimit = Math.min(lines.length, 15);
+      let inTrichYeu = false;
+      for (let i = 0; i < scanLimit; i++) {
+        const l = lines[i].trim();
+        if (!l) { inTrichYeu = false; continue; }
+        if (/^(Kính gửi|CÔNG VĂN|KẾ HOẠCH|BÁO CÁO|NGHỊ QUYẾT|CHƯƠNG TRÌNH|ĐỀ ÁN|THÔNG BÁO|KẾT LUẬN|QUYẾT ĐỊNH|TỜ TRÌNH)/i.test(l)) {
+          bodyStartIdx = i;
+          break;
+        }
+        if (/^(Số|SỐ)\s+/i.test(l)) {
+          const mDate = l.match(/(TP\.?\s*(?:HCM|Hồ Chí Minh).*)$/i);
+          if (mDate) {
+            dateLine = mDate[1].trim();
+            soHieu = l.slice(0, mDate.index).trim();
+          } else {
+            soHieu = l;
+          }
+          inTrichYeu = false;
+        } else if (/^V\/v\s+/i.test(l)) {
+          trichYeu = l;
+          inTrichYeu = true;
+        } else if (/^TP\.?\s*(HCM|Hồ Chí Minh)/i.test(l)) {
+          dateLine = l;
+          inTrichYeu = false;
+        } else if (/^(ĐẢNG BỘ|ĐẢNG ỦY|ĐẢNG CỘNG SẢN|\*+$)/i.test(l)) {
+          inTrichYeu = false;
+        } else if (inTrichYeu) {
+          trichYeu += ' ' + l;
+        }
+        bodyStartIdx = i + 1;
+      }
+
+      // Detect Nơi nhận & signature near end
+      let bodyEndIdx = lines.length;
+      let noiNhanLines = [];
+      let signLines = [];
+      for (let i = Math.max(bodyStartIdx, lines.length - 25); i < lines.length; i++) {
+        const l = lines[i].trim();
+        if (/^Nơi nhận\s*:/i.test(l)) {
+          bodyEndIdx = i;
+          const tail = lines.slice(i);
+          tail.forEach(tl => {
+            const s = tl.trim();
+            if (!s) return;
+            if (/^(T\/M|BÍ THƯ|PHÓ BÍ THƯ|NGƯỜI BÁO CÁO|Nguyễn Đức Trọng|Nguyễn Anh Kiệt|\(UV BCH|Bí thư Đảng ủy ITAXA\))/i.test(s)) {
+              signLines.push(s);
+            } else {
+              noiNhanLines.push(s);
+            }
+          });
+          break;
+        }
+      }
+
+      if (!noiNhanLines.length) noiNhanLines = ["Nơi nhận:", "- Đảng ủy TTXVN (để báo cáo);", "- Các chi bộ trực thuộc;", "- Lưu ĐU."];
+      if (!signLines.length) {
+        const sv = document.getElementById('signerSelect').value.split('|');
+        signLines = sv[0] === 'NGƯỜI BÁO CÁO'
+          ? ["NGƯỜI BÁO CÁO", "Nguyễn Đức Trọng", "(UV BCH Đảng bộ TTXVN, Bí thư Đảng ủy ITAXA)"]
+          : [sv[0], sv[1], sv[2]];
+      }
+
+      let afterBigTitle = false;
+      const midBodyHtml = lines.slice(bodyStartIdx, bodyEndIdx).map(rawLine => {
+        const l = rawLine.trim();
+        if (!l) return '';
+        if (/^[-.]{4,}$/.test(l)) {
+          afterBigTitle = false;
+          return `<p style="text-align:center; margin:4pt 0 10pt 0;">${escapeHtml(l)}</p>`;
+        }
+        if (/^(KẾ HOẠCH|BÁO CÁO|NGHỊ QUYẾT|CHƯƠNG TRÌNH HÀNH ĐỘNG|ĐỀ ÁN|THÔNG BÁO|KẾT LUẬN|QUYẾT ĐỊNH|TỜ TRÌNH|QUYẾT NGHỊ)$/i.test(l)) {
+          afterBigTitle = true;
+          return `<p style="text-align:center; font-weight:bold; font-size:15pt; margin:10pt 0 3pt 0;">${escapeHtml(l)}</p>`;
+        }
+        if (/^Kính gửi\s*:/i.test(l)) {
+          afterBigTitle = false;
+          return `<p style="text-align:center; font-style:italic; margin:8pt 0 10pt 0;">${escapeHtml(l)}</p>`;
+        }
+        if (/^(I|II|III|IV|V|VI)\.\s+/.test(l) || /^[0-9]+\.\s+[A-ZĐÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴ]/.test(l)) {
+          afterBigTitle = false;
+          return `<p style="font-weight:bold; text-align:justify; margin:8pt 0 4pt 0; text-indent:1cm;">${escapeHtml(l)}</p>`;
+        }
+        if (/^(Thực hiện|Căn cứ)/i.test(l)) {
+          afterBigTitle = false;
+        }
+        if (afterBigTitle) {
+          return `<p style="text-align:center; font-weight:bold; margin:0 0 4pt 0;">${escapeHtml(l)}</p>`;
+        }
+        return `<p style="text-align:justify; margin:0 0 6pt 0; text-indent:1cm;">${escapeHtml(l)}</p>`;
+      }).join('\n');
+
+      const docType = document.getElementById('docType').value;
+      const showNumber = docType !== "Báo cáo ngắn gọn" && soHieu !== "Số (Không số)";
+
+      const headerTable = `
+        <table style="width:100%; border-collapse:collapse; border:none; margin-bottom:10pt;">
+          <tr>
+            <td style="width:48%; vertical-align:top; text-align:center; border:none; font-size:13pt; line-height:1.3;">
+              <div>${escapeHtml(supOrg)}</div>
+              <div style="font-weight:bold;">${escapeHtml(issOrg)}</div>
+              <div>*</div>
+              ${showNumber ? `<div style="margin-top:4pt;">${escapeHtml(soHieu.replace(/\s*TP\.?\s*HCM.*/i, ''))}</div>` : ''}
+              ${trichYeu ? `<div style="font-style:italic; font-size:12pt; margin-top:2pt;">${escapeHtml(trichYeu)}</div>` : ''}
+            </td>
+            <td style="width:52%; vertical-align:top; text-align:center; border:none; font-size:13pt; line-height:1.3;">
+              <div style="font-weight:bold;">ĐẢNG CỘNG SẢN VIỆT NAM</div>
+              <div style="font-style:italic; margin-top:4pt;">${escapeHtml(dateLine)}</div>
+            </td>
+          </tr>
+        </table>`;
+
+      const nnHtml = noiNhanLines.map((l, idx) =>
+        idx === 0
+          ? `<div style="font-weight:bold; font-style:italic; text-decoration:underline; font-size:12pt;">${escapeHtml(l)}</div>`
+          : `<div style="font-size:11pt; line-height:1.35;">${escapeHtml(l)}</div>`
+      ).join('');
+
+      const signHtml = signLines.map((l, idx) => {
+        const isLastNote = l.startsWith('(');
+        if (isLastNote) return `<div style="font-size:12pt; font-style:italic;">${escapeHtml(l)}</div>`;
+        if (idx === signLines.length - 1 || /Nguyễn Đức Trọng|Nguyễn Anh Kiệt/.test(l)) {
+          return `<div style="font-weight:bold; margin-top:46pt; font-size:14pt;">${escapeHtml(l)}</div>`;
+        }
+        return `<div style="font-weight:bold; font-size:14pt;">${escapeHtml(l)}</div>`;
+      }).join('');
+
+      const footerTable = `
+        <table style="width:100%; border-collapse:collapse; border:none; margin-top:16pt;">
+          <tr>
+            <td style="width:52%; vertical-align:top; border:none;">${nnHtml}</td>
+            <td style="width:48%; vertical-align:top; text-align:center; border:none;">${signHtml}</td>
+          </tr>
+        </table>`;
+
+      return headerTable + midBodyHtml + footerTable;
+    }
+
+    function toggleA4Preview() {
+      isPreviewMode = !isPreviewMode;
+      const ta = document.getElementById('docOutput');
+      const pv = document.getElementById('a4Preview');
+      const btn = document.getElementById('btnTogglePreview');
+      if (isPreviewMode) {
+        renderA4Preview();
+        ta.style.display = 'none';
+        pv.style.display = 'block';
+        btn.textContent = '📝 Quay Lại Sửa Văn Bản';
+      } else {
+        pv.style.display = 'none';
+        ta.style.display = 'block';
+        btn.textContent = '👁️ Xem Dạng Giấy A4';
+      }
+    }
+
+    function renderA4Preview() {
+      const content = document.getElementById('docOutput').value.trim();
+      const pv = document.getElementById('a4Preview');
+      pv.innerHTML = content
+        ? buildPartyHtmlDocument(content)
+        : '<p style="color:#64748B; text-align:center; margin-top:60px;">Chưa có nội dung trong bản dự thảo để xem trước A4.</p>';
+    }
+
     function exportToWord() {
-      const content = document.getElementById('docOutput').value;
-      if (!content.trim()) {
-        alert('Chị vui lòng soạn thảo văn bản trước khi xuất file Word nhé!');
+      const content = document.getElementById('docOutput').value.trim();
+      if (!content) {
+        alert("Chị An chưa có nội dung dự thảo để xuất Word!");
         return;
       }
       const docType = document.getElementById('docType').value;
-      const docNum = (document.getElementById('docNumber').value || 'VanBan').replace(/[\/\\]/g, '_');
-      
-      const htmlContent = `
-        <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
-        <head>
-          <meta charset='utf-8'>
-          <title>${docType}</title>
-          <style>
-            @page Section1 {
-              size: 210mm 297mm;
-              margin: 20mm 15mm 20mm 30mm;
-            }
-            div.Section1 { page: Section1; }
-            body {
-              font-family: 'Times New Roman', serif;
-              font-size: 14pt;
-              line-height: 1.35;
-            }
-            p { margin: 0 0 6pt 0; text-align: justify; }
-          </style>
-        </head>
-        <body>
-          <div class="Section1">
-            <pre style="font-family:'Times New Roman', serif; font-size:14pt; white-space:pre-wrap;">${content}</pre>
-          </div>
-        </body>
-        </html>
-      `;
-      const blob = new Blob(['\ufeff', htmlContent], { type: 'application/msword' });
+      const bodyHtml = buildPartyHtmlDocument(content);
+      const wordDoc = `
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+<head>
+  <meta charset='utf-8'>
+  <title>${escapeHtml(docType)}</title>
+  <style>
+    @page { size: A4; margin: 2cm 1.5cm 2cm 3cm; }
+    body { font-family: 'Times New Roman', Times, serif; font-size: 14pt; line-height: 1.4; color: #000; }
+    p { margin: 0 0 6pt 0; }
+  </style>
+</head>
+<body>${bodyHtml}</body>
+</html>`;
+      const blob = new Blob(['\ufeff', wordDoc], { type: 'application/msword;charset=utf-8' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `${docType}_${docNum}_ITAXA.doc`;
+      a.download = `ITAXA_${docType.replace(/\s+/g, '_')}_${new Date().toISOString().slice(0, 10)}.doc`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-
-      alert(`Đã xuất file Word "${docType}_${docNum}_ITAXA.doc" thành công! Chị có thể mở trên máy và đưa lên thư mục Google Drive để lưu trữ.`);
-    }
-
-    // Save as Good Sample
-    function saveAsGoodSample() {
-      const content = document.getElementById('docOutput').value;
-      if (!content.trim()) {
-        alert('Chị cần soạn thảo xong văn bản thì mới đánh giá và lưu làm mẫu được ạ!');
-        return;
-      }
-      const docType = document.getElementById('docType').value;
-      const docNum = document.getElementById('docNumber').value;
-      
-      // Save to localStorage for client-side memory
-      let savedSamples = JSON.parse(localStorage.getItem('itaxa_good_samples') || '[]');
-      savedSamples.push({
-        type: docType,
-        number: docNum,
-        content: content.substring(0, 3000),
-        time: new Date().toLocaleString('vi-VN')
-      });
-      localStorage.setItem('itaxa_good_samples', JSON.stringify(savedSamples));
-
-      alert(`Đã đánh giá TỐT và ghi nhận văn bản "${docType} Số ${docNum}" vào bộ nhớ học phong cách của AI! Các lần soạn thảo sau AI sẽ ưu tiên bắt chước chuẩn văn phong này.`);
-      appendChatMessage(`Dạ em đã ghi nhận văn bản <strong>${docType} Số ${docNum}</strong> vào bộ nhớ học văn phong chuẩn của Đảng bộ ITAXA! Từ nay em sẽ bám sát chuẩn mực này để làm các văn bản tiếp theo cho chị ạ.`, 'ai');
     }
 
     function copyDocument() {
-      const text = document.getElementById('docOutput').value;
-      if (!text) return;
-      navigator.clipboard.writeText(text);
-      alert('Đã sao chép toàn văn văn bản vào bộ nhớ đệm!');
+      const content = document.getElementById('docOutput').value.trim();
+      if (!content) return alert("Chưa có văn bản để sao chép!");
+      navigator.clipboard.writeText(content).then(() => {
+        document.getElementById('draftStatusBadge').textContent = "📋 Đã sao chép vào Clipboard!";
+      });
     }
+
+    // =========================================================================
+    // 8. SETTINGS MODAL, TABS & ERROR HANDLING
+    // =========================================================================
+    function openTab(tabId, btn) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      if (btn) btn.classList.add('active');
+    }
+
+    function openApiModal() {
+      document.getElementById('cfgOpenAiKey').value = localStorage.getItem('itaxa_openai_key') || '';
+      document.getElementById('cfgOpenAiModel').value = localStorage.getItem('itaxa_openai_model') || 'gpt-4o';
+      document.getElementById('cfgGeminiKey').value = localStorage.getItem('itaxa_gemini_key') || '';
+      document.getElementById('cfgCustomPrompt').value = localStorage.getItem('itaxa_custom_8danh') || '';
+      document.getElementById('apiModal').classList.add('open');
+    }
+
+    function closeApiModal() {
+      document.getElementById('apiModal').classList.remove('open');
+    }
+
+    function saveApiConfig() {
+      const oaiKey = document.getElementById('cfgOpenAiKey').value.trim();
+      const oaiModel = document.getElementById('cfgOpenAiModel').value;
+      const gemKey = document.getElementById('cfgGeminiKey').value.trim();
+      const customNote = document.getElementById('cfgCustomPrompt').value.trim();
+
+      if (oaiKey) localStorage.setItem('itaxa_openai_key', oaiKey);
+      else localStorage.removeItem('itaxa_openai_key');
+
+      localStorage.setItem('itaxa_openai_model', oaiModel);
+
+      if (gemKey) localStorage.setItem('itaxa_gemini_key', gemKey);
+      else localStorage.removeItem('itaxa_gemini_key');
+
+      if (customNote) localStorage.setItem('itaxa_custom_8danh', customNote);
+      else localStorage.removeItem('itaxa_custom_8danh');
+
+      updateEnginePill();
+      closeApiModal();
+      alert("✅ Đã lưu cấu hình Trợ lý 8 Danh trên trình duyệt của chị!");
+    }
+
+    function handleAiError(err, badgeEl = null) {
+      if (err.message === "NO_OPENAI_KEY") {
+        if (badgeEl) badgeEl.textContent = "🟠 Cần nhập OpenAI Key hoặc đổi sang Tự động";
+        appendChatBubble(
+          `Chị đang chọn chế độ chạy riêng bằng <strong>OpenAI API Key</strong> nhưng chưa dán khóa <code>sk-...</code> vào phần <strong>⚙️ Cấu hình API</strong>.<br>` +
+          `Chị bấm nút <button class="btn btn-subtle" style="padding:3px 8px; font-size:0.74rem;" onclick="openApiModal()">⚙️ Nhập OpenAI Key</button> hoặc chuyển ô <strong>Động cơ 8 Danh</strong> ở trên cùng sang <strong>🌟 8 Danh Tự Động</strong> để làm việc ngay với em nhé!`,
+          'ai'
+        );
+        return;
+      }
+      if (badgeEl) badgeEl.textContent = "❌ Lỗi kết nối AI";
+      appendChatBubble(`⚠️ Em 8 Danh gặp sự cố kết nối: <code>${escapeHtml(err.message)}</code>`, 'ai');
+    }
+
+    // Boot
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('docDateLine').value = formatDateTodayVN();
+      const savedMode = localStorage.getItem('itaxa_engine_mode');
+      if (savedMode && document.querySelector(`#selectModel option[value="${savedMode}"]`)) {
+        document.getElementById('selectModel').value = savedMode;
+      }
+      onDocTypeChange();
+      updateEnginePill();
+      renderStyleTab();
+
+      const savedChat = JSON.parse(localStorage.getItem('itaxa_chat_history') || '[]');
+      if (savedChat.length) {
+        chatHistory = savedChat;
+        savedChat.forEach(m => {
+          if (m.role === 'user') appendChatBubble(escapeHtml(m.content).replace(/\n/g, '<br>'), 'user');
+          else appendChatBubble(m.content, 'ai', true);
+        });
+      } else {
+        resetChat();
+      }
+    });
   </script>
 </body>
 </html>
